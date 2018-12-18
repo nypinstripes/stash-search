@@ -1,0 +1,45 @@
+body {
+  background: none 0 0 / auto no-repeat scroll border-box border-box #eee;
+  color: #202020;
+  font: 300 normal 16px/16px Lato, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  float: left;
+  height: 100%;
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-font-smoothing: auto;
+}
+
+body.no-scroll {
+  overflow: hidden !important;
+}
+
+#app-container {
+  bottom: 0;
+  float: left;
+  height: 100%;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-top: 60px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  z-index: 2;
+}
+
+.page-root {
+  display: block !important;
+  float: left;
+  padding: 10px 20px 0 20px;
+  position: relative;
+  text-align: center;
+  transition: padding-top 175ms ease-out 25ms;
+  width: 100%;
+}
+
+.page-root > section {
+  float: left;
+  margin-bottom: 80px;
+  position: relative;
+}
