@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git@github.com:nypinstripes/stash-search.git"
   },
-  "private": false,
+  "private": true,
   "version": "0.0.1",
   "scripts": {
     "build": "webpack --env.prod --optimize-minimize -p",
