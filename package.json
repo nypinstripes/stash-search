@@ -76,7 +76,7 @@
     "prettier": "^1.15.2",
     "progress-bar-webpack-plugin": "^1.11.0",
     "prop-types": "^15.6.2",
-    "react-power-select": "^1.0.0-beta.14",
+    "react-power-select": "^1.0.0-beta.15",
     "react-test-renderer": "^16.6.3",
     "sass-loader": "^7.1.0",
     "sinon": "^7.1.1",
