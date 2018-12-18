@@ -1,0 +1,80 @@
+body {
+  background-color: $gallery;
+  color: $nero;
+  font: oxygen(16px, 16px);
+  float: left;
+  overflow-x: hidden;
+  -webkit-font-smoothing: auto;
+  @include bg-reset(auto, none, white);
+  @include size(100%);
+  &.no-scroll {
+    overflow: hidden !important;
+  }
+}
+
+#app-container {
+  float: left;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: $headerHeight 0 0 0;
+  z-index: 2;
+  @include position(fixed, 0);
+  @include size(100vw 100%);
+  @include breakpoint($medium) {
+    padding-top: $headerHeightLarge;
+  }
+  .no-scroll & {
+    overflow: hidden !important;
+  }
+}
+
+.app {
+  @include float-row;
+  &-body {
+    margin-bottom: 99px;
+    min-height: calc(100vh - 280px);
+    position: relative;
+    @include float-row;
+    @include breakpoint($large) {
+      margin-bottom: 89px;
+    }
+    .agent-mobile-safari & {
+      margin-bottom: 50px;
+    }
+  }
+  .scroll {
+    &-pixel {
+      background-color: argb();
+      z-index: 1;
+      @include position(absolute, -61px null null 0);
+      @include size(1px);
+    }
+  }
+}
+
+.page-root {
+  display: block !important;
+  margin-bottom: 60px;
+  padding: $appBasePad 0;
+  position: relative;
+  text-align: center;
+  transition: padding-top 175ms ease-out 25ms;
+  @include float-row;
+  @include breakpoint($medium) {
+    padding: 0 0 $appMediumPad 0;
+  }
+  @include breakpoint($large) {
+    padding: 0 0 $appLargePad 0;
+  }
+  &.full-page {
+    padding: 0;
+  }
+  > section {
+    margin-bottom: 80px;
+    position: relative;
+    @include float-row;
+    &:last-child {
+      margin-bottom: 100px;
+    }
+  }
+}

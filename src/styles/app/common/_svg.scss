@@ -1,0 +1,41 @@
+svg {
+  float: left;
+  overflow: visible;
+  transition: fill 175ms ease-in-out;
+  transform-origin: 50% 50%;
+  @include size(100%);
+  path {
+    fill: inherit;
+    transition: color 175ms ease-in-out;
+  }
+  use {
+    fill: $nero;
+    transition: all 175ms ease-in-out;
+  }
+}
+
+.svg {
+  &-definitions {
+    @include soft-hide;
+    @include position(absolute, 0 null null 0);
+    @include size(0);
+    svg {
+      @include position(absolute, 0 null null 0);
+      @include size(0);
+    }
+  }
+  &-icon {
+    &-container {
+      path {
+        fill: argb();
+        stroke: $nero;
+        stroke-width: 3px;
+      }
+    }
+    &-rect {
+      fill: argb();
+      stroke: $nero;
+      stroke-width: 2px;
+    }
+  }
+}

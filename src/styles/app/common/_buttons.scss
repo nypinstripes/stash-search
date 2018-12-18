@@ -1,0 +1,62 @@
+.btn {
+  backface-visibility: hidden;
+  border-color: argb();
+  border-radius: 5px;
+  border-width: 0;
+  box-shadow: 0 0 0 0 argb();
+  background-color: $nero;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  min-height: 44px;
+  outline: 0;
+  overflow: hidden;
+  padding: 0 30px;
+  perspective: 900px;
+  position: relative;
+  text-align: center;
+  transition: background-color 100ms linear, box-shadow 200ms ease-in-out;
+  @include font-height(1rem, 2.8rem);
+  &::before {
+    transition: background-color 250ms ease-out;
+  }
+  &[disabled], &[data-disabled='disabled'], &[data-disabled=true] {
+    background-color: rgba($shark, 0.6);
+    border-color: $quiltGray;
+    box-shadow: 0 0 0 0 argb();
+    color: rgba(white, 0.75);
+    cursor: default;
+  }
+  &-container {
+    @include float-box;
+    @include center-x;
+  }
+  &-icon {
+    @include center-y(absolute);
+    @include size(18px);
+    use {
+      fill: white;
+      transition: fill 200ms linear;
+    }
+  }
+  &-row {
+    min-height: 44px;
+    margin-top: 20px;
+    position: relative;
+    @include float-row;
+  }
+  &-text {
+    color: white;
+    cursor: pointer;
+    min-height: 1rem;
+    text-align: center;
+    text-shadow: 0 0 0 argb();
+    transition: color 150ms ease-in-out;
+    white-space: nowrap;
+    @include center-xy;
+    @include font-height();
+    @include breakpoint($medium) {
+      color: darken(white, 15%);
+    }
+  }
+}

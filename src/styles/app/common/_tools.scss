@@ -1,0 +1,7 @@
+.concealed {
+  @include soft-hide;
+}
+
+.revealed {
+  @include hard-show;
+}

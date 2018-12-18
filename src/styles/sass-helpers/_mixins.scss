@@ -1,0 +1,517 @@
+// browser support (specifically gradients for opera, ie9)
+
+$experimental-support-for-svg: true;
+$experimental-support: webkit moz ms o spec;
+$webkit-support: webkit spec;
+
+// Animation Reset
+//
+// Useful for dryinh any animation to the basic player
+// defaults, specifically vendor prefixed properties.
+//
+// Usage:
+// @include animation-reset({ use named params });
+
+@mixin animation-reset($name, $delay: 0s, $direction: normal, $duration: 200ms, $fillMode: forwards, $iteration: 1, $playState: running, $timing: ease-out) {
+  animation-delay: $delay;
+  animation-direction: $direction;
+  animation-duration: $duration;
+  animation-fill-mode: $fillMode;
+  animation-iteration-count: $iteration;
+  animation-name: $name;
+  animation-play-state: $playState;
+  animation-timing-function: $timing;
+}
+
+// Background Reset
+//
+// Useful for normalizing any elements that require single image
+// backgrounds. Include this at the bottom of your rules block.
+//
+// Usage:
+// @include bg-reset();
+// @include bg-reset(cover, none, black, 0, 0);
+
+@mixin bg-reset($size: auto, $url: none, $color: argb(), $xPos: center, $yPos: center, $repeat: no-repeat, $attachment: scroll, $bgClip: border-box) {
+  background: #{$url} #{$xPos} #{$yPos} / #{$size} #{$repeat} #{$attachment} border-box #{$bgClip} #{$color};
+}
+
+// Center X & Y, CenterXY
+//
+// Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear
+// garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle
+// seed kombu beetroot horseradish carrot squash brussels sprout chard.
+
+@mixin center-x($position: relative, $display: inline-block) {
+  clear: both;
+  display: $display;
+  float: left;
+  transform: translateX(-50%);
+  @include position($position, null null null 50%);
+}
+
+@mixin center-y($position: relative) {
+  transform: translateY(-50%);
+  @include float-box;
+  @include position($position, 50% null null null);
+}
+
+@mixin center-xy($position: relative) {
+  transform: translate(-50%, -50%);
+  @include float-box;
+  @include position($position, 50% null null 50%);
+}
+
+// Caret
+//
+// For layering two triangles atop one another.
+
+@mixin caret($hyp, $widthOut, $outColor, $inColor) {
+  &::before, &::after {
+    border-color: argb();
+    border-style: solid;
+    border-width: #{$widthOut};
+    content: '';
+    overflow: hidden;
+    position: absolute;
+    transition: border-color 200ms ease-out;
+    @include size(0);
+  }
+  &::before {
+    border-#{$hyp}-color: #{$outColor};
+    z-index: 2;
+  }
+  &::after {
+    border-#{$hyp}-color: #{$inColor};
+    z-index: 3;
+  }
+}
+
+// Circle
+//
+// Allows creation of circles for use in creating
+// non-rectangular shapes with CSS geometry!
+//
+// Usage:
+// @include circle(5, red);
+
+@mixin circle($cR, $color: argb(), $units: px) {
+  width: #{$cR * 2}#{$units};
+  height: #{$cR * 2}#{$units};
+  background-color: $color;
+  border-radius: #{$cR}#{$units};
+}
+
+// Close Button
+//
+// A two piece close button with transitionable box properties.
+
+@mixin close($btnSize, $crossColor: red, $activeColor: red) {
+  backface-visibility: hidden;
+  box-shadow: 0 0 0 0 argb();
+  background-color: argb();
+  border: solid 0 argb();
+  cursor: pointer;
+  height: #{$btnSize};
+  width: #{$btnSize};
+  z-index: 4;
+  transition: all 200ms;
+  &:hover {
+    &::before, &::after {
+      @include breakpoint($medium) {
+        background-color: rgba($activeColor, 0.9);
+      }
+    }
+  }
+  &:focus, &:active {
+    box-shadow: 0 0 0 0 argb();
+    outline: 0;
+    &::before, &::after {
+      background-color: rgba($activeColor, 0.9);
+      box-shadow: 0 0 0 0 argb();
+      outline: 0;
+      @include breakpoint($medium) {
+        background-color: rgba($activeColor, 0.9);
+      }
+    }
+  }
+  &::before, &::after {
+    backface-visibility: hidden;
+    background-color: $crossColor;
+    content: '';
+    opacity: 1;
+    z-index: 2;
+    transition: all 100ms linear;
+    @include position(absolute, 50% null null 0);
+    @include size($btnSize 1px);
+  }
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+// CSS3 Filters
+//
+// Apply effects like (Gausian) blur, contrast, greyscale etc.
+//
+// Usage:
+// @include filter(blur(15px));
+//
+// More info: https://css-tricks.com/almanac/properties/f/filter/
+
+@mixin filter($filter) {
+  @include prefixer(filter, $filter, $experimental-support);
+}
+
+// Float Box
+
+@mixin float-box($dir: 'left') {
+  display: inline-block;
+  float: #{$dir};
+}
+
+// Float Row
+
+@mixin float-row {
+  clear: both;
+  width: 100%;
+  float: left;
+}
+
+// Font Height
+
+@mixin font-height($size: 1rem, $lineHeight: 1rem) {
+  font-size: $size;
+  line-height: $lineHeight;
+}
+
+// Hamburger
+//
+// Bacon ipsum dolor amet doner strip steak swine, porchetta
+// ham hock ribeye pastrami tri-tip. Short ribs fatback chicken
+// filet mignon, ham jerky beef ribs short loin tenderloin beef.
+
+@mixin hamburger($width, $height, $spacing, $weight: 2px) {
+  cursor: pointer;
+  margin: auto;
+  padding: 0;
+  text-indent: -9999px;
+  @include size($width calc(#{$height * 2}));
+  @include breakpoint($medium) {
+    margin: 0;
+  }
+  &:focus {
+    outline: none;
+  }
+  span {
+    background-color: argb();
+    display: block;
+    transform: translateY(-50%);
+    transition: background-color 180ms ease-out 0s;
+    @include position(absolute, 50% null null 0);
+    @include size($width $weight);
+    &::before, &::after {
+      animation-delay: 0s;
+      animation-direction: normal;
+      animation-duration: 300ms;
+      animation-fill-mode: forwards;
+      animation-iteration-count: 1;
+      animation-play-state: paused;
+      animation-timing-function: ease-in-out;
+      background-color: $nero;
+      content: '';
+      @include position(absolute, null null null 0);
+      @include size(100% calc(#{$weight / 2}));
+      .sidebar-concealed &, .sidebar-revealed & {
+        animation-play-state: running;
+      }
+    }
+    &::before {
+      transform: rotate(0deg) translate(0, -10px);
+      z-index: 3;
+      .sidebar-concealed & {
+        animation-name: hamburgerMergeTopBack;
+        transform: rotate(45deg) translate(0, 0);
+      }
+      .sidebar-revealed & {
+        animation-name: hamburgerMergeTop;
+      }
+    }
+    &::after {
+      transform: rotate(0deg) translate(0, 10px);
+      z-index: 4;
+      .sidebar-concealed & {
+        animation-name: hamburgerMergeBottomBack;
+        transform: rotate(-45deg) translate(0, 0);
+      }
+      .sidebar-revealed & {
+        animation-name: hamburgerMergeBottom;
+      }
+    }
+    &:nth-child(2) {
+      background-color: argb();
+      &::before, &::after {
+        animation-name: none;
+      }
+      &::before {
+        background-color: $nero;
+        transform: translate(0, 0);
+        z-index: 1;
+        .sidebar-concealed & {
+          transition: background-color 75ms ease-out 225ms;
+        }
+        .sidebar-revealed & {
+          background-color: argb();
+        }
+      }
+      &::after {
+        @include hard-hide;
+      }
+    }
+  }
+}
+
+// Hard Hide & Show
+//
+// Forceably hide or show an element by changing
+// its opacity, visibility & display properties.
+
+@mixin hard-hide {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
+@mixin hard-show {
+  display: inline-block;
+  opacity: 1;
+  visibility: visible;
+}
+
+// Horizontal Separator
+//
+// For little bars dividing sections with color.
+
+@mixin hzSeparator($bottom: 0, $width: 100%, $color: $gallery) {
+  &::before {
+    background-color: $color;
+    content: '';
+    transform: translateX(-50%);
+    @include position(absolute, auto null $bottom 50%);
+    @include size($width 1px);
+  }
+}
+
+// Horizontal Underline
+//
+// For little bars underlining text with color.
+
+@mixin hzUnderline($color: $nero, $override: argb()) {
+  &:hover {
+    &::before {
+      @include breakpoint($large) {
+        background-color: $color;
+      }
+    }
+  }
+  &:focus, &:active {
+    &::before {
+      background-color: $color;
+    }
+  }
+  &::before {
+    background-color: $override;
+    content: '';
+    transition: background-color 150ms ease 0s;
+    @include position(absolute, null 0 -1px 0);
+    @include size(100% 1px);
+  }
+}
+
+// More Dots
+//
+// Creates a button with centered ellipsis, reuires one inner element <span />.
+
+@mixin more-dots($pos: relative, $width: 30px, $height: 100%, $minHeight: auto) {
+  background-color: argb();
+  min-height: $minHeight;
+  padding: 0;
+  position: $pos;
+  @include float-box;
+  @include size($width $height);
+  > span {
+    outline: 0;
+    position: relative;
+    z-index: 2;
+    @include float-box;
+    @include size(100%);
+    > span {
+      z-index: 10;
+      @include center-xy(absolute);
+      @include circle(1, $nero);
+      &::before, &::after {
+        content: '';
+        @include center-xy(absolute);
+        @include circle(1, $nero);
+      }
+      &::before {
+        margin-left: -5px;
+      }
+      &::after {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+// Moz Placeholder
+//
+// Mozilla Firefox uses a different line-height setting for aligning input
+// placeholders, though the bourbon placeholder mixin does address this
+// it does so only partially and must be overridden separately on occasion.
+
+@mixin moz-placeholder($lineHeight) {
+  &:-moz-placeholder {
+    line-height: $lineHeight;
+  }
+  &::-moz-placeholder {
+    line-height: $lineHeight;
+  }
+}
+
+// No Spacing
+//
+// Resets an elements margin & padding.
+
+@mixin no-spacing {
+  margin: 0;
+  padding: 0;
+}
+
+// Plus Sign
+//
+// Pure css plus sign.
+
+@mixin plus-sign($weight, $size, $color: $nero, $position: relative) {
+  @include center-xy($position);
+  @include size($size);
+  &::before, &::after {
+    background-color: $color;
+    content: '';
+    transition: all 200ms linear;
+    @include center-xy(absolute);
+    @include size(100% $weight);
+  }
+  &::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+}
+
+// Rotator
+//
+// Rotate elements clockwise. Allows degree map to be passed in as a param.
+//
+// Usage:
+// $map: (left: 90deg, top: 180deg, right: 270deg);
+// @include rotator(left, $map)
+// (this is good for semantic class names)
+//
+// ...or simply:
+// @include rotator(90deg);
+
+@mixin rotator($directionOrDegree, $map: null) {
+  @if $map {
+    @if map-has-key($map, $directionOrDegree) {
+      @include transform(rotate(map-get($map, $directionOrDegree)));
+    }
+  } @else {
+    @include transform(rotate($directionOrDegree));
+  }
+}
+
+// Simple Text
+
+@mixin simple-text($size: 1rem, $height: 1rem) {
+  font-size: $size;
+  line-height: $height;
+}
+
+// Soft Show/Hide
+//
+// Allow elements to have their visibility
+// toggled without changing display values.
+
+@mixin soft-show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@mixin soft-hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@mixin text-input-placeholder {
+  $placeholders: ':-webkit-input' ':-moz' '-moz' '-ms-input';
+
+  @each $placeholder in $placeholders {
+    &:#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+}
+
+// Textarea Placeholder
+//
+// Usage:
+// @include textarea-placeholder(black, '1.15em/1em RopaSans');
+
+@mixin textarea-placeholder($color: $gallery, $fontSize: 1rem, $fontStyle: italic, $fontWeight: 400, $lineHeight: 1rem) {
+  &.placeholder {
+    color: $color;
+    font-size: $fontSize;
+    font-style: $fontStyle;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+    font-size: $fontSize;
+    font-style: $fontStyle;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+  }
+  &:-moz-placeholder {
+    color: $color;
+    font-size: $fontSize;
+    font-style: $fontStyle;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+  }
+  &::-moz-placeholder {
+    color: $color;
+    font-size: $fontSize;
+    font-style: $fontStyle;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+  }
+  &::-webkit-input-placeholder {
+    color: $color;
+    font-size: $fontSize;
+    font-style: $fontStyle;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+  }
+}
+
+// 2D Transforms (Bourbon Override)
+//
+// 2D Transforms are now supported unprefixed, universally except in mobile
+// safari 8. This overrides bourbon's default prefixes for these properties.
+
+@mixin transform($property: none) {
+  @include prefixer(transform, $property, $webkit-support);
+}

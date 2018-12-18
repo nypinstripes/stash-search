@@ -1,0 +1,49 @@
+.header {
+  background: white;
+  border-bottom: edge(rgba($gallery, 0.5));
+  box-shadow: 0 -1px 8px 3px rgba($gallery, 0.65);
+  display: block !important;
+  height: $headerHeight;
+  z-index: 1004;
+  transition: box-shadow 200ms ease-out;
+  @include position(fixed, 0 0 null 0);
+  @include breakpoint($medium) {
+    height: $headerHeightLarge;
+  }
+  &::before {
+    background: white;
+    content: '';
+    @include position(absolute, null 0 0 0);
+    @include size(100% 1px);
+    @include breakpoint($medium) {
+      height: $headerHeightLarge;
+    }
+  }
+  > div[class^='header'] {
+    height: $headerHeight;
+    display: inline-block;
+    @include position(absolute, 50% null null null);
+    @include breakpoint($medium) {
+      height: $headerHeightLarge;
+    }
+  }
+  &-center {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &-left {
+    left: $appBasePad;
+    transform: translateY(-50%);
+    @include breakpoint($medium) {
+      left: 24px;
+    }
+    @include breakpoint($large) {
+      left: 19.5px;
+    }
+  }
+  &-right {
+    height: 100%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}
