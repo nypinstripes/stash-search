@@ -13,6 +13,9 @@
     &-icon {
       margin-top: 18px;
       @include size(268px 300px);
+      @include breakpoint($medium) {
+        @include size(410px);
+      }
     }
     h1 {
       font: oxygen($size: 1.5rem, $lineHeight: 1rem, $weight: 700);
