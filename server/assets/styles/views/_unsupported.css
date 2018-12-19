@@ -32,6 +32,21 @@ h4 {
   transform: translateY(-50%);
 }
 
+#app-container {
+  bottom: 0;
+  float: left;
+  height: 100%;
+  left: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-top: 60px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  z-index: 2;
+}
+
 .browser-link {
   clear: both;
   display: inline-block;
@@ -82,6 +97,22 @@ h4 {
   position: relative;
   transform: translateX(-50%);
   width: 200px;
+}
+
+.page-root {
+  display: block !important;
+  float: left;
+  padding: 10px 20px 0 20px;
+  position: relative;
+  text-align: center;
+  transition: padding-top 175ms ease-out 25ms;
+  width: 100%;
+}
+
+.page-root > section {
+  float: left;
+  margin-bottom: 80px;
+  position: relative;
 }
 
 @media (min-width: 768px) {

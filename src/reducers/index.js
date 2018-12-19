@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { getBasicReducer, uniqGenerator } from '../utils/helperUtils';
+import { getBasicReducer } from '../utils/helperUtils';
 import { SET_FAVORITES } from '../actions/actions';
 
 const favorites = (state = {}, act) => {
