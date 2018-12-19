@@ -1,5 +1,4 @@
 svg {
-  float: left;
   overflow: visible;
   transition: fill 175ms ease-in-out;
   transform-origin: 50% 50%;
@@ -26,6 +25,7 @@ svg {
   }
   &-icon {
     &-container {
+      display: inline-block;
       path {
         fill: argb();
         stroke: white;

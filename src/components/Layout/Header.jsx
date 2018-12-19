@@ -4,15 +4,15 @@ import SvgIcon from '../Tools/SvgIcon';
 import SvgSymbol from '../Tools/SvgSymbol';
 
 const Header = () => (
-  <header className="header">
-    <div className="header-left">
-      <Link to="/" className="header-logo">
+  <header className="page-header">
+    <div className="page-header-left">
+      <Link to="/" className="page-header-logo">
         <SvgSymbol symbolId="#logo" />
       </Link>
     </div>
-    <div className="header-right">
-      <Link to="/favorites" className="header-favorite">
-        <div className="header-favorite-icon">
+    <div className="page-header-right">
+      <Link to="/favorites" className="page-header-favorite">
+        <div className="page-header-favorite-icon">
           <SvgIcon name="favorite" />
         </div>
       </Link>

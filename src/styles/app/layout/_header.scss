@@ -1,61 +1,69 @@
-.header {
-  background: rgba($nero, 0.98);
-  border-bottom: edge(rgba($gallery, 0.1));
-  box-shadow: 0 -1px 14px 2px rgba($nero, 0.5);
-  height: $headerHeight;
-  z-index: 1004;
-  transition: box-shadow 200ms ease-out;
-  @include float-box;
-  @include position(fixed, 0 0 null 0);
-  @include breakpoint($medium) {
-    height: $headerHeightLarge;
+.faux {
+  &-header {
+    display: none;
   }
-  &::before {
-    background: argb(0.45);
-    content: '';
-    @include position(absolute, null 0 0 0);
-    @include size(100% 1px);
-    @include breakpoint($medium) {
-      height: $headerHeightLarge;
-    }
-  }
-  > div[class^='header'] {
+}
+
+.page {
+  &-header {
+    background: rgba($nero, 0.98);
+    border-bottom: edge(rgba($gallery, 0.1));
+    box-shadow: 0 -1px 14px 2px rgba($nero, 0.5);
     height: $headerHeight;
-    display: inline-block;
-    @include position(absolute, 50% null null null);
+    z-index: 1004;
+    transition: box-shadow 200ms ease-out;
+    @include float-box;
+    @include position(fixed, 0 0 null 0);
     @include breakpoint($medium) {
       height: $headerHeightLarge;
     }
-  }
-  &-center {
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  &-favorite {
-    margin: 0 4px 0 0;
-    @include float-box;
-    @include size(44px 100%);
-    .offset-scroll & {
-      margin-right: 20px;
+    &::before {
+      background: argb(0.45);
+      content: '';
+      @include position(absolute, null 0 0 0);
+      @include size(100% 1px);
+      @include breakpoint($medium) {
+        height: $headerHeightLarge;
+      }
     }
-    &-icon {
-      @include center-xy;
-      @include size(34px);
+    > div[class^='page-header'] {
+      height: $headerHeight;
+      display: inline-block;
+      @include position(absolute, 50% null null null);
+      @include breakpoint($medium) {
+        height: $headerHeightLarge;
+      }
     }
-  }
-  &-left {
-    left: $appBasePad;
-    transform: translateY(-50%);
-    @include breakpoint($medium) {
-      left: 24px;
+    &-center {
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
-    @include breakpoint($large) {
-      left: 19.5px;
+    &-favorite {
+      margin: 0 4px 0 0;
+      @include float-box;
+      @include size(44px 100%);
+      .offset-scroll & {
+        margin-right: 20px;
+      }
+      &-icon {
+        @include center-xy;
+        @include size(34px);
+      }
     }
-  }
-  &-right {
-    height: 100%;
-    right: 0;
-    transform: translateY(-50%);
+    &-left {
+      left: $appBasePad;
+      transform: translateY(-50%);
+      @include breakpoint($medium) {
+        left: 24px;
+      }
+      @include breakpoint($large) {
+        left: 19.5px;
+      }
+    }
+    &-right {
+      height: 100%;
+      right: 0;
+      transform: translateY(-50%);
+    }
   }
 }
