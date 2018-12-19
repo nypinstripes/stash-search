@@ -6,11 +6,14 @@ import Favorites from './Favorites';
 import Footer from './Layout/Footer';
 import Header from './Layout/Header';
 import keydown from 'react-keydown';
+import Landing from './Landing';
+import Legal from './Docs/Legal';
 import NotFound from './Tools/NotFound';
 import Overlay from './Overlays/Overlay';
+import Privacy from './Docs/Privacy';
 import ScrollTopBtn from './Tools/ScrollTopBtn';
 import Search from './Search';
-import Landing from './Landing';
+import Terms from './Docs/Terms';
 import React, { Component } from 'react';
 
 class App extends Component {
@@ -111,6 +114,15 @@ class App extends Component {
               path="/favorites"
               render={props => <Favorites {...props} />}
             />
+            <Route exact
+              path="/legal"
+              render={props => <Legal {...props} />}
+            />
+            <Route exact
+              path="/privacy"
+              render={props => <Privacy {...props} />}
+            />
+            <Route exact path="/terms" render={props => <Terms {...props} />} />
             <Route render={props => <NotFound {...props} />} />
           </Switch>
         </div>

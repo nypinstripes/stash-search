@@ -1,0 +1,103 @@
+.docs {
+  margin: 60px 0 30px 0;
+  padding: 0 $appBasePad;
+  text-align: left;
+  @include breakpoint($medium) {
+    padding: 0 $appMediumPad;
+  }
+  @include breakpoint($large) {
+    padding: 0 $appLargePad;
+  }
+  &.legal {
+    h3 {
+      left: 50%;
+      margin: 20px 0 25px 0;
+      position: relative;
+      transform: translateX(-50%);
+      @include font-height(1.25rem);
+      > span {
+        @include center-x;
+      }
+    }
+  }
+  &-container {
+    width: 100%;
+    @include center-x;
+    @include breakpoint($medium) {
+      max-width: $medium - $appMediumPad;
+    }
+    @include breakpoint($large) {
+      max-width: $large - $appLargePad;
+    }
+    @include breakpoint($xLarge) {
+      max-width: $xLarge - $appLargePad;
+    }
+    @include breakpoint($xxLarge) {
+      max-width: $xxLarge - ($appLargePad * 5);
+    }
+  }
+  h2 {
+    color: $orangePeel;
+    font-weight: 700;
+    text-align: center;
+    @include center-x;
+    @include font-height(1.65rem, 2rem);
+    @include breakpoint($medium) {
+      line-height: 1.65rem;
+    }
+  }
+  h3 {
+    clear: both;
+    font-weight: 400;
+    margin-top: 40px;
+    @include float-box;
+    @include font-height(1.35rem, 1.35rem);
+  }
+  p, ol, ul, li {
+    clear: both;
+    font-weight: 300;
+    margin-top: 20px;
+    text-align: left;
+    @include float-box;
+    @include font-height(1rem, 1.4rem);
+  }
+  li {
+    display: list-item;
+    margin: 10px 0 0 20px;
+    width: calc(100% - 20px);
+    &:first-child {
+      margin-top: 0;
+    }
+    > span {
+      float: left;
+    }
+  }
+  ol {
+    &[type='a'] {
+      > li {
+        list-style: lower-alpha outside;
+      }
+    }
+    &[type='i'] {
+      > li {
+        list-style: lower-roman outside;
+      }
+    }
+  }
+  p {
+    @include breakpoint($medium) {
+      text-align: justify;
+    }
+  }
+  ul {
+    li {
+      list-style: circle outside;
+    }
+  }
+  .hint {
+    color: $aluminum;
+    font-weight: 300;
+    margin-top: 12px;
+    @include font-height(1rem);
+  }
+}
