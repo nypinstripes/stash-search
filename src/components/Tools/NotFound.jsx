@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import SvgSymbol from './SvgSymbol';
+import SvgIcon from './SvgIcon';
 
 class NotFound extends Component {
   static propTypes = {
@@ -12,11 +12,11 @@ class NotFound extends Component {
   render() {
     return (
       <div className="not-found">
-        <h1>Whoops!</h1>
+        <h1>Zoink!</h1>
         <div className="not-found-icon">
-          <SvgSymbol symbolId="#slip" />
+          <SvgIcon name="robot" />
         </div>
-        <p>Couldn&apos;t find that one.</p>
+        <p>Didn&apos;t find that one.</p>
       </div>
     );
   }

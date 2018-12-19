@@ -9,7 +9,7 @@ svg {
     transition: color 175ms ease-in-out;
   }
   use {
-    fill: $nero;
+    fill: white;
     transition: all 175ms ease-in-out;
   }
 }
@@ -28,13 +28,13 @@ svg {
     &-container {
       path {
         fill: argb();
-        stroke: $nero;
+        stroke: white;
         stroke-width: 3px;
       }
     }
     &-rect {
       fill: argb();
-      stroke: $nero;
+      stroke: white;
       stroke-width: 2px;
     }
   }

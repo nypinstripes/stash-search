@@ -11,15 +11,25 @@
       @include center-x;
     }
     &-icon {
-      margin-top: 20px;
+      margin-top: 18px;
       @include size(268px 300px);
     }
     h1 {
-      font: oxygen($size: 1.25rem, $lineHeight: 1.25rem, $weight: 700);
+      font: oxygen($size: 1.5rem, $lineHeight: 1rem, $weight: 700);
     }
     p {
       font: oxygen($size: 1.1rem, $lineHeight: 1.1rem);
-      margin-top: 30px;
+      margin-top: 28px;
+    }
+    .svg {
+      &-icon {
+        &-container {
+          path {
+            fill: white;
+            stroke-width: 0;
+          }
+        }
+      }
     }
   }
 }
