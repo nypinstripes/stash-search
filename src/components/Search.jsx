@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { uniqGenerator } from '../utils/helperUtils';
+import { uniqKey } from '../utils/helperUtils';
 import React, { Component } from 'react';
 
 class Search extends Component {
@@ -47,7 +47,7 @@ class Search extends Component {
     return [
       <div className="search-container"
         data-active="false"
-        key={uniqGenerator()}
+        key={uniqKey()}
         ref={ref => this.searchContainer = ref}
       >
         <input aria-label="Search Images"
@@ -64,7 +64,7 @@ class Search extends Component {
       </div>,
       <div aria-label="Start Search"
         className="btn search-btn"
-        key={uniqGenerator()}
+        key={uniqKey()}
         role="Buttton"
         tabIndex="0"
       >
