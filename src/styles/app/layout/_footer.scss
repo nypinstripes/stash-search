@@ -1,1 +1,58 @@
-// .footer {}
+.page {
+  &-footer {
+    background-color: argb();
+    display: block !important;
+    height: 130px;
+    z-index: 1;
+    transition: box-shadow 200ms ease-out;
+    @include float-row;
+    @include position(0 0 null 0);
+    &-col {
+      @include center-x;
+      @include size(100%);
+      @include breakpoint($medium) {
+        min-width: 200px;
+        width: auto;
+      }
+    }
+    &-links {
+      @include center-xy;
+      > a {
+        clear: none;
+        color: white;
+        outline: none;
+        text-decoration: none;
+        text-shadow: none;
+        transition: color 100ms linear 0s;
+        margin-right: 21px;
+        position: relative;
+        @include float-box;
+        @include font-height(0.9rem, 0.9rem);
+        &:hover {
+          @include breakpoint($large) {
+            color: $orangePeel;
+            text-decoration: underline;
+          }
+        }
+        &:focus, &:active {
+          color: $orangePeel;
+          text-decoration: underline;
+        }
+        &:first-child {
+          &::after {
+            display: none;
+          }
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+        &::after {
+          background-color: $aluminum;
+          content: '';
+          @include position(absolute, -2px null null -10px);
+          @include size(1px 18px);
+        }
+      }
+    }
+  }
+}

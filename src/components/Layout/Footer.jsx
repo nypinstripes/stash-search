@@ -1,22 +1,16 @@
-import { connect } from 'react-redux';
-import { object } from 'prop-types';
-import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import React from 'react';
 
-class Footer extends Component {
-  static propTypes = {
+const Footer = props => (
+  <footer className="page-footer">
+    <div className="page-footer-col">
+      <div className="page-footer-links">
+        <Link role="Link" title="(MIT) License" to="/legal">Legal</Link>
+        <Link role="Link" title="Terms and Conditions" to="/terms">Terms &amp; Conditions</Link>
+        <Link role="Link" title="Privacy Policy" to="/privacy">Privacy</Link>
+      </div>
+    </div>
+  </footer>
+);
 
-  }
-
-  noop = () => {}
-
-  render() {
-    return (
-      <div className="footer" />
-    );
-  }
-}
-
-const mapStateToProps = (state, ownProps) => ({});
-const mapDispatchToProps = (dispatch, ownProps) => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Footer);
+export default Footer;
