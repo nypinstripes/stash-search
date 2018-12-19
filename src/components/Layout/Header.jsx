@@ -11,7 +11,11 @@ const Header = () => (
       </Link>
     </div>
     <div className="header-right">
-      x
+      <Link to="/favorites" className="header-favorite">
+        <div className="header-favorite-icon">
+          <SvgIcon name="favorite" />
+        </div>
+      </Link>
     </div>
   </header>
 );

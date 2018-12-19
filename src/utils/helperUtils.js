@@ -1,5 +1,5 @@
 export const getBasicReducer = params => {
-  const { act: { type, payload }, name, state } = params;
+  const { action: { type, payload }, name, state } = params;
 
   return type === name ? payload : state;
 };
