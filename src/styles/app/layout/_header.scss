@@ -45,9 +45,44 @@
       .offset-scroll & {
         margin-right: 20px;
       }
+      &:hover {
+        .page-header-favorite-icon {
+          path {
+            @include breakpoint($large) {
+              fill: $ripeLemon;
+              stroke: $ripeLemon;
+              transform: scale(1.2);
+            }
+            .favorites & {
+              transform: scale(1);
+            }
+          }
+        }
+      }
+      &:focus, &:active {
+        .page-header-favorite-icon {
+          path {
+            fill: $ripeLemon;
+            stroke: $ripeLemon;
+            transform: scale(1.2);
+            .favorites & {
+              transform: scale(1);
+            }
+          }
+        }
+      }
       &-icon {
         @include center-xy;
         @include size(34px);
+        path {
+          transform: scale(1);
+          transform-origin: 50% 50%;
+          transition: transform 175ms ease-out 0s, fill 125ms linear 0s, stroke 125ms linear 0s;
+          .favorites & {
+            fill: $ripeLemon;
+            stroke: $ripeLemon;
+          }
+        }
       }
     }
     &-left {

@@ -83,10 +83,31 @@ class App extends Component {
   }
 
   getAppClasses = () => {
-    return `app loader-${this.getLoaderActivity()}${this.getScrollOffset()}`;
+    let offsetScroll = this.getScrollOffset();
+    let pageName = this.getPageName();
+    let showLoader = `loader-${this.getLoaderActivity()}`;
+
+    return `app ${showLoader}${pageName}${offsetScroll}`;
   }
 
   getLoaderActivity = () => this.props.loaderActive ? 'active' : 'inactive'
+
+  getPageName = () => {
+    let path = location.pathname;
+
+    if (path === '/') return ' landing';
+
+    path = path.substring(1);
+
+    if (path.indexOf('/') === -1) {
+      return ` ${path}`;
+    } else {
+      let extension = '';
+
+      return ` ${path.substring(0, path.indexOf('/'))}${extension}`;
+    }
+  }
+
   getScrollOffset = () => this.props.scrollOffset > 0 ? ' offset-scroll' : '';
   setWindowWidth = () => this.setState({ winW: window.innerWidth })
 

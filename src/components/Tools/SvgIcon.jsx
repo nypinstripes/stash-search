@@ -1,27 +1,31 @@
 import React, { Component } from 'react';
 import { uniqKey } from '../../utils/helperUtils';
 import {
-  getCrescentMoon,
   getFavoriteStar,
+  getLogoParts,
   getRobotParts
 } from '../../utils/svgTemplates';
 
 import { string } from 'prop-types';
-// import ReactDOM from 'react-dom';
 
 class SvgIcon extends Component {
-  // componentDidMount() {
-  //   let rectMark = ReactDOM.findDOMNode(this.refs['rectMark']);
-  //   ref="rectMark"
-  //   if (rectMark) console.log(`rect: ${rectMark.getTotalLength()}`);
-  // }
-
   static defaultProps = { viewBox: '0 0 100 100' }
 
   static propTypes = {
     name: string,
     viewBox: string
   }
+
+  // Utility For measuring path stroke lengths.
+  // Call from componentDidMount().
+  // Requires: import ReactDOM from 'react-dom';
+  // Use DomNodeRef: ref="rectMark"
+  //
+  // getStrokeLength = () => {
+  //   let rectMark = ReactDOM.findDOMNode(this.refs['rectMark']);
+  //
+  //   if (rectMark) console.log(`rect: ${rectMark.getTotalLength()}`);
+  // }
 
   getIconByName = () => {
     switch(this.props.name) {
@@ -37,20 +41,23 @@ class SvgIcon extends Component {
       case 'favorite':
         return <path d={getFavoriteStar()} id="favorite-star" />;
 
-      case 'logo':
+      case 'logo-pic':
         return [
-          <circle cx="32.693161"
-            cy="15.9312592"
-            id="logo-sun"
-            key={uniqKey()}
-            r="13.9312592"
-          />,
-          <path d={getCrescentMoon()} id="logo-moon" key={uniqKey()} />
+          <path id="logo-moon" key={uniqKey()} d={getLogoParts('logo-moon')} />,
+          <circle cx="24" cy="26" id="logo-sun" key={uniqKey()} r="8" />
         ];
 
       case 'logo-text':
         return [
-          <path id="logo-text" key={uniqKey()} />
+          <path d="M17.6736908 8.8090611l15.3277321.00492"
+            key={uniqKey()}
+            id="logo-blob-top"
+          />,
+          <path d="M48.1648979 123.1919937l15.3277283.004921"
+            key={uniqKey()}
+            id="logo-blob-bottom"
+          />,
+          <path id="logo-a" d={getLogoParts('logo-a')} key={uniqKey()} />
         ];
 
       case 'robot':
@@ -65,10 +72,6 @@ class SvgIcon extends Component {
           />,
           <path id="robot-mouth"
             d={getRobotParts({ part: 'mouth' })}
-            key={uniqKey()}
-          />,
-          <path id="robot-body"
-            d={getRobotParts({ part: 'body' })}
             key={uniqKey()}
           />
         ];
