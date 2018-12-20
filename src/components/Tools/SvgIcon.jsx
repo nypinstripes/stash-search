@@ -16,10 +16,8 @@ class SvgIcon extends Component {
     viewBox: string
   }
 
-  // Utility For measuring path stroke lengths.
-  // Call from componentDidMount().
-  // Requires: import ReactDOM from 'react-dom';
-  // Use DomNodeRef: ref="rectMark"
+  // Utility For measuring path stroke lengths. Called from componentDidMount().
+  // Requires: import ReactDOM from 'react-dom'; Use DomNodeRef: ref="rectMark".
   //
   // getStrokeLength = () => {
   //   let rectMark = ReactDOM.findDOMNode(this.refs['rectMark']);
@@ -47,7 +45,7 @@ class SvgIcon extends Component {
           <circle cx="24" cy="26" id="logo-sun" key={uniqKey()} r="8" />
         ];
 
-      case 'logo-text':
+      case 'logo-blobs':
         return [
           <path d="M17.6736908 8.8090611l15.3277321.00492"
             key={uniqKey()}
@@ -56,9 +54,11 @@ class SvgIcon extends Component {
           <path d="M48.1648979 123.1919937l15.3277283.004921"
             key={uniqKey()}
             id="logo-blob-bottom"
-          />,
-          <path id="logo-a" d={getLogoParts('logo-a')} key={uniqKey()} />
+          />
         ];
+
+      case 'logo-letter-a':
+        return <path d={getLogoParts('logo-a')} id="logo-a" key={uniqKey()} />;
 
       case 'robot':
         return [
