@@ -4,41 +4,52 @@ import React, { Component } from 'react';
 
 class Search extends Component {
   state = {
-    clearBtnVisible: false
+    clearBtnVisible: false,
+    currentSearch: ''
   }
 
   componentDidMount() {
     this.focusSearch();
   }
 
-  blurSearch = e => {
-    return ;
+  componentWillUpdate(nextProps, nextState) {
+    const { currentSearch } = this.state;
+    const { currentSearch: nextCurrentSearch } = nextState;
+
+    if (currentSearch !== nextCurrentSearch) {
+      this.setState({ clearBtnVisible: nextCurrentSearch.length !== 0 });
+    }
   }
 
+  clearSearch = () => this.searchInput.value = '';
   focusSearch = e => this.searchInput.focus();
 
   getClearBtn = () => (
     <div aria-label="Clear Search"
       className="search-clear"
-      onBlur={this.blurSearch}
-      onFocus={this.focusSearch}
-      onKeyDown={this.onActionKeyDown}
-      onMouseUp={this.searchImages}
+      onKeyDown={this.onResetKeyDown}
+      onMouseUp={this.clearSearch}
       role="button"
       tabIndex="0"
-    />
+    >
+      <div className="search-clear-cross" />
+    </div>
   );
 
   onActionKeyDown = e => {
-    if (e.keyCode === 13 || e.keyCode === 32) this.searchInput.blur();
+    if (e.keyCode === 13 || e.keyCode === 32) this.searchImages();
+  }
+
+  onResetKeyDown = e => {
+    if (e.keyCode === 13 || e.keyCode === 32) this.clearSearch();
+  }
+
+  onTextInputChange = e => {
+    this.setState({ currentSearch: this.searchInput.value });
   }
 
   onTextKeyInput = e => {
-    if (e.keyCode === 13) {
-      e.stopPropagation();
-    } else {
-      this.setState({ clearBtnVisible: this.searchInput.value.length > 0 });
-    }
+    if (e.keyCode === 13) this.searchImages();
   }
 
   searchImages = () => {
@@ -55,7 +66,7 @@ class Search extends Component {
           <input aria-label="Search Images"
             className="inline-input"
             name="image-search"
-            onBlur={this.blurSearch}
+            onChange={this.onTextInputChange}
             onFocus={this.focusSearch}
             onKeyDown={this.onTextKeyInput}
             placeholder="Search stashy gifs"
@@ -67,6 +78,9 @@ class Search extends Component {
         </div>
         <div aria-label="Start Search"
           className="btn search-btn"
+          onMouseUp={this.searchImages}
+          onKeyDown={this.onActionKeyDown}
+          ref={ref => this.searchBtn = ref}
           role="Buttton"
           tabIndex="0"
         >

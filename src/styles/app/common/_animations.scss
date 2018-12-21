@@ -7,6 +7,13 @@
   }
 }
 
+@keyframes explode {
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
 @keyframes logoBlobBottom {
   100% {
     stroke: rgba(white, 0.75);
@@ -40,22 +47,28 @@
 }
 
 @keyframes verticalShiftIn {
-  75% {
+  45% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
     transform: translateY(0);
   }
 }
 
 @keyframes verticalShiftOut {
+  45% {
+    transform: translateY(0);
+  }
   50% {
-    transform: translateY(-60%);
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(-100%);
   }
 }
-
-// @keyframes explode {
-//   100% {
-//     transform: scale(1);
-//   }
-// }
 
 // @keyframes fadeIn {
 //   100% {

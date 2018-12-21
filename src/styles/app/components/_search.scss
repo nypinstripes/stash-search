@@ -32,7 +32,7 @@
       }
     }
     &::before, &::after {
-      border-radius: 3px;
+      border-radius: 5px;
       content: '';
       transition: background-color 300ms linear 0s;
       z-index: -1;
@@ -56,13 +56,51 @@
     }
   }
   &-clear {
+    outline: 0;
     right: 0;
     z-index: 3;
     @include center-y(absolute);
-    @include close(30px);
+    @include size(30px 44px);
+    &:hover {
+      .search {
+        &-clear {
+          &-cross {
+            &::before, &::after {
+              @include breakpoint($medium) {
+                background-color: rgba(red, 0.9);
+              }
+            }
+          }
+        }
+      }
+    }
+    &:focus, &:active {
+      .search {
+        &-clear {
+          &-cross {
+            &::before, &::after {
+              background-color: rgba(red, 0.9);
+            }
+          }
+        }
+      }
+    }
+    &-cross {
+      clear: both;
+      left: 50%;
+      opacity: 0;
+      position: relative;
+      top: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      transform-origin: 0 0;
+      @include animation-reset($delay: -50ms, $duration: 300ms, $name: explode, $timing: ease-in);
+      @include close(18px);
+      @include float-box;
+    }
   }
   &-container {
     border-bottom: edge(rgba(white, 0.75));
+    position: relative;
     @include size(calc(100% - 99px) 44px);
     @include breakpoint($medium) {
       width: calc(100% - 103px);

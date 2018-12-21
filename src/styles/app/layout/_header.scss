@@ -112,21 +112,20 @@
           }
           &-bg {
             z-index: 1;
-            @include size(32px);
+            @include size(30px);
             svg {
               overflow: hidden;
             }
             #logo {
               &-moon, &-sun {
                 transition: transform 100ms ease-in 0s;
-                @include animation-reset($count: infinite, $delay: 10s, $direction: normal, $duration: 40s, $fill: both, $name: none, $timing: ease-in);
+                @include animation-reset($count: infinite, $delay: 0s, $duration: 40s, $fill: both, $name: none, $timing: ease-in);
               }
               &-moon {
                 animation-name: verticalShiftIn;
-                animation-delay: -2s;
                 fill: rgba(white, 0.65);
                 stroke-width: 0;
-                transform: translateY(-75%);
+                transform: translateY(-100%);
                 z-index: 1;
 
               }
@@ -167,7 +166,7 @@
                   stroke-width: 15px;
                   transform: scaleX(0.1) translateX(8%);
                   transform-origin: 0 50%;
-                  @include animation-reset($name: none, $delay: 3500ms, $duration: 350ms, $timing: ease-in);
+                  @include animation-reset($name: none, $delay: 2500ms, $duration: 350ms, $timing: ease-in);
                 }
                 &-bottom {
                   animation-name: logoBlobBottom;

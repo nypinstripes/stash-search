@@ -106,7 +106,7 @@ $webkit-support: webkit spec;
 //
 // A two piece close button with transitionable box properties.
 
-@mixin close($btnSize, $crossColor: red, $activeColor: red) {
+@mixin close($btnSize, $crossColor: white, $activeColor: red) {
   backface-visibility: hidden;
   box-shadow: 0 0 0 0 argb();
   background-color: argb();
