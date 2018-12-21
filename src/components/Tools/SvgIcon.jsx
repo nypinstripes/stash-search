@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { uniqKey } from '../../utils/helperUtils';
 import {
+  getCrescentMoon,
   getFavoriteStar,
-  getLogoParts,
   getRobotParts
 } from '../../utils/svgTemplates';
 
@@ -16,6 +16,8 @@ class SvgIcon extends Component {
     viewBox: string
   }
 
+  // Determine Stroke Lengths:
+  //
   // Utility For measuring path stroke lengths. Called from componentDidMount().
   // Requires: import ReactDOM from 'react-dom'; Use DomNodeRef: ref="rectMark".
   //
@@ -41,24 +43,21 @@ class SvgIcon extends Component {
 
       case 'logo-pic':
         return [
-          <path id="logo-moon" key={uniqKey()} d={getLogoParts('logo-moon')} />,
+          <path d={getCrescentMoon()} id="logo-moon" key={uniqKey()} />,
           <circle cx="24" cy="26" id="logo-sun" key={uniqKey()} r="8" />
         ];
 
       case 'logo-blobs':
         return [
-          <path d="M17.6736908 8.8090611l15.3277321.00492"
-            key={uniqKey()}
-            id="logo-blob-top"
-          />,
-          <path d="M48.1648979 123.1919937l15.3277283.004921"
+          <path d="M51.8352356 123.1919937l22.7479248.004921"
             key={uniqKey()}
             id="logo-blob-bottom"
+          />,
+          <path d="M6.583159 8.8090611l22.7479243.00492"
+            key={uniqKey()}
+            id="logo-blob-top"
           />
         ];
-
-      case 'logo-letter-a':
-        return <path d={getLogoParts('logo-a')} id="logo-a" key={uniqKey()} />;
 
       case 'robot':
         return [

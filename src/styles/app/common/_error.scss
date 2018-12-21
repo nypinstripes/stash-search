@@ -24,6 +24,18 @@
       font: oxygen($size: 1.1rem, $lineHeight: 1.1rem);
       margin-top: 28px;
     }
+    .robot {
+      &-body, &-face {
+        z-index: 1;
+        @include float-box;
+        @include position(relative, 0);
+        @include size(100%);
+      }
+      &-face {
+        position: absolute;
+        z-index: 2;
+      }
+    }
     .svg {
       &-icon {
         &-container {

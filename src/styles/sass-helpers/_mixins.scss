@@ -12,12 +12,12 @@ $webkit-support: webkit spec;
 // Usage:
 // @include animation-reset({ use named params });
 
-@mixin animation-reset($name, $delay: 0s, $direction: normal, $duration: 200ms, $fillMode: forwards, $iteration: 1, $playState: running, $timing: ease-out) {
+@mixin animation-reset($name, $count: 1, $delay: 0s, $direction: normal, $duration: 200ms, $fill: forwards, $playState: running, $timing: ease-out) {
   animation-delay: $delay;
   animation-direction: $direction;
   animation-duration: $duration;
-  animation-fill-mode: $fillMode;
-  animation-iteration-count: $iteration;
+  animation-fill-mode: $fill;
+  animation-iteration-count: $count;
   animation-name: $name;
   animation-play-state: $playState;
   animation-timing-function: $timing;

@@ -8,7 +8,7 @@ const NotFound = props => (
     <h1>Zoink!</h1>
     <div className="not-found-icon">
       <div className="robot-body">
-        <SvgIcon symbolId="#robot-body" />
+        <SvgSymbol symbolId="#robot-body" />
       </div>
       <div className="robot-face">
         <SvgIcon name="robot" />
