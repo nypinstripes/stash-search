@@ -1,0 +1,84 @@
+.search {
+  border-bottom: edge(rgba($aluminum, 0.5));
+  margin-top: 60px;
+  max-width: calc(100% - #{$appMediumPad});
+  padding-bottom: 60px;
+  width: 100%;
+  @include center-x;
+  @include breakpoint($medium) {
+    max-width: #{$medium - $appMediumPad};
+  }
+  &-btn, &-container {
+    @include float-box;
+  }
+  &-btn {
+    border-radius: 5px;
+    margin-left: 14px;
+    position: relative;
+    @include size(85px 44px);
+    @include breakpoint($medium) {
+      margin-left: 18px;
+    }
+    &:hover {
+      &::before {
+        @include breakpoint($large) {
+          animation-name: borderShift;
+        }
+      }
+    }
+    &:focus, &:active {
+      &::before {
+        animation-name: borderShift;
+      }
+    }
+    &::before, &::after {
+      border-radius: 3px;
+      content: '';
+      transition: background-color 300ms linear 0s;
+      z-index: -1;
+      @include position(absolute, 0);
+      @include size(auto);
+    }
+    &::before {
+      background-image: linear-gradient(70deg, $dodgerBlue, $brightSun, $mediumPurple, $emerald, $dodgerBlue, $brightSun, $mediumPurple, $emerald);
+      background-size: 200%;
+      @include animation-reset($count: infinite, $duration: 1.75s, $name: none, $timing: linear);
+    }
+    &::after {
+      background-color: $nero;
+      margin: 3px;
+    }
+    .btn {
+      &-text {
+        height: 12px;
+        line-height: 0.8rem;
+      }
+    }
+  }
+  &-clear {
+    right: 0;
+    z-index: 3;
+    @include center-y(absolute);
+    @include close(30px);
+  }
+  &-container {
+    border-bottom: edge(rgba(white, 0.75));
+    @include size(calc(100% - 99px) 44px);
+    @include breakpoint($medium) {
+      width: calc(100% - 103px);
+    }
+    input {
+      &[type='text'] {
+        &.inline {
+          &-input {
+            color: rgba(white, 0.9);
+            font-weight: 300;
+            padding-right: 30px;
+            @include font-height(0.8rem);
+            @include size(100%);
+          }
+        }
+      }
+    }
+  }
+}

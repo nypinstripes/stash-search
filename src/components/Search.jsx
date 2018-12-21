@@ -3,19 +3,19 @@ import { uniqKey } from '../utils/helperUtils';
 import React, { Component } from 'react';
 
 class Search extends Component {
-  static propTypes = {
-
+  state = {
+    clearBtnVisible: false
   }
 
-  state = { clearBtnVisible: false }
+  componentDidMount() {
+    this.focusSearch();
+  }
 
   blurSearch = e => {
     return ;
   }
 
-  focusSearch = e => {
-    return ;
-  }
+  focusSearch = e => this.searchInput.focus();
 
   getClearBtn = () => (
     <div aria-label="Clear Search"
@@ -27,50 +27,53 @@ class Search extends Component {
       role="button"
       tabIndex="0"
     />
-  )
+  );
 
   onActionKeyDown = e => {
-    // if (e.keyCode === 13 || e.keyCode === 32) {
-    //  ReactDOM.findDOMNode(this.refs['settingsFormSave']).blur();
-    // }
+    if (e.keyCode === 13 || e.keyCode === 32) this.searchInput.blur();
   }
 
-  // onTextInput = e => { if (e.keyCode === 13) this.updateAuthorDetails(); }
+  onTextKeyInput = e => {
+    if (e.keyCode === 13) {
+      e.stopPropagation();
+    } else {
+      this.setState({ clearBtnVisible: this.searchInput.value.length > 0 });
+    }
+  }
 
   searchImages = () => {
     return;
   }
 
   render() {
-    const { clearBtnVisible, selectedSort } = this.state;
-
-    return [
-      <div className="search-container"
-        data-active="false"
-        key={uniqKey()}
-        ref={ref => this.searchContainer = ref}
-      >
-        <input aria-label="Search Images"
-          name="image-search"
-          onBlur={this.blurSearch}
-          onFocus={this.focusSearch}
-          onKeyDown={this.onTextInput}
-          placeholder="Search gifs"
-          ref={ref => this.searchInput = ref}
-          role="Search"
-          type="text"
-        />
-        { clearBtnVisible ? this.getClearBtn() : null }
-      </div>,
-      <div aria-label="Start Search"
-        className="btn search-btn"
-        key={uniqKey()}
-        role="Buttton"
-        tabIndex="0"
-      >
-        <span className="btn-text">Search</span>
+    return (
+      <div className="search">
+        <div className="search-container"
+          data-active="false"
+          ref={ref => this.searchContainer = ref}
+        >
+          <input aria-label="Search Images"
+            className="inline-input"
+            name="image-search"
+            onBlur={this.blurSearch}
+            onFocus={this.focusSearch}
+            onKeyDown={this.onTextKeyInput}
+            placeholder="Search stashy gifs"
+            ref={ref => this.searchInput = ref}
+            role="Search"
+            type="text"
+          />
+          { this.state.clearBtnVisible ? this.getClearBtn() : null }
+        </div>
+        <div aria-label="Start Search"
+          className="btn search-btn"
+          role="Buttton"
+          tabIndex="0"
+        >
+          <span className="btn-text">Search</span>
+        </div>
       </div>
-    ];
+    );
   }
 }
 

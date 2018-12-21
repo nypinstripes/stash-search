@@ -88,7 +88,7 @@
       }
     }
     &-left {
-      left: $appBasePad;
+      left: 13px;
       transform: translateY(-50%);
       @include breakpoint($medium) {
         left: 24px;

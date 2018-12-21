@@ -6,7 +6,6 @@ input {
     font-weight: 400;
     outline: none;
     text-shadow: 0 0 0 argb();
-    transition: all 200ms ease-in-out 0s;
     @include text-input-placeholder {
       margin-bottom: 0;
       @include font-height(0.8rem);

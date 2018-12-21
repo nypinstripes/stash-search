@@ -129,6 +129,7 @@ class App extends Component {
         <Header />
         <ScrollTopBtn />
         <div className="app-body">
+          <Search />
           <Switch>
             <Route exact path="/" render={props => <Landing {...props} />} />
             <Route exact
