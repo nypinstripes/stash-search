@@ -6,10 +6,10 @@ const Landing = props => (
   <div className="landing page-root">
     <section className="rocket">
       <div className="rocket-text">
-        <p className="rocket-text-one">Ignite</p>
-        <p className="rocket-text-two">your</p>
-        <p className="rocket-text-three">GIF</p>
-        <p className="rocket-text-four">game!!</p>
+        <p>Ignite</p>
+        <p>your</p>
+        <p>GIF</p>
+        <p>game!!</p>
       </div>
       <div className="rocket-body">
         <SvgSymbol symbolId="#rocket-body" />

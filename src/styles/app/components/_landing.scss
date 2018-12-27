@@ -80,36 +80,29 @@
         @include animation-reset($duration: 300ms, $name: fadeIn, $timing: ease-in);
         @include float-box;
         @include font-height(1.65rem);
-        &.rocket {
-          &-text {
-            &-one {
-              animation-delay: 3s;
-            }
-            &-two {
-              animation-delay: 3300ms;
-              top: 45px;
-            }
-            &-three {
-              animation-delay: 3600ms;
-            }
-            &-four {
-              animation-delay: 3900ms;
-              top: 34px;
-            }
-          }
+        &:first-child, &:nth-child(2) {
+          left: 15%;
         }
-      }
-      &-one, &-two {
-        left: 15%;
-      }
-      &-three, &-four {
-        left: 65%;
-      }
-      &-one, &-three {
-        top: 0;
-      }
-      &-two, &-four {
-
+        &:nth-child(3), &:last-child {
+          left: 65%;
+        }
+        &:first-child, &:nth-child(3) {
+          top: 0;
+        }
+        &:first-child {
+          animation-delay: 3s;
+        }
+        &:nth-child(2) {
+          animation-delay: 3300ms;
+          top: 45px;
+        }
+        &:nth-child(3) {
+          animation-delay: 3600ms;
+        }
+        &:last-child {
+          animation-delay: 3900ms;
+          top: 34px;
+        }
       }
     }
   }
