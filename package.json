@@ -17,7 +17,7 @@
     "debug:prod": "npm run debug -- --env.prod",
     "format": "prettier --write --single-quote --print-width=120 --parser=flow --tab-width=2 \"src/components/**/*.{js,jsx}\"",
     "lint": "eslint **/*.{js,jsx} --quiet",
-    "serve": "node server/server.js",
+    "serve": "node server/server.js GIPHY_KEY=GZKGwdu6xlIM0iV58yFKJOFLqj0NLXFw",
     "start:dev": "webpack-dev-server --port 8080 --env.dev --hot",
     "test": "jest",
     "test:update": "jest -u",
