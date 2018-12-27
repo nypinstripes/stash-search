@@ -11,7 +11,7 @@ class Item extends Component {
 
   render() {
     return (
-      <div className="item" />
+      <div className="item">x</div>
     );
   }
 }

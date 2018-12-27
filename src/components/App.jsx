@@ -12,7 +12,8 @@ import NotFound from './Tools/NotFound';
 import Overlay from './Overlays/Overlay';
 import Privacy from './Docs/Privacy';
 import ScrollTopBtn from './Tools/ScrollTopBtn';
-import Search from './Search';
+import Search from './Search/Search';
+import SearchResults from './Search/SearchResults';
 import Terms from './Docs/Terms';
 import React, { Component } from 'react';
 
@@ -123,6 +124,8 @@ class App extends Component {
   }
 
   render() {
+    const { winW } = this.state;
+
     return (
       <div className={this.getAppClasses()}>
         { this.activateOverlay() }
@@ -143,6 +146,14 @@ class App extends Component {
             <Route exact
               path="/privacy"
               render={props => <Privacy {...props} />}
+            />
+            <Route exact
+              path="/results"
+              render={props => <SearchResults
+                toggleOverlay={this.toggleOverlay}
+                winW={winW}
+                {...props}
+              />}
             />
             <Route exact path="/terms" render={props => <Terms {...props} />} />
             <Route render={props => <NotFound {...props} />} />

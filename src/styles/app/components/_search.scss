@@ -1,5 +1,4 @@
 .search {
-  border-bottom: edge(rgba($aluminum, 0.5));
   margin-top: 60px;
   max-width: calc(100% - #{$appMediumPad});
   padding-bottom: 60px;
@@ -117,6 +116,17 @@
           }
         }
       }
+    }
+  }
+  &-results {
+    position: relative;
+    @include float-row;
+    &::before {
+      background-color: rgba($aluminum, 0.5);
+      content: '';
+      top: 0;
+      @include center-x;
+      @include size(calc(100% - 30px) 1px);
     }
   }
 }

@@ -1,8 +1,13 @@
-import { GIPHY_KEY } from '../api';
 import { connect } from 'react-redux';
+import { object } from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import React, { Component } from 'react';
 
 class Search extends Component {
+  static propTypes = {
+    history: object
+  }
+
   state = {
     clearBtnVisible: false,
     currentSearch: ''
@@ -10,8 +15,6 @@ class Search extends Component {
 
   componentDidMount() {
     this.focusSearch();
-
-    console.log(GIPHY_KEY);
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -55,6 +58,10 @@ class Search extends Component {
   }
 
   searchImages = () => {
+    const { history } = this.props;
+
+    history.push({ pathname: '/results' });
+
     return;
   }
 
@@ -96,4 +103,4 @@ class Search extends Component {
 const mapStateToProps = (state, ownProps) => ({});
 const mapDispatchToProps = (dispatch, ownProps) => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));
