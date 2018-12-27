@@ -1,5 +1,8 @@
 import { connect } from 'react-redux';
 import { object } from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import List from '../Tools/List';
+import Loader from '../Tools/Loader';
 import React, { Component } from 'react';
 
 class SearchResults extends Component {
@@ -7,11 +10,24 @@ class SearchResults extends Component {
 
   }
 
+  state = {
+    emptyType: {
+      icon: 'icon-earth',
+      iconType: 'symbol',
+      subTitle: "Sorry! We didn't find any results.",
+      title: '0 results found'
+    }
+  }
+
   noop = () => {}
 
   render() {
+    const { emptyType } = this.state;
+
     return (
-      <div className="search-results" />
+      <div className="search-results">
+        <List emptyType={emptyType} name="Results" />
+      </div>
     );
   }
 }
@@ -19,4 +35,4 @@ class SearchResults extends Component {
 const mapStateToProps = (state, ownProps) => ({});
 const mapDispatchToProps = (dispatch, ownProps) => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchResults);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SearchResults));

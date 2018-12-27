@@ -1,3 +1,21 @@
+@keyframes ballBounce {
+  0%, 10% {
+    bottom: 50%;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+@keyframes ballSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes borderShift {
   50% {
     background-position: 100% 50%;
@@ -37,6 +55,15 @@
   100% {
     stroke: rgba(white, 0.75);
     transform: scaleX(0.7) translate(12%, 0%);
+  }
+}
+
+@keyframes pebbleMotion {
+  0% {
+    right: -20%;
+  }
+  100% {
+    right: 110%;
   }
 }
 
@@ -88,10 +115,7 @@
   45% {
     transform: translateY(-100%);
   }
-  50% {
-    transform: translateY(0);
-  }
-  100% {
+  50%, 100% {
     transform: translateY(0);
   }
 }
@@ -100,10 +124,7 @@
   45% {
     transform: translateY(0);
   }
-  50% {
-    transform: translateY(-100%);
-  }
-  100% {
+  50%, 100% {
     transform: translateY(-100%);
   }
 }

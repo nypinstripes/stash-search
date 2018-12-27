@@ -1,0 +1,226 @@
+.page-numbers {
+  max-height: 44px;
+  min-height: 44px;
+  margin: 20px 0;
+  max-width: 356px;
+  overflow: hidden;
+  transition: opacity 200ms ease 0s;
+  @include center-x;
+  .loader-active & {
+    display: none;
+    opacity: 0;
+  }
+  &[data-page='1'] {
+    .page-number {
+      &:hover {
+        &:nth-child(2) {
+          span {
+            &::before {
+              background-color: $orangePeel;
+            }
+          }
+        }
+      }
+      &:focus, &:active {
+        &:nth-child(2) {
+          span {
+            &::before {
+              background-color: $orangePeel;
+            }
+          }
+        }
+      }
+      &:first-child {
+        span {
+          color: $nero;
+          &::before {
+            background-color: argb();
+          }
+        }
+      }
+      &:nth-child(2) {
+        span {
+          color: $orangePeel;
+        }
+      }
+      &-btn {
+        &[data-btn='first'],
+        &[data-btn='prev'] {
+          pointer-events: none;
+          .page-number-btn-icon {
+            use {
+              fill: $aluminum;
+            }
+          }
+        }
+        &.is-current-page {
+          pointer-events: none;
+        }
+      }
+    }
+  }
+  &:not([data-page='1']) {
+    &[data-last='true'] {
+      .page-number {
+        &:hover {
+          &:nth-child(2) {
+            span {
+              &::before {
+                background-color: argb();
+              }
+            }
+          }
+        }
+        &:focus, &:active {
+          &:nth-child(2) {
+            span {
+              &::before {
+                background-color: argb();
+              }
+            }
+          }
+        }
+        &:nth-child(3) {
+          span {
+            color: $nero;
+            &::before {
+              background-color: argb();
+            }
+          }
+        }
+        &-btn {
+          &[data-btn='next'],
+          &[data-btn='last'] {
+            pointer-events: none;
+            .page-number-btn-icon {
+              use {
+                fill: $aluminum;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.revealed {
+    @include soft-show;
+  }
+  .page-number {
+    cursor: pointer;
+    margin: 0;
+    text-align: center;
+    @include float-box;
+    @include size(44px);
+    &:hover {
+      span {
+        &::before {
+          @include breakpoint($large) {
+            background-color: $orangePeel;
+          }
+        }
+      }
+      &:nth-child(2) {
+        span {
+          &::before {
+            background-color: argb();
+          }
+        }
+      }
+    }
+    &:focus, &:active {
+      outline: 0;
+      span {
+        &::before {
+          @include breakpoint($large) {
+            background-color: $orangePeel;
+          }
+        }
+      }
+    }
+    &:nth-child(2) {
+      span {
+        color: $nero;
+        &::before {
+          background-color: argb();
+        }
+      }
+    }
+    &-btn {
+      cursor: pointer;
+      position: relative;
+      @include float-box;
+      @include size(34px 44px);
+      &:hover {
+        .page-number-btn-icon {
+          use {
+            @include breakpoint($large) {
+              fill: $ripeLemon;
+            }
+          }
+        }
+      }
+      &:focus, &:active {
+        outline: 0;
+        .page-number-btn-icon {
+          use {
+            @include breakpoint($large) {
+              fill: $ripeLemon;
+            }
+          }
+        }
+      }
+      &[data-btn='first'],
+      &[data-btn='last'] {
+        .page-number-btn-icon {
+          &:nth-child(1) {
+            margin-left: 4px;
+          }
+          &:nth-child(2) {
+            margin-left: -4px;
+          }
+        }
+      }
+      &[data-btn='first'],
+      &[data-btn='prev'] {
+        .page-number-btn-icon {
+          transform: translate(-50%, -50%) rotate(180deg);
+        }
+      }
+      &-icon {
+        @include size(8px 14px);
+        @include center-xy(absolute);
+        @include breakpoint($medium) {
+          @include size(6px 12px);
+        }
+        use {
+          fill: $nero;
+          transition: fill 150ms ease-out;
+        }
+      }
+    }
+    &-container {
+      height: 44px;
+      font-weight: 400;
+      @include float-box;
+    }
+    &-extension {
+      @include float-box;
+      @include size(88px 44px);
+      .page-number-extended {
+        cursor: default;
+        text-align: center;
+        @include float-box;
+        @include size(44px);
+        span {
+          color: $nero;
+          @include center-xy;
+        }
+      }
+    }
+    span {
+      color: $orangePeel;
+      @include center-xy;
+      @include hzUnderline($orangePeel);
+    }
+  }
+}

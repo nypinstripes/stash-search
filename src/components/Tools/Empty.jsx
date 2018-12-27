@@ -1,22 +1,29 @@
-import { connect } from 'react-redux';
 import { object } from 'prop-types';
-import React, { Component } from 'react';
+import React from 'react';
+import SvgIcon from './SvgIcon';
+import SvgSymbol from './SvgSymbol';
 
-class Empty extends Component {
-  static propTypes = {
+const Empty = props => (
+  <div className="empty">
+    <div className="empty-icon-container">
+      <div className="pebble" />
+      <div className="pebble" />
+      <div className="pebble" />
+      <div className="empty-icon">
+        { props.emptyType.iconType === 'symbol' ?
+          <SvgSymbol symbolId={`#${props.emptyType.icon}`} />
+          :
+          <SvgIcon name={props.emptyType.icon} />
+        }
+      </div>
+    </div>
+    <div className="empty-msg">
+      <h2>{props.emptyType.title}</h2>
+      <p>{props.emptyType.subTitle}</p>
+    </div>
+  </div>
+);
 
-  }
+Empty.propTypes = { emptyType: object };
 
-  noop = () => {}
-
-  render() {
-    return (
-      <div className="empty" />
-    );
-  }
-}
-
-const mapStateToProps = (state, ownProps) => ({});
-const mapDispatchToProps = (dispatch, ownProps) => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Empty);
+export default Empty;
