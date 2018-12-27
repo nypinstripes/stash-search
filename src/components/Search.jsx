@@ -1,3 +1,4 @@
+import { GIPHY_KEY } from '../api';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 
@@ -9,6 +10,8 @@ class Search extends Component {
 
   componentDidMount() {
     this.focusSearch();
+
+    console.log(GIPHY_KEY);
   }
 
   componentWillUpdate(nextProps, nextState) {

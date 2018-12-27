@@ -1,3 +1,4 @@
+import { argv } from 'yargs';
 import { getIfUtils, removeEmpty } from 'webpack-config-utils';
 import { join, resolve } from 'path';
 import chalk from 'chalk';
@@ -50,6 +51,9 @@ const config = env => {
 
   const serverVars = {
     baseUrl: JSON.stringify('/'),
+    envVars: {
+      GIPHY_KEY: JSON.stringify(argv.GIPHY_KEY)
+    },
     host: JSON.stringify('build'),
     originalUrl: JSON.stringify('/'),
     'process.env.NODE_ENV': configVars,

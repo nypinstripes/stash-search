@@ -1,3 +1,4 @@
+const envVars = require('../config');
 const express = require('express');
 const helpers = require('../utils/helper-utils');
 const isBrowserSupported = helpers.isBrowserSupported;
@@ -10,7 +11,7 @@ router.get('/', (req, res, next) => {
 
   if (!isBrowserSupported(parser)) res.render('unsupported');
 
-  res.render('index');
+  res.render('index', { envVars });
 });
 
 module.exports = router;
