@@ -28,7 +28,6 @@
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "html-webpack-inline-svg-plugin": "^1.2.4",
     "node-fetch": "^2.3.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -37,7 +36,8 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "ua-parser-js": "^0.7.19"
+    "ua-parser-js": "^0.7.19",
+    "yargs": "^12.0.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
