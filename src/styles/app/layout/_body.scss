@@ -17,7 +17,7 @@
 .app {
   @include float-row;
   &-body {
-    margin-bottom: 99px;
+    margin-bottom: 10px;
     min-height: calc(100vh - 280px);
     position: relative;
     @include float-row;
@@ -39,8 +39,7 @@
 }
 
 .page-root {
-  display: block !important;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
   padding: $appBasePad 0;
   position: relative;
   text-align: center;

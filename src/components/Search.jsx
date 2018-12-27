@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { uniqKey } from '../utils/helperUtils';
 import React, { Component } from 'react';
 
 class Search extends Component {

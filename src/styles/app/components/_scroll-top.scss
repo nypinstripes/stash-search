@@ -63,7 +63,7 @@
         opacity: 1;
       }
       &.footer-offset {
-        transform: translateY(-64px);
+        transform: translateY(-32px);
         @include size(30px);
         @include breakpoint($medium) {
           transform: translateY(0);

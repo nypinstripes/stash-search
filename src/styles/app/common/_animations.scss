@@ -14,6 +14,18 @@
   }
 }
 
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes horizontalReset {
+  100% {
+    transform: translateX(0%);
+  }
+}
+
 @keyframes logoBlobBottom {
   100% {
     stroke: rgba(white, 0.75);
@@ -25,6 +37,32 @@
   100% {
     stroke: rgba(white, 0.75);
     transform: scaleX(0.7) translate(12%, 0%);
+  }
+}
+
+@keyframes rocketExhuast {
+  75% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1) translateY(-10%);
+  }
+}
+
+@keyframes rocketLaunch {
+  100% {
+    transform: translateY(-10%);
+  }
+}
+
+@keyframes scaleIn {
+  75% {
+    opacity: 0.25;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -69,12 +107,6 @@
     transform: translateY(-100%);
   }
 }
-
-// @keyframes fadeIn {
-//   100% {
-//     opacity: 1;
-//   }
-// }
 
 // @keyframes fadeOut {
 //   100% {

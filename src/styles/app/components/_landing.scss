@@ -1,0 +1,116 @@
+.landing {
+  &.page {
+    &-root {
+      margin-top: 25px;
+      @include center-x;
+      @include breakpoint($medium) {
+        @include size(668px 400px);
+      }
+    }
+  }
+  .rocket {
+    @include center-x;
+    @include size(100% 390px);
+    @include breakpoint($medium) {
+      @include size(410px);
+    }
+    > * {
+      transform-origin: 50% 50%;
+      @include position(absolute, 0);
+      @include size(100%);
+      use {
+        fill: rgba(white, 0.75);
+        stroke-width: 0;
+      }
+    }
+    &-body {
+      transform: translateY(25%);
+      z-index: 9;
+      @include animation-reset($delay: 2500ms, $duration: 500ms, $name: rocketLaunch, $timing: ease-in);
+    }
+    &-clouds, &-exhaust {
+      > * {
+        @include position(absolute, 0);
+        @include size(100%);
+      }
+    }
+    &-clouds {
+      opacity: 0;
+      transform: scale(0);
+      transform-origin: 50% 100%;
+      z-index: 10;
+      @include animation-reset($delay: 2s, $duration: 500ms, $name: scaleIn, $timing: ease-in);
+      &-left, &-right {
+        @include animation-reset($delay: 2s, $duration: 1s, $name: horizontalReset, $timing: ease-in);
+      }
+      &-left {
+        transform: translateX(15%);
+        z-index: 2;
+      }
+      &-right {
+        transform: translateX(-30%);
+        z-index: 3;
+      }
+    }
+    &-exhaust {
+      opacity: 0;
+      transform: scaleY(0) translateY(10%);
+      transform-origin: 50% 50%;
+      z-index: 8;
+      @include animation-reset($delay: 2s, $duration: 1s, $name: rocketExhuast, $timing: ease-in);
+      &-left {
+        z-index: 2;
+      }
+      &-right {
+        z-index: 3;
+      }
+    }
+    &-text {
+      z-index: 12;
+      @include position(absolute, 60px null null null);
+      p {
+        clear: both;
+        font-style: italic;
+        font-weight: 700;
+        opacity: 0;
+        position: absolute;
+        text-align: left;
+        transform: rotate(-15deg);
+        z-index: 2;
+        @include animation-reset($duration: 300ms, $name: fadeIn, $timing: ease-in);
+        @include float-box;
+        @include font-height(1.65rem);
+        &.rocket {
+          &-text {
+            &-one {
+              animation-delay: 3s;
+            }
+            &-two {
+              animation-delay: 3300ms;
+              top: 45px;
+            }
+            &-three {
+              animation-delay: 3600ms;
+            }
+            &-four {
+              animation-delay: 3900ms;
+              top: 34px;
+            }
+          }
+        }
+      }
+      &-one, &-two {
+        left: 15%;
+      }
+      &-three, &-four {
+        left: 65%;
+      }
+      &-one, &-three {
+        top: 0;
+      }
+      &-two, &-four {
+
+      }
+    }
+  }
+}
