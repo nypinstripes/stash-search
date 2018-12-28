@@ -1,3 +1,4 @@
+import { inflectTerm } from '../../utils/helperUtils';
 import { number, object, string } from 'prop-types';
 import React from 'react';
 
@@ -6,8 +7,10 @@ const ListInfo = props => (
     style={props.wellStyle}
     title={props.name === 'results' ? props.currentTerm : ''}
   >
-    {props.count} {props.name}{props.name === 'results' ?
-      ` for ${props.currentTerm}` : ''}
+    {props.count} {inflectTerm({
+      count: props.count,
+      term: props.name
+    })}{props.name === 'results' ? ` for ${props.currentTerm}` : ''}
   </h3>
 );
 
