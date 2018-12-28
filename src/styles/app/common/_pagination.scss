@@ -32,7 +32,7 @@
       }
       &:first-child {
         span {
-          color: $nero;
+          color: white;
           &::before {
             background-color: argb();
           }
@@ -82,7 +82,7 @@
         }
         &:nth-child(3) {
           span {
-            color: $nero;
+            color: white;
             &::before {
               background-color: argb();
             }
@@ -97,6 +97,17 @@
                 fill: $aluminum;
               }
             }
+          }
+        }
+      }
+    }
+  }
+  &[data-page='4'] {
+    &[data-last='true'] {
+      .page-number {
+        &:nth-child(2) {
+          span {
+            color: $orangePeel;
           }
         }
       }
@@ -139,7 +150,7 @@
     }
     &:nth-child(2) {
       span {
-        color: $nero;
+        color: white;
         &::before {
           background-color: argb();
         }
@@ -193,7 +204,7 @@
           @include size(6px 12px);
         }
         use {
-          fill: $nero;
+          fill: white;
           transition: fill 150ms ease-out;
         }
       }
@@ -212,7 +223,7 @@
         @include float-box;
         @include size(44px);
         span {
-          color: $nero;
+          color: white;
           @include center-xy;
         }
       }

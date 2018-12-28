@@ -22,7 +22,7 @@
     position: relative;
     @include float-row;
     @include breakpoint($large) {
-      margin-bottom: 89px;
+      margin-bottom: 60px;
     }
     .agent-mobile-safari & {
       margin-bottom: 50px;

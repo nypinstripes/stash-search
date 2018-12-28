@@ -30,6 +30,11 @@
         animation-name: borderShift;
       }
     }
+    &:focus {
+      &::before {
+        animation-iteration-count: 1;
+      }
+    }
     &::before, &::after {
       border-radius: 5px;
       content: '';

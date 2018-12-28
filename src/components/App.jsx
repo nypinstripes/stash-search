@@ -135,27 +135,23 @@ class App extends Component {
           <Search />
           <Switch>
             <Route exact path="/" render={props => <Landing {...props} />} />
-            <Route exact
-              path="/favorites"
+            <Route path="/favorites"
               render={props => <Favorites {...props} />}
             />
-            <Route exact
-              path="/legal"
+            <Route path="/legal"
               render={props => <Legal {...props} />}
             />
-            <Route exact
-              path="/privacy"
+            <Route path="/privacy"
               render={props => <Privacy {...props} />}
             />
-            <Route exact
-              path="/results"
+            <Route path="/results"
               render={props => <SearchResults
                 toggleOverlay={this.toggleOverlay}
                 winW={winW}
                 {...props}
               />}
             />
-            <Route exact path="/terms" render={props => <Terms {...props} />} />
+            <Route path="/terms" render={props => <Terms {...props} />} />
             <Route render={props => <NotFound {...props} />} />
           </Switch>
         </div>

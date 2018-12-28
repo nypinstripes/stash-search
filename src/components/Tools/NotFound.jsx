@@ -1,4 +1,4 @@
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 import React from 'react';
 import SvgIcon from './SvgIcon';
 import SvgSymbol from './SvgSymbol';
@@ -18,4 +18,4 @@ const NotFound = props => (
   </div>
 );
 
-export default withRouter(NotFound);
+export default NotFound;

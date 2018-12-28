@@ -1,10 +1,10 @@
 import { breakpoints } from '../Config';
 import { connect } from 'react-redux';
-import { func, number, object, string } from 'prop-types';
+import { array, func, number, object, string } from 'prop-types';
 import { setListPage } from '../../actions/actionCreators';
 import { withRouter } from 'react-router-dom';
 import Empty from '../Tools/Empty';
-import Item from './Item';
+import ListItem from './ListItem';
 import ListInfo from './ListInfo';
 import React, { Component } from 'react';
 import SvgSymbol from '../Tools/SvgSymbol';
@@ -13,8 +13,9 @@ const appEl = document.getElementById('app-container');
 
 class List extends Component {
   static propTypes = {
+    currentTerm: string,
     emptyType: object,
-    listItems: object,
+    listItems: array,
     listPage: number,
     name: string,
     setListPage: func,
@@ -86,14 +87,10 @@ class List extends Component {
     let btnNumber;
 
     switch(btnType) {
-      case 'first': btnNumber = 1;
-      break;
-      case 'last': btnNumber = totalPages;
-      break;
-      case 'next': btnNumber = currentPage + 1;
-      break;
-      case 'prev': btnNumber = currentPage - 1;
-      break;
+      case 'first': btnNumber = 1; break;
+      case 'last': btnNumber = totalPages; break;
+      case 'next': btnNumber = currentPage + 1; break;
+      case 'prev': btnNumber = currentPage - 1; break;
       default: btnNumber = 1;
     }
 
@@ -107,7 +104,9 @@ class List extends Component {
         tabIndex="0"
       >
         { this.getPagingBtnIcon() }
-        { btnType === 'first' || btnType === 'last' ? this.getPagingBtnIcon() : '' }
+        { btnType === 'first' || btnType === 'last' ?
+          this.getPagingBtnIcon() : ''
+        }
       </div>
     );
   }
@@ -171,9 +170,11 @@ class List extends Component {
     const { setListPage } = this.props;
     const { currentPage, page } = params;
 
-    if (currentPage !== page) this.concealPagingControl();
+    if (currentPage !== page) {
+      this.concealPagingControl();
+      setListPage(parseInt(e.currentTarget.getAttribute('data-number')));
+    }
 
-    setListPage(e.currentTarget.getAttribute('data-number'));
     this.scrollToTop();
   }
 
@@ -208,18 +209,24 @@ class List extends Component {
   }
 
   render() {
-    const { listItems, listPage, name, toggleOverlay, winW } = this.props;
+    const {
+      currentTerm,
+      listItems,
+      listPage,
+      name,
+      toggleOverlay,
+      winW
+    } = this.props;
+
     const { gridW, itemsPerPage, maxGridW } = this.state;
-    let totalItems = Object.keys(listItems).length;
+    let totalItems = listItems.length;
 
     if (totalItems === 0) return this.getEmptyList();
 
-    let nextListItems = Object.keys(listItems).map(key => listItems[key]);
     let lastItem = listPage * itemsPerPage;
     let firstItem = lastItem - itemsPerPage;
-    let currentItems = nextListItems.slice(firstItem, lastItem);
+    let currentItems = listItems.slice(firstItem, lastItem);
     let pageNumbers = [];
-
     let wellWidth = {
       maxWidth: maxGridW,
       width: gridW
@@ -231,23 +238,28 @@ class List extends Component {
 
     return (
       <section className="list">
-        <ListInfo count={totalItems} name={name} wellStyle={wellWidth} />
+        <ListInfo count={totalItems}
+          currentTerm={currentTerm}
+          name={name}
+        />
         <div className="list-grid" style={wellWidth}>
           {currentItems.map((item, i) => {
-            return <Item itemIndex={i}
+            return <ListItem item={item}
+              itemIndex={i}
               key={item.id}
-              name="list"
               pageLength={currentItems.length}
               revealPagingControl={this.revealPagingControl}
               toggleOverlay={toggleOverlay}
-              item={item}
+              type={`${name}-item`}
               winW={winW}
             />;
           })}
         </div>
         {
           totalItems > itemsPerPage ?
-          this.getPagingControl(listPage, pageNumbers) : null
+          this.getPagingControl(listPage, pageNumbers)
+          :
+          null
         }
       </section>
     );
@@ -255,7 +267,8 @@ class List extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  listItems: state.listItems ? state.listItems : {},
+  currentTerm: state.currentTerm ? state.currentTerm : '',
+  listItems: state.listItems ? state.listItems : [],
   listPage: state.listPage ? state.listPage : 1
 });
 

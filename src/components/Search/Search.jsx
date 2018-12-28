@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
-import { object } from 'prop-types';
+import { func, object } from 'prop-types';
+import { setImageSearch } from '../../actions/actionCreators';
 import { withRouter } from 'react-router-dom';
 import React, { Component } from 'react';
 
 class Search extends Component {
   static propTypes = {
-    history: object
+    history: object,
+    setImageSearch: func
   }
 
   state = {
@@ -58,11 +60,13 @@ class Search extends Component {
   }
 
   searchImages = () => {
-    const { history } = this.props;
+    const { history, setImageSearch } = this.props;
+    const { currentSearch: query } = this.state;
 
-    history.push({ pathname: '/results' });
+    if (query.length === 0) return;
 
-    return;
+    history.push(`/results?query=${encodeURIComponent(query)}`);
+    setImageSearch({ query });
   }
 
   render() {
@@ -101,6 +105,8 @@ class Search extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({});
-const mapDispatchToProps = (dispatch, ownProps) => ({});
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  setImageSearch(params) { dispatch(setImageSearch(params)); }
+});
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));

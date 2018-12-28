@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import { getBasicReducer } from '../utils/helperUtils';
 import {
+  SET_CURRENT_ITEM,
+  SET_CURRENT_TERM,
   SET_FAVORITES,
   SET_LIST_ITEMS,
   SET_LIST_PAGE,
@@ -8,12 +10,20 @@ import {
   SET_SCROLLBAR_OFFSET
 } from '../actions/actions';
 
+const currentItem = (state = {}, action) => {
+  return getBasicReducer({ action, name: SET_CURRENT_ITEM, state });
+};
+
+const currentTerm = (state = '', action) => {
+  return getBasicReducer({ action, name: SET_CURRENT_TERM, state });
+};
+
 const favorites = (state = {}, action) => {
   return getBasicReducer({ action, name: SET_FAVORITES, state });
 };
 
-const listItems = (state = {}, action) => {
-  return action.type === SET_LIST_ITEMS ? action : state;
+const listItems = (state = [], action) => {
+  return getBasicReducer({ action, name: SET_LIST_ITEMS, state });
 };
 
 const listPage = (state = 1, action) => {
@@ -29,6 +39,8 @@ const scrollOffset = (state = 0, action) => {
 };
 
 const rootReducer = combineReducers({
+  currentItem,
+  currentTerm,
   favorites,
   listItems,
   listPage,

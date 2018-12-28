@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
-import { object } from 'prop-types';
+import { number, object } from 'prop-types';
 import List from './Tools/List';
 import React, { Component } from 'react';
 
 class Favorites extends Component {
   static propTypes = {
-
+    winW: number
   }
 
   state = {
@@ -20,11 +20,12 @@ class Favorites extends Component {
   noop = () => {}
 
   render() {
+    const { winW } = this.props;
     const { emptyType } = this.state;
 
     return (
       <div className="favorites">
-        <List emptyType={emptyType} name="favorites" />
+        <List emptyType={emptyType} name="favorites" winW={winW} />
       </div>
     );
   }
