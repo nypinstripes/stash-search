@@ -1,7 +1,14 @@
-import { imageSearchReq } from './actionRequests';
+import {
+  imageSearchReq,
+  retrieveFavorites,
+  setupFavorites,
+  syncFavorites
+} from './actionRequests';
+
 import {
   SET_CURRENT_ITEM,
   SET_CURRENT_TERM,
+  SET_FAVORITES,
   SET_LIST_ITEMS,
   SET_LIST_PAGE,
   SET_LOADER_ACTIVE,
@@ -14,6 +21,10 @@ export const setCurrentItemData = payload => {
 
 export const setCurrentTermData = payload => {
   return { payload, type: SET_CURRENT_TERM };
+};
+
+export const setFavoritesData = payload => {
+  return { payload, type: SET_FAVORITES };
 };
 
 export const setListItemsData = payload => {
@@ -45,6 +56,43 @@ export const setImageSearch = params => {
 
       await dispatch(setCurrentTermData(params.query));
       await dispatch(setListItemsData(data));
+    } catch(err) {
+      console.log(err);
+    }
+  };
+};
+
+export const getFavorites = () => {
+  return async dispatch => {
+    try {
+      const { favorites, items } = await retrieveFavorites();
+
+      await dispatch(setFavoritesData(favorites));
+      await dispatch(setListItemsData(items));
+    } catch(err) {
+      console.log(err);
+    }
+  };
+};
+
+export const setFavorites = params => {
+  return async dispatch => {
+    try {
+      const data = await setupFavorites(params);
+
+      await dispatch(setFavoritesData(params));
+    } catch(err) {
+      console.log(err);
+    }
+  };
+};
+
+export const setFavoriteItem = params => {
+  return async dispatch => {
+    try {
+      const data = await syncFavorites(params);
+
+      await dispatch(setFavoritesData(params));
     } catch(err) {
       console.log(err);
     }

@@ -250,7 +250,7 @@ class List extends Component {
               pageLength={currentItems.length}
               revealPagingControl={this.revealPagingControl}
               toggleOverlay={toggleOverlay}
-              type={`${name}-item`}
+              type={name}
               winW={winW}
             />;
           })}

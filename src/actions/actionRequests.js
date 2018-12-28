@@ -15,3 +15,36 @@ export const imageSearchReq = async params => {
       return res.data;
     }).catch(err => console.log(err));
 };
+
+export const retrieveFavorites = () => {
+  let favorites = JSON.parse(localStorage.getItem('favorites'));
+  let items = [];
+
+  if (Object.keys(favorites).length > 0) {
+    items = Object.keys(favorites).map(key => favorites[key]);
+  }
+
+  return { favorites, items };
+};
+
+export const setupFavorites = params => {
+  const { favorites } = params;
+
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+
+  return favorites;
+};
+
+export const syncFavorites = async params => {
+  const { action, item } = params;
+  let favorites = JSON.parse(localStorage.getItem('favorites'));
+
+  if (action === 'add') {
+    favorites = Object.assign({ [item.id]: item }, favorites);
+  } else {
+    delete favorites[item.id];
+  }
+
+  await setupFavorites({ favorites });
+  return await JSON.parse(localStorage.getItem('favorites'));
+};

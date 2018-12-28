@@ -1,10 +1,12 @@
 import { connect } from 'react-redux';
 import { func, number, object } from 'prop-types';
+import { getFavorites } from '../actions/actionCreators';
 import List from './Tools/List';
 import React, { Component } from 'react';
 
 class Favorites extends Component {
   static propTypes = {
+    getFavorites: func,
     toggleOverlay: func,
     winW: number
   }
@@ -18,7 +20,9 @@ class Favorites extends Component {
     }
   }
 
-  noop = () => {}
+  componentWillMount() {
+    this.props.getFavorites();
+  }
 
   render() {
     const { toggleOverlay, winW } = this.props;
@@ -37,6 +41,9 @@ class Favorites extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({});
-const mapDispatchToProps = (dispatch, ownProps) => ({});
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  getFavorites() { dispatch(getFavorites()); }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

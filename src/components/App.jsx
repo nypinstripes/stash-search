@@ -1,7 +1,7 @@
 import { bool, func, number } from 'prop-types';
 import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import { setScrollBarOffset } from '../actions/actionCreators';
+import { setFavorites, setScrollBarOffset } from '../actions/actionCreators';
 import Favorites from './Favorites';
 import Footer from './Layout/Footer';
 import Header from './Layout/Header';
@@ -21,6 +21,7 @@ class App extends Component {
   static propTypes = {
     loaderActive: bool,
     scrollOffset: number,
+    setFavorites: func,
     setScrollBarOffset: func
   }
 
@@ -33,6 +34,7 @@ class App extends Component {
   }
 
   componentWillMount() {
+    this.props.setFavorites({ favorites: {} });
     this.setWindowWidth();
   }
 
@@ -172,6 +174,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  setFavorites(params) { dispatch(setFavorites(params)); },
   setScrollBarOffset(params) { dispatch(setScrollBarOffset(params)); }
 });
 
