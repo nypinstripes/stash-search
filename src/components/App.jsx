@@ -66,7 +66,8 @@ class App extends Component {
         winW={winW}
       />;
     } else {
-      return <Overlay overlayActive={false}
+      return <Overlay disposeOverlay={this.disposeOverlay}
+        overlayActive={false}
         overlayName="default"
         winW={winW}
       />;
@@ -136,7 +137,11 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={props => <Landing {...props} />} />
             <Route path="/favorites"
-              render={props => <Favorites {...props} />}
+              render={props => <Favorites
+                toggleOverlay={this.toggleOverlay}
+                winW={winW}
+                {...props}
+              />}
             />
             <Route path="/legal"
               render={props => <Legal {...props} />}

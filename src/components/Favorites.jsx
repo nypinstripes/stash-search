@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
-import { number, object } from 'prop-types';
+import { func, number, object } from 'prop-types';
 import List from './Tools/List';
 import React, { Component } from 'react';
 
 class Favorites extends Component {
   static propTypes = {
+    toggleOverlay: func,
     winW: number
   }
 
@@ -20,12 +21,16 @@ class Favorites extends Component {
   noop = () => {}
 
   render() {
-    const { winW } = this.props;
+    const { toggleOverlay, winW } = this.props;
     const { emptyType } = this.state;
 
     return (
       <div className="favorites">
-        <List emptyType={emptyType} name="favorites" winW={winW} />
+        <List emptyType={emptyType}
+          name="favorites"
+          toggleOverlay={toggleOverlay}
+          winW={winW}
+        />
       </div>
     );
   }

@@ -1,0 +1,63 @@
+.overlay {
+  background-color: argb();
+  color: white;
+  opacity: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 10000;
+  -webkit-overflow-scrolling: touch;
+  @include position(fixed, 0 0 null 0);
+  @include size(100%);
+  &.concealed {
+    opacity: 0;
+    visibility: visible;
+  }
+  &.revealed {
+    background-color: rgba($nero, 0.9);
+    display: block !important;
+    opacity: 0;
+    @include animation-reset($duration: 150ms, $name: fadeIn, $timing: ease);
+  }
+  &-close {
+    @include close(36px, white);
+    @include position(absolute, 5px 8px null null);
+    @include breakpoint($medium) {
+      right: 20px;
+      top: 15px;
+      @include size(28px);
+    }
+    .overlay-locked & {
+      display: none;
+    }
+    &::before, &::after {
+      @include breakpoint($medium) {
+        width: 28px;
+      }
+    }
+  }
+  &-container {
+    min-width: 280px;
+    display: inline-block;
+    padding: 0;
+    transform: translateX(-50%) scale(1);
+    transition: visibility 200ms linear 200ms, opacity 200ms linear 300ms, top 100ms linear 300ms;
+    z-index: 2;
+    @include position(absolute, -100px null null 50%);
+    @include soft-hide;
+    &.auth-overlay-container, &.crop-overlay-container {
+      transition: visibility 200ms linear 200ms, opacity 200ms linear 300ms, top 0s linear 0s;
+    }
+  }
+  &-content {
+    padding-bottom: 400px;
+  }
+  .overlay {
+    &-container {
+      top: 50px;
+      @include soft-show;
+      @include breakpoint($medium) {
+        top: 60px;
+      }
+    }
+  }
+}

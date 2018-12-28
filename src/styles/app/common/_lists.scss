@@ -3,6 +3,7 @@
   position: relative;
   @include float-row;
   &-grid {
+    margin-top: 12px;
     max-width: calc(100% - 30px);
     @include center-x;
     @include breakpoint($medium) {
@@ -22,15 +23,21 @@
     @include font-height(1rem, 1rem);
   }
   &-item {
+    max-width: 480px;
     overflow: hidden;
+    outline: none;
     position: relative;
     transition: margin 80ms linear 0s;
     width: 100%;
-    @include float-box;
+    @include center-x;
     @include breakpoint($medium) {
+      clear: none;
       margin: 0 6px;
+      max-width: 288px;
       min-height: 171px;
       opacity: 0;
+      left: auto;
+      transform: translateX(0);
       width: 288px;
     }
     @include breakpoint($large) {
@@ -39,13 +46,25 @@
     @include breakpoint($xLarge) {
       margin: 0 12px;
     }
+    &:focus {
+      .list {
+        &-item {
+          &-img {
+            &-fg {
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
     &.expanding {
       opacity: 0;
       @include animation-reset($delay: 50ms, $duration: 400ms, $name: fadeIn, $timing: linear);
     }
     &-container {
-      background-color: orange;
+      background-color: rgba($nero, 0.5);
       backface-visibility: hidden;
+      cursor: pointer;
       height: auto;
       margin-bottom: 50px;
       overflow: hidden;
@@ -56,6 +75,65 @@
       @include float-row;
       @include breakpoint($medium) {
         padding-top: calc(100% / (16 / 9));
+      }
+      &:hover {
+        .list {
+          &-item {
+            &-img {
+              &-fg {
+                opacity: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    &-favorite {
+      cursor: pointer;
+      outline: none;
+      z-index: 4;
+      @include position(absolute, 0 0 null null);
+      @include size(44px);
+      &:hover {
+        path {
+          @include breakpoint($large) {
+            fill: $ripeLemon;
+            transform: scale(1.2);
+          }
+        }
+      }
+      &:focus, &:active {
+        path {
+          fill: $ripeLemon;
+          transform: scale(1.2);
+        }
+      }
+      &.active {
+        &:hover {
+          path {
+            @include breakpoint($large) {
+              fill: argb();
+            }
+          }
+        }
+        &:focus, &:active {
+          path {
+            fill: argb();
+          }
+        }
+        path {
+          fill: $ripeLemon;
+        }
+      }
+      &-container {
+        @include center-xy;
+        @include size(28px);
+      }
+      path {
+        stroke: $ripeLemon;
+        stroke-width: 4px;
+        transform-origin: 50% 50%;
+        transition: transform 175ms ease-out 0s, fill 100ms ease 0s, stroke 125ms linear 0s;
       }
     }
     &-loading {
@@ -78,15 +156,56 @@
         }
       }
     }
-    &-img, &-title {
-      cursor: pointer;
-      opacity: 1;
+    &-img {
       top: 0;
       z-index: 2;
-      transition: opacity 125ms ease 0s;
-      @include bg-reset(contain);
-      @include center-x(absolute);
+      @include position(absolute, 0);
       @include size(100%);
+      &-bg, &-fg {
+        top: 0;
+        @include bg-reset(contain);
+        @include center-x(absolute);
+        @include size(100%);
+      }
+      &-bg {
+        backface-visibility: hidden;
+        background-color: argb();
+        max-width: 100%;
+        max-height: 100%;
+        outline: none;
+        overflow: hidden;
+        padding: 0;
+        perspective: 1000px;
+        pointer-events: none;
+        z-index: 3;
+        @include user-select(none);
+        &:-moz-full-screen {
+          position: absolute;
+        }
+        &:-webkit-full-screen {
+          height: 100% !important;
+          width: 100% !important;
+        }
+        video {
+          backface-visibility: hidden;
+          background-color: argb();
+          height: 100%;
+          max-width: 100%;
+          outline: 0;
+          pointer-events: none;
+          position: relative;
+          top: 0;
+          transition: opacity 300ms ease 0s;
+          width: auto;
+          z-index: 3;
+          @include center-x;
+          @include no-spacing;
+        }
+      }
+      &-fg {
+        opacity: 1;
+        z-index: 4;
+      }
     }
     &-overlay {
       &-body {
@@ -175,10 +294,13 @@
         }
       }
       h5 {
-        padding: 0 2%;
-        max-width: 100%;
-        @include center-x;
-        @include size(118px 100%);
+        cursor: pointer;
+        font-weight: 300;
+        height: 17px;
+        text-align: center;
+        @include center-xy;
+        @include ellipsis;
+        @include font-height(0.9rem, 0.9rem);
         .overlay & {
           padding: 0;
           @include breakpoint($large) {

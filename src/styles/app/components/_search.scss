@@ -97,7 +97,7 @@
       top: 50%;
       transform: translate(-50%, -50%) scale(0);
       transform-origin: 0 0;
-      @include animation-reset($delay: -50ms, $duration: 300ms, $name: explode, $timing: ease-in);
+      @include animation-reset($delay: -50ms, $duration: 300ms, $name: explode);
       @include close(18px);
       @include float-box;
     }

@@ -12,6 +12,7 @@ class SearchResults extends Component {
     currentTerm: string,
     setImageSearch: func,
     setListItems: func,
+    toggleOverlay: func,
     winW: number
   }
 
@@ -53,7 +54,7 @@ class SearchResults extends Component {
   }
 
   render() {
-    const { winW } = this.props;
+    const { toggleOverlay, winW } = this.props;
     const { currentSearch, emptyType, goToSearch } = this.state;
 
     return (
@@ -62,6 +63,7 @@ class SearchResults extends Component {
           currentSearch={currentSearch}
           emptyType={emptyType}
           name="results"
+          toggleOverlay={toggleOverlay}
           winW={winW}
         />
       </div>
