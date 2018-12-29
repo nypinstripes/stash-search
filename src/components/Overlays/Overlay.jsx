@@ -69,11 +69,10 @@ class Overlay extends Component {
 
   getOverlayContainer = () => {
     const { currentOverlayName } = this.state;
-    let containerClass = 'overlay-container dynamic-overlay-container';
     let overlayClass = `${currentOverlayName}-overlay-container`;
 
     return (
-      <div className={`${containerClass} ${overlayClass}`}>
+      <div className={`overlay-container ${overlayClass}`}>
         {this.getOverlay(currentOverlayName)}
       </div>
     );
@@ -90,7 +89,8 @@ class Overlay extends Component {
     const { currentOverlayName } = this.state;
 
     return (
-      <div className={`${this.getOverlayClass(currentOverlayName)}`}
+      <div aria-modal
+        className={`${this.getOverlayClass(currentOverlayName)}`}
         onClick={this.shouldOverlayDispose}
         style={{ right: `${scrollOffset}px` }}
       >

@@ -3,7 +3,6 @@ import { func, number, object, string } from 'prop-types';
 import { setImageSearch, setListItems } from '../../actions/actionCreators';
 import { Redirect, withRouter } from 'react-router-dom';
 import List from '../Tools/List';
-import Loader from '../Tools/Loader';
 import queryString from 'query-string';
 import React, { Component } from 'react';
 

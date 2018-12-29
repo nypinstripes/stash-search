@@ -19,7 +19,6 @@ import React, { Component } from 'react';
 
 class App extends Component {
   static propTypes = {
-    loaderActive: bool,
     scrollOffset: number,
     setFavorites: func,
     setScrollBarOffset: func
@@ -89,12 +88,9 @@ class App extends Component {
   getAppClasses = () => {
     let offsetScroll = this.getScrollOffset();
     let pageName = this.getPageName();
-    let showLoader = `loader-${this.getLoaderActivity()}`;
 
-    return `app ${showLoader}${pageName}${offsetScroll}`;
+    return `app ${pageName}${offsetScroll}`;
   }
-
-  getLoaderActivity = () => this.props.loaderActive ? 'active' : 'inactive'
 
   getPageName = () => {
     let path = location.pathname;
@@ -169,7 +165,6 @@ class App extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  loaderActive: state.loaderActive ? state.loaderActive : false,
   scrollOffset: state.scrollOffset ? state.scrollOffset : 0
 });
 
