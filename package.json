@@ -8,7 +8,7 @@
     "url": "git@github.com:nypinstripes/stash-search.git"
   },
   "private": false,
-  "version": "0.0.1",
+  "version": "2.0.0",
   "scripts": {
     "build": "webpack --env.prod --optimize-minimize --GIPHY_KEY=GZKGwdu6xlIM0iV58yFKJOFLqj0NLXFw -p",
     "build:dev": "webpack --env.dev --GIPHY_KEY=GZKGwdu6xlIM0iV58yFKJOFLqj0NLXFw -d",
@@ -16,9 +16,10 @@
     "debug:dev": "npm run debug -- --env.dev",
     "debug:prod": "npm run debug -- --env.prod",
     "format": "prettier --write --single-quote --print-width=120 --parser=flow --tab-width=2 \"src/components/**/*.{js,jsx}\"",
+    "launch": "yarn build && yarn serve",
     "lint": "eslint **/*.{js,jsx} --quiet",
     "serve": "node server/server.js --GIPHY_KEY=GZKGwdu6xlIM0iV58yFKJOFLqj0NLXFw",
-    "start": "npm run build:dev && npm run serve",
+    "start": "npm run build && npm run serve",
     "start:dev": "webpack-dev-server --port 8080 --env.dev --hot",
     "test": "jest",
     "test:update": "jest -u",
