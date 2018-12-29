@@ -33,7 +33,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    this.props.setFavorites({ favorites: {} });
+    this.setupFavorites();
     this.setWindowWidth();
   }
 
@@ -111,6 +111,13 @@ class App extends Component {
   }
 
   getScrollOffset = () => this.props.scrollOffset > 0 ? ' offset-scroll' : '';
+
+  setupFavorites = () => {
+    const { setFavorites } = this.props;
+
+    if (!JSON.parse(localStorage.getItem('favorites'))) return setFavorites({ favorites: {} });
+  }
+
   setWindowWidth = () => this.setState({ winW: window.innerWidth })
 
   toggleOverlay = options => {

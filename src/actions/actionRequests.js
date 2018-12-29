@@ -3,7 +3,7 @@ import { setReqOptions } from '../utils/reqHelpers';
 
 export const imageSearchReq = async params => {
   const { query } = params;
-  let limit = 'limit=100';
+  let limit = 'limit=200';
   let phrase = `q=${encodeURIComponent(query)}`;
   let searchUrl = `${GIPHY_API_URL}?api_key=${GIPHY_KEY}&${phrase}&${limit}`;
 
