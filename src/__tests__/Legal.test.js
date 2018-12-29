@@ -1,11 +1,12 @@
 import { create } from 'react-test-renderer';
 import App from '../components/App';
-import Landing from '../components/Landing';
+import Legal from '../components/Docs/Legal';
 import React from 'react';
 import ServerRouter, { withRouter } from 'react-router-dom';
 
 test('snapshot', () => {
-  const landingComponent = create(withRouter(<Landing />));
+  const legalComponent = create(withRouter(<Legal />));
 
-  expect(landingComponent.toJSON()).toMatchSnapshot();
+  expect(legalComponent.toJSON()).toMatchSnapshot();
 });
+
