@@ -326,6 +326,7 @@ $webkit-support: webkit spec;
     background-color: $override;
     content: '';
     transition: background-color 150ms ease 0s;
+    z-index: 5;
     @include position(absolute, null 0 -1px 0);
     @include size(100% 1px);
   }

@@ -23,6 +23,7 @@
     @include font-height(1rem, 1rem);
   }
   &-item {
+    backface-visibility: hidden;
     max-width: 480px;
     overflow: hidden;
     outline: none;
@@ -46,15 +47,23 @@
     @include breakpoint($xLarge) {
       margin: 0 12px;
     }
-    &:focus {
-      .list {
-        &-item {
-          &-img {
-            &-fg {
-              opacity: 0;
-            }
+    &:hover {
+      h5 {
+        &::before {
+          @include breakpoint($large) {
+            background-color: white;
           }
         }
+      }
+    }
+    &:focus {
+      h5 {
+        &::before {
+          background-color: white;
+        }
+      }
+      .list-item-img-fg {
+        opacity: 0;
       }
     }
     &.expanded {
@@ -77,14 +86,8 @@
         padding-top: calc(100% / (16 / 9));
       }
       &:hover {
-        .list {
-          &-item {
-            &-img {
-              &-fg {
-                opacity: 0;
-              }
-            }
-          }
+        .list-item-img-fg {
+          opacity: 0;
         }
       }
     }
@@ -95,7 +98,9 @@
       @include position(absolute, 0 0 null null);
       @include size(44px);
       .overlay & {
-        right: 12px;
+        left: 12px;
+        right: auto;
+        top: -53px;
       }
       &:hover {
         path {
@@ -127,32 +132,14 @@
         transition: transform 175ms ease-out 0s, fill 100ms ease 0s, stroke 125ms linear 0s;
       }
     }
-    &-loading {
-      &-container {
-        transition: opacity 100ms linear 0s;
-        @include position(absolute, 0 null null 0);
-        @include size(100%);
-        h6 {
-          color: $aluminum;
-          margin-top: -20px;
-          z-index: 2;
-          @include center-xy;
-          @include font-height(1rem, 1.5rem);
-        }
-        .loader {
-          margin-top: 35px;
-          z-index: 3;
-          @include center-xy(absolute);
-          @include size(40px);
-        }
-      }
-    }
     &-img {
+      backface-visibility: hidden;
       top: 0;
       z-index: 2;
       @include position(absolute, 0);
       @include size(100%);
       &-bg, &-fg {
+        backface-visibility: hidden;
         top: 0;
         @include bg-reset(contain);
         @include center-x(absolute);
@@ -174,8 +161,7 @@
           position: absolute;
         }
         &:-webkit-full-screen {
-          height: 100% !important;
-          width: 100% !important;
+          @include size(100%);
         }
         video {
           backface-visibility: hidden;
@@ -196,75 +182,6 @@
       &-fg {
         opacity: 1;
         z-index: 4;
-      }
-    }
-    &-overlay {
-      &-body {
-        position: relative;
-        width: 100vw;
-        @include float-box;
-        &-content {
-          padding: 0 2.5%;
-          width: 100%;
-          @include center-x;
-          @include breakpoint($large) {
-            width: calc(151% / (16 / 9));
-          }
-          @include breakpoint($xxxLarge) {
-            max-width: 1800px;
-          }
-        }
-      }
-      &-details {
-        margin-top: 30px;
-        position: relative;
-        @include float-row;
-        @include breakpoint($medium) {
-          clear: left;
-          display: inline-block;
-          margin-top: 20px;
-        }
-        .form-row {
-          margin-top: 8px;
-          @include breakpoint($large) {
-            margin-top: 10px;
-          }
-          &:first-child {
-            margin: 0;
-          }
-          .field {
-            &-label, &-value {
-              clear: both;
-              min-height: 15px;
-              position: relative;
-              top: 0;
-              transform: translateY(0);
-              @include font-height(0.85rem, 1.15rem);
-              @include breakpoint($large) {
-                clear: none;
-                text-align: right;
-              }
-            }
-            &-label {
-              left: 0;
-              @include breakpoint($medium) {
-                min-width: 90px;
-              }
-              @include breakpoint($large) {
-                padding-right: 12px;
-              }
-            }
-            &-value {
-              margin-top: 10px;
-              @include breakpoint($large) {
-                margin-top: 0;
-              }
-              > span {
-                color: $aluminum;
-              }
-            }
-          }
-        }
       }
     }
     &-title {
@@ -292,11 +209,9 @@
         @include center-xy;
         @include ellipsis;
         @include font-height(0.9rem, 0.9rem);
-        .overlay & {
-          padding: 0;
-          @include breakpoint($large) {
-            padding-left: 90px;
-          }
+        @include hzUnderline($color: white);
+        &::before {
+          bottom: 0;
         }
       }
     }

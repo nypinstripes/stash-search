@@ -13,10 +13,19 @@
     visibility: visible;
   }
   &.revealed {
-    background-color: rgba($nero, 0.9);
+    background-color: rgba(black, 0.95);
     display: block !important;
     opacity: 0;
     @include animation-reset($duration: 150ms, $name: fadeIn, $timing: ease);
+  }
+  &-avatar {
+    border-radius: 40px;
+    overflow: hidden;
+    z-index: 2;
+    @include bg-reset(contain);
+    @include float-box;
+    @include position(absolute, 0 null null 0);
+    @include size(80px);
   }
   &-close {
     @include close(36px, white);
@@ -41,15 +50,207 @@
     padding: 0;
     transform: translateX(-50%) scale(1);
     transition: visibility 200ms linear 200ms, opacity 200ms linear 300ms, top 100ms linear 300ms;
+    width: 100%;
     z-index: 2;
     @include position(absolute, -100px null null 50%);
     @include soft-hide;
-    &.auth-overlay-container, &.crop-overlay-container {
-      transition: visibility 200ms linear 200ms, opacity 200ms linear 300ms, top 0s linear 0s;
-    }
   }
   &-content {
     padding-bottom: 400px;
+    width: 100%;
+    @include center-x;
+    &-body {
+      clear: both;
+      max-height: calc(100vw / (16 / 9));
+      position: relative;
+      width: 100vw;
+      @include float-box;
+      &-container {
+        max-height: calc(100vh / (16 / 9));
+        overflow: hidden;
+        top: 0;
+        @include center-x(absolute);
+        @include size(100%);
+      }
+      &-content {
+        background-color: rgba($nero, 0.9);
+        max-height: 768px;
+        position: relative;
+        top: 0;
+        @include float-box;
+        @include size(100% calc(100vw / (16 / 9)));
+        @include breakpoint($large) {
+          height: calc(100vh / (16 / 9));
+        }
+      }
+    }
+  }
+  &-details {
+    clear: both;
+    padding: 0 2.5%;
+    position: relative;
+    width: 100%;
+    @include center-x;
+    @include breakpoint($large) {
+      width: calc(145% / (16 / 9));
+    }
+    @include breakpoint($xxxLarge) {
+      max-width: 1075px;
+    }
+    &.user {
+      &-none {
+        .overlay {
+          &-details {
+            &-container {
+              padding-left: 0;
+            }
+          }
+          &-info {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+    &-container {
+      clear: both;
+      margin-top: 18px;
+      padding-left: 100px;
+      position: relative;
+      @include float-row;
+    }
+  }
+  &-info {
+    margin-top: 16px;
+    @include float-row;
+    &-attribution {
+      margin-top: 6px;
+      a, span {
+        text-align: left;
+        font-weight: 300;
+        @include font-height(0.8rem, 1rem);
+      }
+      a {
+        color: $orangePeel;
+        display: inline;
+        &:hover {
+          @include breakpoint($large) {
+            text-decoration: underline;
+          }
+        }
+        &:focus, &:active {
+          text-decoration: underline;
+        }
+      }
+      span {
+        color: $aluminum;
+      }
+    }
+    > * {
+      clear: both;
+      @include float-box;
+    }
+  }
+  &-title {
+    clear: both;
+    margin-top: 20px;
+    width: 100%;
+    @include float-box;
+  }
+  h3 {
+    color: white;
+    font-weight: 700;
+    left: 0;
+    margin-top: 0;
+    max-width: 96%;
+    outline: 0;
+    overflow: visible;
+    text-align: left;
+    text-overflow: ellipsis;
+    word-wrap: normal;
+    white-space: normal;
+    @include float-box;
+    @include font-height(1.25rem, 1.5rem);
+    @include position(null null null 0);
+  }
+  video {
+    backface-visibility: hidden;
+    background-color: argb();
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    outline: 0;
+    pointer-events: none;
+    position: relative;
+    top: 0;
+    transition: opacity 300ms ease 0s;
+    width: auto;
+    z-index: 3;
+    @include center-x;
+    @include no-spacing;
+  }
+  .field {
+    &-label, &-value {
+      clear: none;
+      font-weight: 300;
+      min-height: 15px;
+      position: relative;
+      top: 0;
+      transform: translateY(0);
+      @include font-height(0.9rem, 1.15rem);
+      @include float-box;
+    }
+    &-label {
+      left: 0;
+      min-width: 65px;
+      padding-right: 12px;
+      text-align: right;
+      &#item-tags {
+        & + .field-value {
+          > * {
+            color: $aluminum;
+            position: relative;
+            @include float-box;
+          }
+          > a {
+            color: $orangePeel;
+            margin-left: 5px;
+            @include hzUnderline($color: white);
+            &:first-child {
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+    &-value {
+      margin-top: 0;
+      text-align: left;
+      &[data-rating] {
+        font-weight: 400;
+      }
+      &[data-rating='g'], &[data-rating='y'] {
+        color: $springGreen;
+      }
+      &[data-rating='pg'] {
+        color: $ripeLemon;
+      }
+      &[data-rating='pg-13'] {
+        color: $orangePeel;
+      }
+      &[data-rating='r'], &[data-rating='nc-17'], &[data-rating='x'] {
+        color: red;
+      }
+      > span {
+        color: $aluminum;
+      }
+    }
+
+  }
+  .form {
+    &-row {
+      margin-top: 10px;
+      width: 100%;
+    }
   }
   .overlay {
     &-container {

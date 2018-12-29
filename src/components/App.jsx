@@ -86,25 +86,27 @@ class App extends Component {
   }
 
   getAppClasses = () => {
+    const { overlayActive } = this.state;
+    let activeOverlay = overlayActive ? ' overlay-active' : '';
     let offsetScroll = this.getScrollOffset();
     let pageName = this.getPageName();
 
-    return `app ${pageName}${offsetScroll}`;
+    return `app ${pageName}${activeOverlay}${offsetScroll}`;
   }
 
   getPageName = () => {
     let path = location.pathname;
 
-    if (path === '/') return ' landing';
+    if (path === '/') return 'landing';
 
     path = path.substring(1);
 
     if (path.indexOf('/') === -1) {
-      return ` ${path}`;
+      return path;
     } else {
       let extension = '';
 
-      return ` ${path.substring(0, path.indexOf('/'))}${extension}`;
+      return `${path.substring(0, path.indexOf('/'))}${extension}`;
     }
   }
 

@@ -87,9 +87,17 @@
         }
       }
     }
+    &-left, &-right {
+      transform: translateY(-50%);
+      > * {
+        transition: opacity 100ms ease 0s;
+        .overlay-active & {
+          opacity: 0.25;
+        }
+      }
+    }
     &-left {
       left: 13px;
-      transform: translateY(-50%);
       @include breakpoint($medium) {
         left: 24px;
       }
@@ -193,7 +201,6 @@
     &-right {
       height: 100%;
       right: 0;
-      transform: translateY(-50%);
     }
   }
 }

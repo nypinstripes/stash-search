@@ -207,7 +207,6 @@ class Item extends Component {
         onMouseLeave={this.toggleActive}
         ref={ref => this.listItem = ref}
         role="ListItem"
-        title={title}
         tabIndex="0"
       >
         <div className="list-item-container">
@@ -233,7 +232,7 @@ class Item extends Component {
           </div>
         </div>
         <div className="list-item-title">
-          <h5 role="Heading">{title}</h5>
+          <h5 role="Heading" title={title}>{title}</h5>
         </div>
       </div>
     );
