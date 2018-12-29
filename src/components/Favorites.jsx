@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { func, number, object } from 'prop-types';
+import { func, number } from 'prop-types';
 import { getFavorites } from '../actions/actionCreators';
 import List from './Tools/List';
 import React, { Component } from 'react';

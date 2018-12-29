@@ -1,4 +1,3 @@
-// import { withRouter } from 'react-router-dom';
 import React from 'react';
 import SvgIcon from './SvgIcon';
 import SvgSymbol from './SvgSymbol';
