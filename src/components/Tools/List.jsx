@@ -237,12 +237,12 @@ class List extends Component {
     }
 
     return (
-      <section className="list">
+      <section aria-live="polite" className="list">
         <ListInfo count={totalItems}
           currentTerm={currentTerm}
           name={name}
         />
-        <div className="list-grid" style={wellWidth}>
+        <div className="list-grid" role="List" style={wellWidth}>
           {currentItems.map((item, i) => {
             return <ListItem item={item}
               itemIndex={i}

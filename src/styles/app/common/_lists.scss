@@ -94,6 +94,9 @@
       z-index: 4;
       @include position(absolute, 0 0 null null);
       @include size(44px);
+      .overlay & {
+        right: 12px;
+      }
       &:hover {
         path {
           @include breakpoint($large) {

@@ -1,14 +1,19 @@
 import { breakpoints } from '../Config';
 import { connect } from 'react-redux';
 import { func, number, object, string } from 'prop-types';
-import { getFavorites, setCurrentItem, setFavoriteItem } from '../../actions/actionCreators';
+import {
+  getFavorites,
+  setCurrentItem,
+  setFavoriteItem
+} from '../../actions/actionCreators';
+
 import React, { Component } from 'react';
 import SvgIcon from './SvgIcon';
 
 class Item extends Component {
   static propTypes = {
     currentItem: object,
-    favorites: object,
+    favorites: object, // eslint-disable-line react/no-unused-prop-types
     getFavorites: func,
     item: object,
     itemIndex: number,
@@ -29,7 +34,7 @@ class Item extends Component {
   }
 
   componentWillMount() {
-    const { itemIndex, type } = this.props;
+    const { itemIndex } = this.props;
     let itemOffset = 75;
     let loadOffset = itemIndex * itemOffset;
 
@@ -42,12 +47,11 @@ class Item extends Component {
 
   componentWillReceiveProps(nextProps) {
     const {
-      favorites: nextFavorites,
       item: nextItem,
       currentItem: nextCurrentItem
     } = nextProps;
 
-    const { item, setCurrentItem, type } = this.props;
+    const { item, setCurrentItem } = this.props;
 
     if (nextCurrentItem.id === nextItem.id && nextItem.id !== item.id) {
       setCurrentItem({ item: nextItem });
@@ -59,15 +63,17 @@ class Item extends Component {
   componentWillUpdate(nextProps, nextState) {
     const { getFavorites, type } = this.props;
     const { isFavorite: nextIsFavorite } = nextState;
-    const { isFavorite } = this.state;
+    const { isFavorite } = this.state; // eslint-disable-line react/prop-types
 
     if (type === 'favorites' && nextIsFavorite !== isFavorite) {
+      // eslint-disable-next-line react/prop-types
       this.listItem.classList.remove('expanded');
       getFavorites();
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
+    // eslint-disable-next-line react/prop-types
     const { isExpanding, isExpandingTimeout } = this.state;
 
     if (isExpanding !== prevState.isExpanding) clearTimeout(isExpandingTimeout);
@@ -127,12 +133,13 @@ class Item extends Component {
   }
 
   launchOverlay = async e => {
-    const { setCurrentItem, toggleOverlay, item } = this.props;
+    const { setCurrentItem, toggleOverlay, item, type } = this.props;
+    const { isFavorite } = this.state;
 
     e.stopPropagation();
     await setCurrentItem({ item });
     await toggleOverlay({
-      data: {},
+      data: { isFavorite, type },
       name: 'item-image'
     });
   }
@@ -171,6 +178,7 @@ class Item extends Component {
 
     e.stopPropagation();
     this.setState({ isFavorite: !isFavorite });
+    this.favoriteEl.blur();
     setFavoriteItem({ action, item });
   }
 
@@ -192,13 +200,13 @@ class Item extends Component {
     return (
       <div className={`${type} list-item ${isExpanding}`}
         id={`list-item-${id}`}
-        onBlur={e => this.setState({ itemActive: false })}
         onClick={this.onItemAction}
         onFocus={e => this.setState({ itemActive: true })}
         onKeyDown={this.onActionKeyDown}
         onMouseEnter={this.toggleActive}
         onMouseLeave={this.toggleActive}
         ref={ref => this.listItem = ref}
+        role="ListItem"
         title={title}
         tabIndex="0"
       >
@@ -206,13 +214,16 @@ class Item extends Component {
           <div className="list-item-img">
             { itemActive ? this.getItemVideo() : null }
             <div className="list-item-img-fg"
+              role="Img"
               style={{ backgroundImage: `url(${still})`}}
             />
           </div>
           <div className={`list-item-favorite${isFavorite ? ' active' : ''}`}
             onClick={this.toggleFavorite}
+            onFocus={e => this.setState({ itemActive: true })}
             onKeyDown={this.onActionKeyDownFavorite}
             role="Button"
+            ref={ref => this.favoriteEl = ref}
             tabIndex="0"
             title={this.getFavoriteTitle()}
           >
@@ -222,7 +233,7 @@ class Item extends Component {
           </div>
         </div>
         <div className="list-item-title">
-          <h5>{title}</h5>
+          <h5 role="Heading">{title}</h5>
         </div>
       </div>
     );
