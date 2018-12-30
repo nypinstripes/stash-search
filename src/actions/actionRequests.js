@@ -1,4 +1,4 @@
-import { GIPHY_KEY, GIPHY_API_URL } from '../api';
+import { GIPHY_KEY, GIPHY_API_URL } from '../components/Config/api';
 import { setReqOptions } from '../utils/reqHelpers';
 
 export const imageSearchReq = async params => {

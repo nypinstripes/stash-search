@@ -39,7 +39,6 @@
 1. [Pages & Previews](#pages-&-previews)
 1. [TODOs](#todos)
 
-<br />
 
 <a name="setting-up-stashy"></a>
 ## Setting up Stashy
@@ -120,7 +119,7 @@ There are a few ways to run the tests for Stashy. Presently there are only tests
 - [x] Careful attention payed to UI/UX details, including responsive layout paradigms for use on multiple sized devices.
 - [x] Install dependencies on `yarn/npm install`.
 - [x] Build App & Start Server on `http://localhost:3000/` with `yarn launch` or `npm start`.
-- [x] Do what we do best.
+- [x] Have Fun doing what we do best.
 
 
 
@@ -135,18 +134,19 @@ There are a few ways to run the tests for Stashy. Presently there are only tests
 
 
 
+
 <a name="todos"></a>
 ## TODOs
 
-- [ ] On List/Grid views, remove custom pagination & add Infinite (Fetch and) Scroll using an old fav lib [React-Virtualized](https://bvaughn.github.io/react-virtualized/#/components/Collection).
-- [ ] Complete adding `< Prev` & `Next >` navigation controls on Item detail (overlay) View.
-- [ ] Make navigating between items in Item detail (overlay) Views "perma-linkable" & update url on navigating.
-- [ ] Test & Add tap, touch & swipe controls for mobile browsers.
+- [ ] On List/Grid views, remove custom pagination & add Infinite (Fetch &) Scroll, using [React-Virtualized](https://bvaughn.github.io/react-virtualized/#/components/Collection).
+- [ ] Complete adding `< Prev` & `Next >` navigation controls on Item detail (ImageItemOverlay) view.
+- [ ] Make navigating between items in Item detail (ImageItemOverlay) views "perma-linkable" & update url on navigating.
+- [ ] Add tap, touch & swipe controls for mobile devices.
 - [ ] Add more tests & increase coverage & reliability.
-- [ ] Perform more x-browser/device/OS UI/UX sanity checking (currently only verified in Chrome/Chromium).
+- [ ] Perform more x-browser/device/OS UI/UX QA sanity checking (currently only verified in Chrome/Chromium).
 - [ ] Do a full performance (loading, updating & painting) audit, including choosing network optimized media sizes.
 - [ ] Fix occasional flickers & jumps on toggling ListItem GIF Stills & MP4s.
 - [ ] Fix occasional double render issues for lists on search.
-- [ ] Mock item share controls on ListItem and in details overlay.
-- [ ] Use ejs-loader, in webpack, in place of [HtmlWebpackPlugin](https://github.com/jantimon/html-webpack-plugin), or switch from ejs to haml, handlebars or dtoJS etc. for cleaner server-side markup allowing for use of partials with webpack.
-- [ ] Use some more advanced webpack features such as Tree-Shaking, CommonsChunking and make use of ES6 component lazy-loading with System.import();
+- [ ] Mock item share controls on the ListItem component and on the Item detail (ImageItemOverlay) view.
+- [ ] Use one of the [ejs-loader](https://github.com/okonet/ejs-loader) variants, in webpack, in place of [HtmlWebpackPlugin](https://github.com/jantimon/html-webpack-plugin), or switch from ejs to Jade, haml, handlebars or dotJS etc. for clearer server-side markup that permits using partials, yet still minifies markup when built with webpack.
+- [ ] Make use of some of the deeper webpack optimization features like Tree-Shaking, CommonsChunking and make use of lazy component loading with System.import();
