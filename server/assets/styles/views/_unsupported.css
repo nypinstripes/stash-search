@@ -1,3 +1,17 @@
+@keyframes logoBlobBottom {
+  100% {
+    stroke: rgba(255,255,255, 0.75);
+    transform: scaleX(0.7) translate(-6%, 0%);
+  }
+}
+
+@keyframes logoBlobTop {
+  100% {
+    stroke: rgba(255,255,255, 0.75);
+    transform: scaleX(0.7) translate(12%, 0%);
+  }
+}
+
 h1, h2, h4 {
   clear: both;
   display: inline-block;
@@ -30,6 +44,14 @@ h4 {
   margin-left: 20px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+svg {
+  height: 100%;
+  overflow: visible;
+  transform-origin: 50% 50%;
+  transition: fill 175ms ease-in-out;
+  width: 100%;
 }
 
 #app-container {
@@ -99,6 +121,170 @@ h4 {
   width: 200px;
 }
 
+.page-header {
+  background: rgba(32,32,32, 0.98);
+  border-bottom: solid 1px rgba(238,238,238, 0.1);
+  box-shadow: 0 -1px 14px 2px rgba(32,32,32, 0.5);
+  display: inline-block;
+  float: left;
+  height: 50px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: box-shadow 200ms ease-out;
+  z-index: 1004;
+}
+
+.page-header::before {
+  background: rgba(0, 0, 0, 0.45);
+  bottom: 0;
+  content: '';
+  height: 1px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+
+.page-header > div[class^='page-header'] {
+  height: 50px;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+}
+
+.page-header-left {
+  left: 13px;
+  transform: translateY(-50%);
+}
+
+.page-header-logo {
+  display: inline-block;
+  float: left;
+  height: 44px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.page-header-logo .logo-pic {
+  display: inline-block;
+  float: left;
+  height: 36px;
+  margin-right: 8px;
+  overflow: hidden;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+}
+
+.page-header-logo .logo-pic-bg, .page-header-logo .logo-pic-fg {
+  display: inline-block;
+  float: left;
+  left: 50%;
+  overflow: hidden;
+  position: relative;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.page-header-logo .logo-pic-bg {
+  height: 30px;
+  width: 30px;
+  z-index: 1;
+}
+
+.page-header-logo .logo-pic-bg svg {
+  overflow: hidden;
+}
+
+.page-header-logo .logo-pic-bg #logo-sun {
+  fill: rgba(0,0,0, 0);
+  stroke: white;
+  stroke-width: 2px;
+  transform: translateY(0);
+  z-index: 2;
+}
+
+.page-header-logo .logo-pic-fg {
+  height: 32px;
+  position: absolute;
+  width: 32px;
+  z-index: 2;
+}
+
+.page-header-logo .logo-pic-fg use {
+  fill: rgba(0,0,0, 0);
+  stroke: white;
+  stroke-width: 3px;
+}
+
+.page-header-logo .logo-text {
+  display: inline-block;
+  float: left;
+  height: 28px;
+  margin-top: -1px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 129px;
+}
+
+.page-header-logo .logo-text-blobs {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: relative;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.page-header-logo .logo-text-blobs #logo-blob-bottom,
+.page-header-logo .logo-text-blobs #logo-blob-top {
+  stroke: rgba(255,255,255, 0);
+  stroke-linecap: round;
+  stroke-width: 15px;
+  transform: scaleX(0.1) translateX(8%);
+  transform-origin: 0 50%;
+  animation-delay: 2500ms;
+  animation-direction: normal;
+  animation-duration: 350ms;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: none;
+  animation-play-state: running;
+  animation-timing-function: ease-in;
+}
+
+.page-header-logo .logo-text-blobs #logo-blob-bottom {
+  animation-name: logoBlobBottom;
+}
+
+.page-header-logo .logo-text-blobs #logo-blob-top {
+  animation-name: logoBlobTop;
+}
+
+.page-header-logo .logo-text-letters {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.page-header-logo .logo-text-letters use {
+  fill: rgba(255,255,255, 0.75);
+  stroke: rgba(0,0,0, 0);
+  stroke-width: 0;
+}
+
 .page-root {
   display: block !important;
   float: left;
@@ -113,6 +299,10 @@ h4 {
   float: left;
   margin-bottom: 80px;
   position: relative;
+}
+
+.svg-icon-container {
+  display: inline-block;
 }
 
 @media (min-width: 768px) {
@@ -154,5 +344,23 @@ h4 {
   .browser-links {
     clear: both;
     width: 700px;
+  }
+
+  .page-header, .page-header::before {
+    height: 60px;
+  }
+
+  .page-header-left {
+    left: 24px;
+  }
+
+  .page-header > div[class^='page-header'] {
+    height: 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-header-left {
+    left: 19.5px;
   }
 }

@@ -18,7 +18,7 @@
   @include float-row;
   &-body {
     margin-bottom: 10px;
-    min-height: calc(100vh - 280px);
+    min-height: calc(100vh - 300px);
     position: relative;
     @include float-row;
     @include breakpoint($large) {
@@ -39,8 +39,7 @@
 }
 
 .page-root {
-  margin-bottom: 10px;
-  padding: $appBasePad 0;
+  padding: $appBasePad 0 0 0;
   position: relative;
   text-align: center;
   transition: padding-top 175ms ease-out 25ms;
@@ -55,11 +54,8 @@
     padding: 0;
   }
   > section {
-    margin-bottom: 80px;
+    margin-bottom: 50px;
     position: relative;
     @include float-row;
-    &:last-child {
-      margin-bottom: 100px;
-    }
   }
 }

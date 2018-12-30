@@ -1,5 +1,5 @@
-let agents = 'chrome edge firefox gsa opera' +
-              ' mini/mobi/tablet mobile safari instagram';
+let agents = `chrome edge firefox gsa opera mini/mobi/tablet mobile safari
+  instagram`;
 
 exports.isBrowserSupported = parser => {
   let name = parser.browser.name;
