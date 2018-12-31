@@ -126,6 +126,13 @@ There are a few ways to run the tests for Stashy. Presently there are only tests
 <a name="application-architecture"></a>
 ## Application Architecture
 
+... More to follow
+
+##### Sync Favorites with Redux <> Local Storage
+
+<p align="center">
+  <img src="https://cl.ly/adad5a34f0bb/sync-redux-with-local-storage.png" alt="local storage favorites" />
+</p>
 
 <h2></h2>
 
