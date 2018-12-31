@@ -26,9 +26,9 @@
 </p>
 
 <p align="center">
-  <img src="https://cl.ly/561925f735af/sample-1-2.gif" alt="Mcconaughey" />
-  <img src="https://cl.ly/86f924946e61/sample-2-2.gif" alt="Murray" />
-  <img src="https://cl.ly/49aed9cdebbc/sample-3-2.gif" alt="Murphy Aykroyd" />
+  <img src="https://cl.ly/561925f735af/sample-1-2.gif" alt="Mcconaughey" valign="top" />
+  <img src="https://cl.ly/86f924946e61/sample-2-2.gif" alt="Murray" valign="top" />
+  <img src="https://cl.ly/49aed9cdebbc/sample-3-2.gif" alt="Murphy Aykroyd" valign="top" />
 </p>
 
 <h2></h2>
@@ -104,7 +104,7 @@ There are a few ways to run the tests for Stashy. Presently there are only tests
 * `yarn/npm test:watch` to execute the test suite in constant watch mode & update Jest snapshots as they're changed.
 * `yarn/npm test:coverage` to view code coverage (lcov) & render performance reports using the built-in tool (formerly Istanbul).
 
-
+<h2></h2>
 
 <a name="specifications-checklist"></a>
 ## Specifications Checklist
@@ -121,135 +121,153 @@ There are a few ways to run the tests for Stashy. Presently there are only tests
 - [x] Build App & Start Server on `http://localhost:3000/` with `yarn launch` or `npm start`.
 - [x] Have Fun doing what we do best.
 
-
+<h2></h2>
 
 <a name="application-architecture"></a>
 ## Application Architecture
 
 
-
+<h2></h2>
 
 <a name="pages-&-previews"></a>
 ## Pages & Previews
 
-##### 404
+### Previews
+
+#### Search
 
 <p align="center">
+  <img valign="top" src="/server/assets/images/favorite-preview.gif" alt="404" />
+</p>
+
+#### Favorite
+
+<p align="center">
+  <img valign="top" src="/server/assets/images/favorite-preview.gif" alt="404" />
+</p>
+
+### Pages
+
+##### &nbsp;&nbsp;&nbsp;404
+
+<p align="left">
   <a href="https://cl.ly/2e75f79aff49/404.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="33%" src="https://cl.ly/27b426a75bed/thumb-404.png" alt="404" />
+    <img width="178" valign="top" src="https://cl.ly/27b426a75bed/thumb-404.png" alt="404" />
   </a>
   <a href="https://cl.ly/cce6410c91ed/404.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" src="https://cl.ly/ca104fe57357/thumb-404.png" alt="404" />
+    <img width="66%" valign="top" src="https://cl.ly/ca104fe57357/thumb-404.png" alt="404" />
   </a>
 </p>
 
-##### Favorites
+##### &nbsp;&nbsp;&nbsp;Favorites
 
-<p align="center">
+<p align="left">
   <a href="https://cl.ly/650e03eeddf6/favorites.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="33%" src="https://cl.ly/0ae82d85afae/thumb-favorites.png" alt="favorites" />
+    <img width="178" valign="top" src="https://cl.ly/0ae82d85afae/thumb-favorites.png" alt="favorites" />
   </a>
   <a href="https://cl.ly/1b0f3aa02a40/%255B4c07d7c1664d1ef7391c587eb38ae613%255D_favorites.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" src="https://cl.ly/b41fb475e6a9/thumb-favorites.png" alt="favorites" />
+    <img width="66%" valign="top" src="https://cl.ly/b41fb475e6a9/thumb-favorites.png" alt="favorites" />
   </a>
 </p>
 
-###### Favorites Empty
+###### &nbsp;&nbsp;&nbsp;Favorites Empty
 
-<p align="center">
+<p align="left">
   <a href="https://cl.ly/329ce9236c96/favorites-none.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="33%" src="https://cl.ly/a1ab4f4e964b/thumb-favorites-none.png" alt="favorites none" />
+    <img width="178" valign="top" src="https://cl.ly/a1ab4f4e964b/thumb-favorites-none.png" alt="favorites none" />
   </a>
   <a href="https://cl.ly/d63addd5437b/favoritres-none.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" src="https://cl.ly/748fcd7c237f/thumb-favorites-none.png" alt="favorites none" />
+    <img width="66%" valign="top" src="https://cl.ly/748fcd7c237f/thumb-favorites-none.png" alt="favorites none" />
   </a>
 </p>
 
-##### Item
+##### &nbsp;Item
 
 <p align="center">
-  <a width="100%" href="https://cl.ly/b08e717186a9/item.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img src="https://cl.ly/ac1a85f06716/thumb-item.png" alt="item" />
+  <a href="https://cl.ly/b08e717186a9/item.png" rel="noopener noreferrer" role="Link" target="_blank">
+    <img valign="top" src="https://cl.ly/ac1a85f06716/thumb-item.png" alt="item" />
   </a>
 </p>
 
-##### Landing
+##### &nbsp;&nbsp;&nbsp;Landing
 
-<p align="center">
+<p align="left">
   <a href="https://cl.ly/8c5dee674697/landing.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="33%" src="https://cl.ly/62e75caa8ced/thumb-landing.png" alt="landing" />
+    <img width="178" valign="top" src="https://cl.ly/62e75caa8ced/thumb-landing.png" alt="landing" />
   </a>
   <a href="https://cl.ly/9ef60bc15ae0/landing.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" src="https://cl.ly/fe1fb99fc37b/thumb-landing.png" alt="landing" />
+    <img width="66%" valign="top" src="https://cl.ly/fe1fb99fc37b/thumb-landing.png" alt="landing" />
   </a>
 </p>
 
-##### Legal
 
-<p align="center">
-  <a href="https://cl.ly/f5a2d05588ef/legal.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="33%" src="https://cl.ly/81af12ce6f40/thumb-legal.png" alt="legal" />
-  </a>
-  <a href="https://cl.ly/ef2de2d8ad81/%255B5bc296270152c1488c5e8b7e9d6fcee5%255D_legal.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" src="https://cl.ly/1c56e644d982/thumb-legal.png" alt="legal" />
-  </a>
-</p>
+##### &nbsp;&nbsp;&nbsp;Results
 
-##### Results
-
-<p align="center">
+<p align="left">
   <a href="https://cl.ly/e27c3fb3555e/results.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="33%" src="https://cl.ly/e029a26a6ef4/thumb-results.png" alt="results" />
+    <img width="178" valign="top" src="https://cl.ly/e029a26a6ef4/thumb-results.png" alt="results" />
   </a>
   <a href="https://cl.ly/43442f0a89a5/results.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" src="https://cl.ly/1df19e929951/thumb-results.png" alt="results" />
+    <img width="66%" valign="top" src="https://cl.ly/1df19e929951/thumb-results.png" alt="results" />
   </a>
 </p>
 
-###### No Results
+###### &nbsp;&nbsp;&nbsp;No Results
 
-<p align="center">
+<p align="left">
   <a href="https://cl.ly/50da52914757/results-none.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="33%" src="https://cl.ly/8e3e170ed8b6/thumb-results-none.png" alt="results none" />
+    <img width="178" valign="top" src="https://cl.ly/8e3e170ed8b6/thumb-results-none.png" alt="results none" />
   </a>
   <a href="https://cl.ly/fb578bcc3d61/results-none.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" src="https://cl.ly/e66ba9e62d63/thumb-results-none.png" alt="results none" />
+    <img width="66%" valign="top" src="https://cl.ly/e66ba9e62d63/thumb-results-none.png" alt="results none" />
   </a>
 </p>
 
-##### Privacy
+##### &nbsp;&nbsp;&nbsp;Unsupported
 
-<p align="center">
-  <a href="https://cl.ly/7b3202ae9200/privacy.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="33%" src="https://cl.ly/91c966059c00/thumb-privacy.png" alt="privacy" />
-  </a>
-  <a href="https://cl.ly/a2534033f1e8/%255Be7f0304c2ae69967ef21b71c0c16d787%255D_privacy.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" src="https://cl.ly/ed96af0024d3/thumb-privacy.png" alt="privacy" />
-  </a>
-</p>
-
-##### Terms
-
-<p align="center">
-  <a href="https://cl.ly/0b5a413b3a80/terms.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="33%" src="https://cl.ly/0f9bebd973fa/thumb-terms.png" alt="terms" />
-  </a>
-  <a href="https://cl.ly/a67ea86757c8/terms.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" src="https://cl.ly/74d7491d8aaa/thumb-terms.png" alt="terms" />
-  </a>
-</p>
-
-##### Unsupported
-
-<p align="center">
+<p align="left">
   <a href="https://cl.ly/e744aaec6eb5/unsupported.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="33%" src="https://cl.ly/7e965bf4e049/thumb-unsupported.png" alt="unsupported" />
+    <img width="178" valign="top" src="https://cl.ly/7e965bf4e049/thumb-unsupported.png" alt="unsupported" />
   </a>
   <a href="https://cl.ly/2564ab479a6c/unsupported.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" src="https://cl.ly/d9ac8dc842be/thumb-unsupported.png" alt="unsupported" />
+    <img width="66%" valign="top" src="https://cl.ly/d9ac8dc842be/thumb-unsupported.png" alt="unsupported" />
   </a>
 </p>
 
+##### &nbsp;&nbsp;&nbsp;Legal
+
+<p align="left">
+  <a href="https://cl.ly/f5a2d05588ef/legal.png" rel="noopener noreferrer" role="Link" target="_blank">
+    <img width="178" valign="top" src="https://cl.ly/81af12ce6f40/thumb-legal.png" alt="legal" />
+  </a>
+  <a href="https://cl.ly/ef2de2d8ad81/%255B5bc296270152c1488c5e8b7e9d6fcee5%255D_legal.png" rel="noopener noreferrer" role="Link" target="_blank">
+    <img width="66%" valign="top" src="https://cl.ly/1c56e644d982/thumb-legal.png" alt="legal" />
+  </a>
+</p>
+
+##### &nbsp;&nbsp;&nbsp;Privacy
+
+<p align="left">
+  <a href="https://cl.ly/7b3202ae9200/privacy.png" rel="noopener noreferrer" role="Link" target="_blank">
+    <img width="178" valign="top" src="https://cl.ly/91c966059c00/thumb-privacy.png" alt="privacy" />
+  </a>
+  <a href="https://cl.ly/a2534033f1e8/%255Be7f0304c2ae69967ef21b71c0c16d787%255D_privacy.png" rel="noopener noreferrer" role="Link" target="_blank">
+    <img width="66%" valign="top" src="https://cl.ly/ed96af0024d3/thumb-privacy.png" alt="privacy" />
+  </a>
+</p>
+
+##### &nbsp;&nbsp;&nbsp;Terms
+
+<p align="left">
+  <a href="https://cl.ly/0b5a413b3a80/terms.png" rel="noopener noreferrer" role="Link" target="_blank">
+    <img width="178" valign="top" src="https://cl.ly/0f9bebd973fa/thumb-terms.png" alt="terms" />
+  </a>
+  <a href="https://cl.ly/a67ea86757c8/terms.png" rel="noopener noreferrer" role="Link" target="_blank">
+    <img width="66%" valign="top" src="https://cl.ly/74d7491d8aaa/thumb-terms.png" alt="terms" />
+  </a>
+</p>
+
+<h2></h2>
 
 <a name="todos"></a>
 ## TODOs
