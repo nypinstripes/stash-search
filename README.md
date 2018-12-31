@@ -250,17 +250,20 @@ There are a few ways to run the Stashy test suite. Presently, only tests for ren
 - (Open) License
 
   a. [Portrait - ~Mobile](https://cl.ly/f5a2d05588ef/legal.png) 400x800
-  a. [Landscape - ~Desktop](https://cl.ly/ef2de2d8ad81/%255B5bc296270152c1488c5e8b7e9d6fcee5%255D_legal.png) 1280x800
+
+  b. [Landscape - ~Desktop](https://cl.ly/ef2de2d8ad81/%255B5bc296270152c1488c5e8b7e9d6fcee5%255D_legal.png) 1280x800
 
 - (faux) Privacy
 
   a. [Portrait - ~Mobile](https://cl.ly/7b3202ae9200/privacy.png) 400x800
-  a. [Landscape - ~Desktop](https://cl.ly/a2534033f1e8/%255Be7f0304c2ae69967ef21b71c0c16d787%255D_privacy.png) 1280x800
+
+  b. [Landscape - ~Desktop](https://cl.ly/a2534033f1e8/%255Be7f0304c2ae69967ef21b71c0c16d787%255D_privacy.png) 1280x800
 
 - (faux) Terms/Conditions
 
   a. [Portrait - ~Mobile](https://cl.ly/0b5a413b3a80/terms.png) 400x800
-  a. [Landscape - ~Desktop](https://cl.ly/a67ea86757c8/terms.png) 1280x800
+
+  b. [Landscape - ~Desktop](https://cl.ly/a67ea86757c8/terms.png) 1280x800
 
 <h2></h2>
 
