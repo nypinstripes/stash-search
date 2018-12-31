@@ -94,7 +94,7 @@
     &-favorite {
       cursor: pointer;
       outline: none;
-      z-index: 4;
+      z-index: 10;
       @include position(absolute, 0 0 null null);
       @include size(44px);
       .overlay & {

@@ -167,7 +167,7 @@ class App extends Component {
             <Route render={props => <NotFound {...props} />} />
           </Switch>
         </div>
-        <Footer />
+        <Footer page={this.getPageName()} />
       </div>
     );
   }

@@ -5,6 +5,7 @@
     width: 100%;
     @include center-x;
     @include breakpoint($medium) {
+      margin-top: 20px;
       @include size(668px 400px);
     }
     &-icon, h1, p {

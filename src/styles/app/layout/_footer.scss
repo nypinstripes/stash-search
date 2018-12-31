@@ -15,44 +15,81 @@
         width: auto;
       }
     }
-    &-links {
-      @include center-xy;
-      > a {
-        clear: none;
-        color: white;
-        outline: none;
-        text-decoration: none;
-        text-shadow: none;
-        transition: color 100ms linear 0s;
-        margin-right: 21px;
-        position: relative;
-        @include float-box;
-        @include font-height(0.9rem, 0.9rem);
-        &:hover {
-          @include breakpoint($large) {
-            color: $orangePeel;
-            text-decoration: underline;
-          }
-        }
-        &:focus, &:active {
+    &-link {
+      clear: none;
+      color: white;
+      outline: none;
+      text-decoration: none;
+      text-shadow: none;
+      transition: color 100ms linear 0s;
+      margin-right: 21px;
+      position: relative;
+      @include float-box;
+      @include font-height(0.9rem, 0.9rem);
+      &:hover {
+        @include breakpoint($large) {
           color: $orangePeel;
           text-decoration: underline;
         }
-        &:first-child {
-          &::after {
-            display: none;
-          }
-        }
-        &:last-child {
-          margin-right: 0;
-        }
+      }
+      &:focus, &:active {
+        color: $orangePeel;
+        text-decoration: underline;
+      }
+      &:first-child {
         &::after {
-          background-color: $aluminum;
-          content: '';
-          @include position(absolute, -2px null null -10px);
-          @include size(1px 18px);
+          display: none;
         }
       }
+      &:last-child {
+        margin-right: 0;
+      }
+      &::after {
+        background-color: $aluminum;
+        content: '';
+        @include position(absolute, -2px null null -10px);
+        @include size(1px 18px);
+      }
+      &#footer {
+        &-link {
+          &-legal {
+            &.legal {
+              &-active {
+                color: $orangePeel;
+                cursor: default;
+                &::before {
+                  background-color: argb();
+                }
+              }
+            }
+          }
+          &-privacy {
+            &.privacy {
+              &-active {
+                color: $orangePeel;
+                cursor: default;
+                &::before {
+                  background-color: argb();
+                }
+              }
+            }
+          }
+          &-terms {
+            &.terms {
+              &-active {
+                color: $orangePeel;
+                cursor: default;
+                &::before {
+                  background-color: argb();
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &-links {
+      @include center-xy;
     }
   }
 }
