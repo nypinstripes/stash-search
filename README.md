@@ -155,6 +155,8 @@ There are a few ways to run the tests for Stashy. Presently there are only tests
 
 ### Pages
 
+... Descriptions to follow
+
 ##### &nbsp;&nbsp;&nbsp;404
 
 <p align="left">
