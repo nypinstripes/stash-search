@@ -137,7 +137,7 @@ There are a few ways to run the tests for Stashy. Presently there are only tests
 #### Search
 
 <p align="center">
-  <img valign="top" src="/server/assets/images/favorite-preview.gif" alt="404" />
+  <img valign="top" src="/server/assets/images/search-preview.gif" alt="404" />
 </p>
 
 #### Favorite
