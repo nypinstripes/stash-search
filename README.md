@@ -47,6 +47,8 @@
 
 You will need the following things properly installed on your computer.
 * [Homebrew](https://github.com/Homebrew/brew)
+&nbsp;&nbsp;(or compatible Node installing package manager, mac-ports?)
+
 * [Node.js](http://nodejs.org/) (with Yarn or NPM)
 
 #### Step 1: Check your node version & upgrade if needed.
@@ -63,7 +65,7 @@ $ brew update
 $ brew upgrade node
 ```
 
-#### Step 2: Clone the Stashy (stash-search) repo & cd into the directory.
+#### Step 2: Clone the "Stashy" (stash-search) repo & cd into the directory.
 
 ```bash
 $ git clone git@github.com:nypinstripes/stash-search.git
@@ -84,7 +86,7 @@ $ npm install
 ```
 
 #### Step 4: Build & Start the App (in Production Mode)
-Individual build (dev/prod), test & server start commands can be found in the `scripts` hash in `package.json`.
+Individual build (dev/prod), test & server start commands can be found in the `scripts` hash in <a href="/package.json" rel="noopenner noreferrer">package.json</a>`.
 
 ```bash
 $ yarn launch
@@ -97,12 +99,12 @@ $ npm start
 ```
 
 #### Step 5: Running Tests
-There are a few ways to run the tests for Stashy. Presently there are only tests for renderring routes & persistant layout elements.
+There are a few ways to run the Stashy test suite. Presently, only tests for renderring routes & persistant layout elements.
 
 * `yarn/npm test` to execute the test suite in single run mode & generate Jest snapshots.
 * `yarn/npm test:update` to execute the test suite in single run mode & update Jest snapshots that have changed.
 * `yarn/npm test:watch` to execute the test suite in constant watch mode & update Jest snapshots as they're changed.
-* `yarn/npm test:coverage` to view code coverage (lcov) & render performance reports using the built-in tool (formerly Istanbul).
+* `yarn/npm test:coverage` to view code coverage (lcov) & render performance reports using the built-in react tool (formerly Istanbul).
 
 <h2></h2>
 
@@ -243,36 +245,39 @@ There are a few ways to run the tests for Stashy. Presently there are only tests
   </a>
 </p>
 
-##### &nbsp;&nbsp;&nbsp;(Open) License
+##### Filler Docs Type Pages
+(for wrangling text properties with new fonts)
+
+###### &nbsp;&nbsp;&nbsp;(Open) License
 
 <p align="left">
   <a href="https://cl.ly/f5a2d05588ef/legal.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="178" valign="top" src="https://cl.ly/81af12ce6f40/thumb-legal.png" alt="legal" />
+    Portrait - ~Mobile 400x800
   </a>
   <a href="https://cl.ly/ef2de2d8ad81/%255B5bc296270152c1488c5e8b7e9d6fcee5%255D_legal.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" valign="top" src="https://cl.ly/1c56e644d982/thumb-legal.png" alt="legal" />
+    Landscape - ~Desktop 1280x800
   </a>
 </p>
 
-##### &nbsp;&nbsp;&nbsp;(faux) Privacy Policy
+###### &nbsp;&nbsp;&nbsp;(faux) Privacy
 
 <p align="left">
   <a href="https://cl.ly/7b3202ae9200/privacy.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="178" valign="top" src="https://cl.ly/91c966059c00/thumb-privacy.png" alt="privacy" />
+    Portrait - ~Mobile 400x800
   </a>
   <a href="https://cl.ly/a2534033f1e8/%255Be7f0304c2ae69967ef21b71c0c16d787%255D_privacy.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" valign="top" src="https://cl.ly/ed96af0024d3/thumb-privacy.png" alt="privacy" />
+    Landscape - ~Desktop 1280x800
   </a>
 </p>
 
-##### &nbsp;&nbsp;&nbsp;(faux) Terms & Conditions
+###### &nbsp;&nbsp;&nbsp;(faux) Terms & Conditions
 
 <p align="left">
   <a href="https://cl.ly/0b5a413b3a80/terms.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="178" valign="top" src="https://cl.ly/0f9bebd973fa/thumb-terms.png" alt="terms" />
+    Portrait - ~Mobile 400x800
   </a>
   <a href="https://cl.ly/a67ea86757c8/terms.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" valign="top" src="https://cl.ly/74d7491d8aaa/thumb-terms.png" alt="terms" />
+    Landscape - ~Desktop 1280x800
   </a>
 </p>
 
@@ -281,17 +286,18 @@ There are a few ways to run the tests for Stashy. Presently there are only tests
 <a name="todos"></a>
 ## TODOs
 
-- [ ] On List/Grid views, remove custom pagination & add Infinite (Fetch &) Scroll, using [React-Virtualized](https://bvaughn.github.io/react-virtualized/#/components/Collection).
+- [ ] On List/Grid views, remove custom pagination & add Infinite (Fetch &) Scroll, with [React-Virtualized](https://bvaughn.github.io/react-virtualized/#/components/Collection).
 - [ ] Complete adding `< Prev` & `Next >` navigation controls on Item detail (ImageItemOverlay) view.
-- [ ] Handle item image load & access errors gracefully.
+- [ ] Handle item image (load & access) errors gracefully.
 - [ ] Make navigating between items in Item detail (ImageItemOverlay) views "perma-linkable" & update url on navigating.
 - [ ] Add tap, touch & swipe controls for mobile devices.
 - [ ] Add more tests & increase coverage & reliability.
-- [ ] Add Documentation!!
-- [ ] Perform more x-browser/device/OS UI/UX QA sanity checking (currently only verified in Chrome/Chromium).
-- [ ] Do a full performance (loading, updating & painting) audit, including choosing network optimized media sizes.
-- [ ] Fix occasional flickers & jumps on toggling ListItem GIF Stills & MP4s.
+- [ ] Performance (loading, updating & painting) audit, with network optimized media sizes.
+- [ ] More inline Documentation!!
+- [ ] Perform more x-browser/device/OS UI/UX sanity/QA checking (currently only verified with Chrome.
+- [ ] Fix occasional flickers & jumps on toggling states in ListItem Stills & MP4s.
 - [ ] Fix occasional double render issues for lists on search.
 - [ ] Mock item share controls on the ListItem component and on the Item detail (ImageItemOverlay) view.
-- [ ] Use one of the [ejs-loader](https://github.com/okonet/ejs-loader) variants, in webpack, in place of [HtmlWebpackPlugin](https://github.com/jantimon/html-webpack-plugin), or switch from ejs to Jade, haml, handlebars or dotJS etc. for clearer server-side markup that permits using partials, yet still minifies markup when built with webpack.
-- [ ] Make use of some of the deeper webpack optimization features like Tree-Shaking, CommonsChunking and make use of lazy component loading with System.import();
+- [ ] Use one of the [ejs-loader](https://github.com/okonet/ejs-loader) variants, in webpack, replacing [HtmlWebpackPlugin](https://github.com/jantimon/html-webpack-plugin), or switch from ejs to Jade, haml, handlebars or dotJS etc. for clearer server-side markup that permits using partials, yet still minifies markup when built with webpack.
+- [ ] Make use of some of the deeper webpack optimization features like Tree-Shaking, CommonsChunking.
+- [ ] Attempt lazy component loading with System.import();
