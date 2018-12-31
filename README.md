@@ -15,12 +15,11 @@
 </p>
 
 <p align="center">
-  <img src="https://cl.ly/d77940dbd6c8/version-2.svg" alt="Stashy Version 2.0.0" />
   <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fnypinstripes%2Fstash-search&via=nypinstripes&text=Stashy%20Search%20-%20Ignite%20Your%20GIF%20Game%20&hashtags=giphy%20%23interview%20%23stash%20%23invest" rel="noopener noreferrer">
     <img src="https://cl.ly/ba452d5610b9/tweet-shields.svg" alt="Tweet Stashy" />
   </a>
   <img src="https://cl.ly/480d790a560b/prs-welcome.svg" alt="Open Stashy" />
-  <a href="https://github.com/nypinstripes/stash-search/tree/master/docs/code-of-conduct.md" rel="noopener noreferrer">
+  <a href="/docs/code-of-conduct.md" rel="noopener noreferrer">
     <img src="https://cl.ly/8654c8edbc1b/conduct.svg" alt="Code of Conduct" />
   </a>
 </p>
