@@ -179,7 +179,7 @@ There are a few ways to run the tests for Stashy. Presently there are only tests
   </a>
 </p>
 
-###### &nbsp;&nbsp;&nbsp;Favorites Empty
+###### &nbsp;&nbsp;&nbsp;Empty Favorites
 
 <p align="left">
   <a href="https://cl.ly/329ce9236c96/favorites-none.png" rel="noopener noreferrer" role="Link" target="_blank">
@@ -190,7 +190,7 @@ There are a few ways to run the tests for Stashy. Presently there are only tests
   </a>
 </p>
 
-##### &nbsp;Item
+##### &nbsp;Item Detail Overlay
 
 <p align="center">
   <a href="https://cl.ly/b08e717186a9/item.png" rel="noopener noreferrer" role="Link" target="_blank">
@@ -210,7 +210,7 @@ There are a few ways to run the tests for Stashy. Presently there are only tests
 </p>
 
 
-##### &nbsp;&nbsp;&nbsp;Results
+##### &nbsp;&nbsp;&nbsp;Stashy Search Results
 
 <p align="left">
   <a href="https://cl.ly/e27c3fb3555e/results.png" rel="noopener noreferrer" role="Link" target="_blank">
@@ -232,7 +232,7 @@ There are a few ways to run the tests for Stashy. Presently there are only tests
   </a>
 </p>
 
-##### &nbsp;&nbsp;&nbsp;Unsupported
+##### &nbsp;&nbsp;&nbsp;Unsupported Browser
 
 <p align="left">
   <a href="https://cl.ly/e744aaec6eb5/unsupported.png" rel="noopener noreferrer" role="Link" target="_blank">
@@ -243,7 +243,7 @@ There are a few ways to run the tests for Stashy. Presently there are only tests
   </a>
 </p>
 
-##### &nbsp;&nbsp;&nbsp;Legal
+##### &nbsp;&nbsp;&nbsp;(Open) License
 
 <p align="left">
   <a href="https://cl.ly/f5a2d05588ef/legal.png" rel="noopener noreferrer" role="Link" target="_blank">
@@ -254,7 +254,7 @@ There are a few ways to run the tests for Stashy. Presently there are only tests
   </a>
 </p>
 
-##### &nbsp;&nbsp;&nbsp;Privacy
+##### &nbsp;&nbsp;&nbsp;(faux) Privacy Policy
 
 <p align="left">
   <a href="https://cl.ly/7b3202ae9200/privacy.png" rel="noopener noreferrer" role="Link" target="_blank">
@@ -265,7 +265,7 @@ There are a few ways to run the tests for Stashy. Presently there are only tests
   </a>
 </p>
 
-##### &nbsp;&nbsp;&nbsp;Terms
+##### &nbsp;&nbsp;&nbsp;(faux) Terms & Conditions
 
 <p align="left">
   <a href="https://cl.ly/0b5a413b3a80/terms.png" rel="noopener noreferrer" role="Link" target="_blank">
