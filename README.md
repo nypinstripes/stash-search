@@ -153,6 +153,8 @@ _The actions can be found in <a href="/src/actions/actionRequests.js">Action Req
 ##### NodeJS
 The runtime environment (rte) is <a href="https://nodejs.org" rel="noopener noreferrer">NodeJS</a> and was written on v11.2.0, however it should be able to run without issue on any NodeJS version higher than 8.0.0.
 
+_In Lieu of not requiring the ability to load env/shell/docker variables, the launch/start commands will pass the GIPHY_API key to the server on start as a CLI parameter._
+
 ##### Express
 The webserver is <a href="https://expressjs.com/" rel="noopener noreferrer">ExpressJS</a> as it continues to be the more popular of the choices for running web backends on Node, Hapi would be a suitable alternative.
 
@@ -199,9 +201,24 @@ cpu: {
 
 ### Frontend Application
 
+
 ##### React/Redux
 
+###### Component Architecture
+
+###### Actions & Reducers
+
+
 ##### Sass (SCSS syntax used)
+
+###### The 7-1 Pattern
+
+###### Mixins & Helper Utilities
+
+###### Vendor Libraries
+
+###### Naming Colors
+
 
 ##### Testing with Jest
 
