@@ -151,20 +151,20 @@ _The actions can be found in <a href="/src/actions/actionRequests.js">Action Req
 #### Web Backend
 
 ##### NodeJS
-The runtime environment (rte) is <a href="https://nodejs.org">NodeJS</a> and was written on v11.2.0, however it should be able to run without issue on any NodeJS version higher than 8.0.0.
+The runtime environment (rte) is <a href="https://nodejs.org" rel="noopener noreferrer">NodeJS</a> and was written on v11.2.0, however it should be able to run without issue on any NodeJS version higher than 8.0.0.
 
 ##### Express
-The webserver is ExpressJS as it continues to be the more popular of the choices for running web backends on Node, Hapi would be a suitable alternative.
+The webserver is <a href="https://expressjs.com/" rel="noopener noreferrer">ExpressJS</a> as it continues to be the more popular of the choices for running web backends on Node, Hapi would be a suitable alternative.
 
 ##### EJS
-The server-side markup is renderred using the EJS templating engine, which has a high degree of reliability with build tools like <a href="http://webpackjs.org>Webpack</a> however does have some drawbacks (with webpack), like not permitting the use of partials. Many suitable alternatives exist (Jade, Haml, Handlebars, dotJS etc.) and may be worth trying out next time.
+The server-side markup is renderred using the EJS templating engine, which has a high degree of reliability with build tools like <a href="http://webpackjs.org" rel="noopener noreferrer">Webpack</a> however does have some drawbacks (with webpack), like not permitting the use of partials. Many suitable alternatives exist (Jade, Haml, Handlebars, dotJS etc.) and may be worth trying out next time.
 
 ##### UAParser
 As a simple alternative to polyfilling with a library like modernizr, there's also a JS library I used called UAParserJS, which detects & extracts loads of useful info about the client machine upon the first request. With this info we can look at things like the client's user-agent to determine if their browser is among the ones that are supported.
 
-The list of supported browsers can be found in the server helper utils file under <a href="/server/utils/helper-utils.js">agents</a>.
+The list of supported browsers can be found in the server helper utils file under <a href="/server/utils/helper-utils.js" rel="noopener noreferrer">agents</a>.
 
-In addition to helper functions, <a href=">UAParserJS</a> also offers fine-grain access to:
+In addition to helper functions, <a href="https://github.com/faisalman/ua-parser-js" rel="noopener noreferrer">UAParserJS</a> also offers fine-grain access to:
 
 ```
 ua,
@@ -190,7 +190,11 @@ cpu: {
 }
 ```
 
-### Built with <a href="https://webpack.js.org" rel="noopener noreferrer">Webpack 4</a> && Transpiled by <a href="https://babeljs.io">Babel 7</a>.
+### Built & Transpiler Tools
+
+#### <a href="https://webpack.js.org" rel="noopener noreferrer">Webpack 4</a>
+
+#### <a href="https://babeljs.io" rel="noopener noreferrer">Babel 7</a>.
 
 
 ### Frontend Application
