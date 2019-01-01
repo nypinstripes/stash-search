@@ -127,13 +127,79 @@ There are a few ways to run the Stashy test suite. Presently, only tests for ren
 <a name="application-architecture"></a>
 ## Application Architecture
 
-... More to follow
+#### Favorites Storage Strategy
+In place of an database/api backend, i decided to use local storage to write favorite selections to and read them back from.
+
+__When you select a gif to add as a favorite:__
+  - A copy of the item's data is first written to LocalStorage.
+  - It is also then added to the redux store.
+
+__When you deselect a gif to remove it from your favorites:__
+  - The LocalStorage favorites object is retrieved.
+  - The item removed.
+  - Then the modified favorites object is written back to LocalStorage.
+  - Then LocalStorage is read from again which updates the favorites redux state and ensures the action's integrity.
 
 ##### Sync Favorites with Redux <> Local Storage
 
 <p align="center">
   <img src="https://cl.ly/adad5a34f0bb/sync-redux-with-local-storage.png" alt="local storage favorites" />
 </p>
+
+_The actions can be found in <a href="/src/actions/actionRequests.js">Action Requests</a>._
+
+#### Web Backend
+
+##### NodeJS
+The runtime environment (rte) is <a href="https://nodejs.org">NodeJS</a> and was written on v11.2.0, however it should be able to run without issue on any NodeJS version higher than 8.0.0.
+
+##### Express
+The webserver is ExpressJS as it continues to be the more popular of the choices for running web backends on Node, Hapi would be a suitable alternative.
+
+##### EJS
+The server-side markup is renderred using the EJS templating engine, which has a high degree of reliability with build tools like <a href="http://webpackjs.org>Webpack</a> however does have some drawbacks (with webpack), like not permitting the use of partials. Many suitable alternatives exist (Jade, Haml, Handlebars, dotJS etc.) and may be worth trying out next time.
+
+##### UAParser
+As a simple alternative to polyfilling with a library like modernizr, there's also a JS library I used called UAParserJS, which detects & extracts loads of useful info about the client machine upon the first request. With this info we can look at things like the client's user-agent to determine if their browser is among the ones that are supported.
+
+The list of supported browsers can be found in the server helper utils file under <a href="/server/utils/helper-utils.js">agents</a>.
+
+In addition to helper functions, <a href=">UAParserJS</a> also offers fine-grain access to:
+
+```
+ua,
+browser: {
+  name
+  version
+},
+engine: {
+  name
+  version
+},
+os: {
+  name
+  version
+},
+device: {
+  model,
+  type,
+  vendor
+},
+cpu: {
+  architecture
+}
+```
+
+### Built with <a href="https://webpack.js.org" rel="noopener noreferrer">Webpack 4</a> && Transpiled by <a href="https://babeljs.io">Babel 7</a>.
+
+
+### Frontend Application
+
+##### React/Redux
+
+##### Sass (SCSS syntax used)
+
+##### Testing with Jest
 
 <h2></h2>
 
