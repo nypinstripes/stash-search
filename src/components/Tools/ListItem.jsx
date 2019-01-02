@@ -63,17 +63,15 @@ class Item extends Component {
   componentWillUpdate(nextProps, nextState) {
     const { getFavorites, type } = this.props;
     const { isFavorite: nextIsFavorite } = nextState;
-    const { isFavorite } = this.state; // eslint-disable-line react/prop-types
+    const { isFavorite } = this.state;
 
     if (type === 'favorites' && nextIsFavorite !== isFavorite) {
-      // eslint-disable-next-line react/prop-types
       this.listItem.classList.remove('expanded');
       getFavorites();
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
-    // eslint-disable-next-line react/prop-types
     const { isExpanding, isExpandingTimeout } = this.state;
 
     if (isExpanding !== prevState.isExpanding) clearTimeout(isExpandingTimeout);

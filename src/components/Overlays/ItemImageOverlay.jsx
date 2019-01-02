@@ -46,7 +46,7 @@ class ItemImageOverlay extends Component {
   componentWillUpdate(nextProps, nextState) {
     const { getFavorites, overlayData: { type }} = this.props;
     const { isFavorite: nextIsFavorite } = nextState;
-    const { isFavorite } = this.state; // eslint-disable-line react/prop-types
+    const { isFavorite } = this.state;
 
     if (type === 'favorites' && nextIsFavorite !== isFavorite) {
       getFavorites();

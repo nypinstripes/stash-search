@@ -21,7 +21,6 @@ class Search extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    // eslint-disable-next-line react/prop-types
     const { currentSearch } = this.state;
     const { currentSearch: nextCurrentSearch } = nextState;
 
