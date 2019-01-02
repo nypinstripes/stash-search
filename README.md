@@ -192,7 +192,7 @@ cpu: {
 }
 ```
 
-### Built & Transpiler Tools
+### Build & Transpiler Tools
 
 #### <a href="https://webpack.js.org" rel="noopener noreferrer">Webpack 4</a>
 
@@ -206,6 +206,10 @@ cpu: {
 
 ###### Component Architecture
 
+<p align="left">
+  <img src="https://cl.ly/d21ba851c170/jsx-stash-still.png" alt="jsx structures" />
+</p>
+
 ###### Actions & Reducers
 
 
@@ -213,14 +217,55 @@ cpu: {
 
 ###### The 7-1 Pattern
 
-###### Mixins & Helper Utilities
+- [The 7-1 Pattern](https://sass-guidelin.es/#the-7-1-pattern)
+- [Aesthetic Sass 1: Architecture and Style Organization](https://scotch.io/tutorials/aesthetic-sass-1-architecture-and-style-organization)
+
+<p align="left">
+  <img src="https://cl.ly/9ea490913a40/scss-stash-still.png" alt="scss structures" />
+</p>
+
+_App Styles_
+
+Folder           | Description
+---------------- | -----------
+`/base/..`       | Styles applicable globally, throughout the app, like browser resets/normalize files.
+`/common/..`     | Styles for visual elements with specific classes, but do not have components attached to them (e.g., `.overlays`, `.animations`). Files should be separated by their purpose.
+`/components/..` | Styles applicable to individual components (these files are appended near the end and are overridden only by vendor styles).
+`/layout/..`     | Styles for standard elements that are *persistent* throughout the experience & on every page. Files should be separated by elements.
+`/vendor/..`     | Styles for elements that are particular to 3rd party plugin libraries and secondary browser type & version support. These styles load last and have the highest precedence.
+
+_Sass Helpers_
+
+Folder           | Description
+---------------- | -----------
+`_breakpoints`   | Definition of app wide media query breakpoint rules, logic & utility.
+`_colors`        | All colors should be predefined named variables sourced from the [sip](https://sipapp.io/) or [swatches](https://swatchesapp.io) OSX apps, or similar interface (based on Chirag Mehta's famous "name that color" tool), or from formal design guides except those inherent to browsers [W3 Color Names](http://www.w3schools.com/colors/colors_names.asp), which will not appear in this list. Please keep them alpha sorted, use all lower-case dasherized variable names.
+`_functions`     | Sass helper functions - Things like custom short hand utilities for fonts, colors, borders etc.
+`_mixins`        | Sass mixins
 
 ###### Vendor Libraries
 
-###### Naming Colors
+- [Bourbon Sass](https://www.bourbon.io/docs/latest/)
 
+- [Breakpoint Sass](http://breakpoint-sass.com/)
+
+###### Naming Colors Resources
+
+- [Swatches](https://swatchesapp.io)
+
+- [Sip](https://sipapp.io/)
+
+- [Colblindor](https://www.color-blindness.com/color-name-hue/)
+
+- [name that color](http://chir.ag/projects/name-that-color/#6195ED)
 
 ##### Testing with Jest
+
+<p align="left">
+  <img src="https://cl.ly/eb63c571c7fd/jest-stash-still.png" alt="jest structures" />
+</p>
+
+Snapshots are generated using the jest testing library, at present there are only basic Route/Layout load & render tests in the suite.
 
 <h2></h2>
 
