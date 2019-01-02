@@ -1,4 +1,4 @@
-import { breakpoints } from '../Config';
+import { breakpoints } from '../../config';
 import { connect } from 'react-redux';
 import { func, number, object, string } from 'prop-types';
 import {

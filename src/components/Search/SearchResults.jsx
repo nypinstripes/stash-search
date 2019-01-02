@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { func, number, object, string } from 'prop-types';
+import { func, number, string } from 'prop-types';
 import { setImageSearch, setListItems } from '../../actions/actionCreators';
 import { Redirect, withRouter } from 'react-router-dom';
 import List from '../Tools/List';

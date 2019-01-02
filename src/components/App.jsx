@@ -1,4 +1,4 @@
-import { bool, func, number } from 'prop-types';
+import { func, number } from 'prop-types';
 import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import { setFavorites, setScrollBarOffset } from '../actions/actionCreators';
@@ -11,11 +11,11 @@ import Legal from './Docs/Legal';
 import NotFound from './Tools/NotFound';
 import Overlay from './Overlays/Overlay';
 import Privacy from './Docs/Privacy';
+import React, { Component } from 'react';
 import ScrollTopBtn from './Tools/ScrollTopBtn';
 import Search from './Search/Search';
 import SearchResults from './Search/SearchResults';
 import Terms from './Docs/Terms';
-import React, { Component } from 'react';
 
 class App extends Component {
   static propTypes = {
