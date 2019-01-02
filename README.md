@@ -179,10 +179,9 @@ cpu: { architecture }
 
 ### Build & Transpiler Tools
 
-#### <a href="https://webpack.js.org" rel="noopener noreferrer">Webpack 4</a>
+- [Webpack 4](https://webpack.js.org)
 
-#### <a href="https://babeljs.io" rel="noopener noreferrer">Babel 7</a>.
-
+- [Babel 7](https://babeljs.io)
 
 ### Frontend Application
 
@@ -238,7 +237,7 @@ Folder           | Description
 
 - [Colblindor](https://www.color-blindness.com/color-name-hue/)
 
-- [name that color](http://chir.ag/projects/name-that-color/#6195ED)
+- [Name That Color](http://chir.ag/projects/name-that-color/#6195ED)
 
 ##### Testing with Jest
 
