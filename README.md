@@ -392,7 +392,7 @@ _Snapshots are generated using the jest testing library, at present there are on
 - [ ] Perform more x-browser/device/OS UI/UX sanity/QA checking (currently only verified with Chrome.
 - [ ] Fix occasional flickers & jumps on toggling states in ListItem Stills & MP4s.
 - [ ] Fix occasional double render issues for lists on search.
+- [ ] Figure out a solution so that the preprocessed scss helper utilities can be shared between the client & server styles.
 - [ ] Mock item share controls on the ListItem component and on the Item detail (ImageItemOverlay) view.
-- [ ] Use one of the [ejs-loader](https://github.com/okonet/ejs-loader) variants, in webpack, replacing [HtmlWebpackPlugin](https://github.com/jantimon/html-webpack-plugin), or switch from ejs to Jade, haml, handlebars or dotJS etc. for clearer server-side markup that permits using partials, yet still minifies markup when built with webpack.
 - [ ] Make use of some of the deeper webpack optimization features like Tree-Shaking, CommonsChunking.
 - [ ] Attempt lazy component loading with System.import();
