@@ -389,7 +389,7 @@ _Snapshots are generated using the jest testing library, at present there are on
 - [ ] Add more tests & increase coverage & reliability.
 - [ ] Performance (loading, updating & painting) audit, with network optimized media sizes.
 - [ ] More inline Documentation!!
-- [ ] Perform more x-browser/device/OS UI/UX sanity/QA checking (currently only verified with Chrome.
+- [ ] Perform more x-browser/device/OS UI/UX sanity/QA checking (currently only verified with Chrome).
 - [ ] Fix occasional flickers & jumps on toggling states in ListItem Stills & MP4s.
 - [ ] Fix occasional double render issues for lists on search.
 - [ ] Figure out a solution so that the preprocessed scss helper utilities can be shared between the client & server styles.
