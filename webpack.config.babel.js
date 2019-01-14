@@ -11,7 +11,6 @@ import WebpackCleanupPlugin from 'webpack-cleanup-plugin';
 
 const config = env => {
   const { ifProd, ifNotProd } = getIfUtils(env);
-  const configVars = JSON.stringify(`${ifProd('production', 'development')}`);
   const minify = {
     collapseWhitespace: true,
     keepClosingSlash: true,
@@ -22,15 +21,17 @@ const config = env => {
     removeEmptyAttributes: true,
     removeRedundantAttributes: true,
     removeStyleLinkTypeAttributes: true,
-    showErrors: true,
-    useShortDoctype: true
+    useShortDoctype: true,
+    showErrors: true
   };
 
-  let chromeUA = 'Chrome/65.0.3325.162 Safari/537.36';
-  let mozUA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_3)';
-  let safariUA = 'AppleWebKit/537.36 (KHTML, like Gecko)';
+  const mode = ifProd('production', 'development');
+  const progress = {
+    bar: chalk.green(':bar'),
+    status: chalk.cyan(':percent')
+  };
 
-  let devUA = {
+  let agent = {
     'browser': {
       'name': 'Chrome',
       'version': '65.0.3325.162',
@@ -45,20 +46,29 @@ const config = env => {
     'os': {
       'name': 'Mac OS',
       'version': '10.13.3'
-    },
-    'ua': `${mozUA} ${safariUA} ${chromeUA}`
+    }
   };
 
-  const serverVars = {
+  let ua = {
+    chrome: 'Chrome/65.0.3325.162',
+    safari: 'Safari/537.36',
+    moz: 'Mozilla/5.0',
+    system: '(Macintosh; Intel Mac OS X 10_13_3)',
+    webkit: 'AppleWebKit/537.36 (KHTML, like Gecko)'
+  };
+
+  agent.ua = `${ua.moz} ${ua.system} ${ua.webkit} ${ua.chrome} ${ua.safari}`;
+
+  const configVars = {
     baseUrl: JSON.stringify('/'),
     envVars: {
       GIPHY_KEY: JSON.stringify(argv.GIPHY_KEY)
     },
     host: JSON.stringify('build'),
     originalUrl: JSON.stringify('/'),
-    'process.env.NODE_ENV': configVars,
+    'process.env.NODE_ENV': JSON.stringify(mode),
     tagOptions: false,
-    uaName: JSON.stringify(devUA)
+    uaName: JSON.stringify(agent)
   };
 
   const envConfig = {
@@ -100,11 +110,17 @@ const config = env => {
       }
     },
     devtool: ifProd(false, 'cheap-eval-source-map'),
-    entry: resolve(__dirname, 'src/index'),
-    mode: ifProd('production', 'development'),
+    entry: [
+      resolve(__dirname, 'server/styles/main.scss'),
+      resolve(__dirname, 'src/index')
+    ],
+    mode,
     module: {
-      noParse: [/aws-sdk/],
       rules: [
+        {
+          test: /\.pug$/,
+          use: 'pug-loader'
+        },
         {
           test: /\.json$/,
           loader: 'json-loader'
@@ -117,7 +133,7 @@ const config = env => {
         },
         {
           test: /\.jsx?$/,
-          include: [resolve(__dirname, 'src')],
+          include: resolve(__dirname, 'src'),
           loader: 'babel-loader'
         },
         {
@@ -125,24 +141,24 @@ const config = env => {
           loader: 'file-loader?name=[name].[ext]'
         },
         {
+          test: /\.mjs$/,
+          include: /node_modules/,
+          type: 'javascript/auto',
+        },
+        {
           test: /(\.css|\.scss)$/,
-          loaders: [{
+          loaders: [
+            {
               loader: 'style-loader',
-              options: {
-                sourceMap: ifProd(false, true)
-              }
+              options: { sourceMap: !ifProd() }
             },
             {
               loader: 'css-loader',
-              options: {
-                sourceMap: ifProd(false, true)
-              }
+              options: { sourceMap: !ifProd() }
             },
             {
               loader: 'sass-loader',
-              options: {
-                sourceMap: ifProd(false, true)
-              }
+              options: { sourceMap: !ifProd() }
             }
           ]
         }
@@ -158,17 +174,17 @@ const config = env => {
     plugins: removeEmpty([
       ifProd(new ExtractTextPlugin('[name].[contenthash].css')),
       new HtmlWebpackPlugin({
-        inject: true,
+        inject: false,
         minify: ifProd(minify, false),
         sourceMap: false,
-        template: 'server/views/index.ejs'
+        template: 'server/views/index.pug'
       }),
       ifNotProd(new LiveReloadPlugin({ appendScriptTag: true })),
       new ProgressBarPlugin({
         clear: false,
-        format: ` ${chalk.green(':bar')} ${chalk.cyan(':percent')} (:elapsed sec) \r`
+        format: ` ${progress.bar} ${progress.status} (:elapsed sec) \r`
       }),
-      new webpack.DefinePlugin(serverVars)
+      new webpack.DefinePlugin(configVars)
     ]),
     resolve: {
       extensions: ['.js', '.jsx', '.json'],
