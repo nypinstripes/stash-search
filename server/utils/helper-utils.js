@@ -1,5 +1,5 @@
 let agents = `
-  edge firefox gsa opera mini/mobi/tablet mobile safari instagram
+  chrome edge firefox gsa opera mini/mobi/tablet mobile safari instagram
 `;
 
 exports.isBrowserSupported = parser => {
