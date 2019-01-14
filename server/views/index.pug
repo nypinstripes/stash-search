@@ -1,0 +1,9 @@
+extends layout.pug
+
+block content
+  include includes/_header.pug
+
+  div#app-container
+
+  script(type='text/javascript').
+    var _stashyConfig = { 'GIPHY_KEY': '#{envVars.GIPHY_KEY}' };

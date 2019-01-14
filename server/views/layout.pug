@@ -1,0 +1,15 @@
+include util/_mixins
+
+doctype html
+html(lang='en')
+  head
+    include includes/_head.pug
+  body
+    include includes/_svg.pug
+
+    block content
+
+    script(type='text/javascript', src='/assets/js/index.js')
+
+    if !unsupported
+      script(type='text/javascript', src='/bundle.js')

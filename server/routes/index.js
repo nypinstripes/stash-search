@@ -9,7 +9,9 @@ router.get('/', (req, res, next) => {
   const { headers: { 'user-agent': agent }} = req;
   let parser = UAParser(agent);
 
-  if (!isBrowserSupported(parser)) res.render('unsupported');
+  if (!isBrowserSupported(parser)) {
+    return res.render('unsupported', { unsupported: true });
+  }
 
   res.render('index', { envVars });
 });
