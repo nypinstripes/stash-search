@@ -38,7 +38,7 @@ export const setScrollBarOffsetData = payload => {
   return { payload, type: SET_SCROLLBAR_OFFSET };
 };
 
-// #############################################################################
+// Creators
 
 export const setCurrentItem = params => {
   return async dispatch => await dispatch(setCurrentItemData(params));

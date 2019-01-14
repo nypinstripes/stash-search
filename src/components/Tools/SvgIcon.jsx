@@ -1,5 +1,3 @@
-import React, { Component } from 'react';
-import { uniqKey } from '../../utils/helperUtils';
 import {
   getCrescentMoon,
   getFavoriteStar,
@@ -7,6 +5,8 @@ import {
 } from '../../utils/svgTemplates';
 
 import { string } from 'prop-types';
+import { uniqKey } from '../../utils/helperUtils';
+import React, { Component } from 'react';
 
 class SvgIcon extends Component {
   static defaultProps = { viewBox: '0 0 100 100' }

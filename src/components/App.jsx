@@ -115,7 +115,9 @@ class App extends Component {
   setupFavorites = () => {
     const { setFavorites } = this.props;
 
-    if (!JSON.parse(localStorage.getItem('favorites'))) return setFavorites({ favorites: {} });
+    if (!JSON.parse(localStorage.getItem('favorites'))) {
+      return setFavorites({ favorites: {} });
+    }
   }
 
   setWindowWidth = () => this.setState({ winW: window.innerWidth })
@@ -150,12 +152,8 @@ class App extends Component {
                 {...props}
               />}
             />
-            <Route path="/legal"
-              render={props => <Legal {...props} />}
-            />
-            <Route path="/privacy"
-              render={props => <Privacy {...props} />}
-            />
+            <Route path="/legal" render={props => <Legal {...props} />} />
+            <Route path="/privacy" render={props => <Privacy {...props} />} />
             <Route path="/results"
               render={props => <SearchResults
                 toggleOverlay={this.toggleOverlay}

@@ -9,11 +9,8 @@ export const imageSearchReq = async params => {
 
   return await fetch(searchUrl, setReqOptions({}))
     .then(res => res.json())
-    .then(res => {
-      console.log(res);
-
-      return res.data;
-    }).catch(err => console.log(err));
+    .then(res => res.data)
+    .catch(err => console.log(err));
 };
 
 export const retrieveFavorites = () => {
