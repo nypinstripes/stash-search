@@ -6,20 +6,29 @@ $webkit-support: webkit spec;
 
 // Animation Reset
 //
-// Useful for dryinh any animation to the basic player
+// Useful for drying keyframe animations to their
 // defaults, specifically vendor prefixed properties.
 //
 // Usage:
 // @include animation-reset({ use named params });
 
-@mixin animation-reset($name, $count: 1, $delay: 0s, $direction: normal, $duration: 200ms, $fill: forwards, $play: running, $timing: ease-in) {
+@mixin animation-reset(
+  $count: 1,
+  $delay: 0s,
+  $direction: normal,
+  $duration: 200ms,
+  $fill: forwards,
+  $name: none,
+  $playState: running,
+  $timing: ease-out
+) {
   animation-delay: $delay;
   animation-direction: $direction;
   animation-duration: $duration;
   animation-fill-mode: $fill;
   animation-iteration-count: $count;
   animation-name: $name;
-  animation-play-state: $play;
+  animation-play-state: $playState;
   animation-timing-function: $timing;
 }
 
@@ -30,17 +39,31 @@ $webkit-support: webkit spec;
 //
 // Usage:
 // @include bg-reset();
-// @include bg-reset(cover, none, black, 0, 0);
 
-@mixin bg-reset($size: auto, $url: none, $color: argb(), $xPos: center, $yPos: center, $repeat: no-repeat, $attachment: scroll, $bgClip: border-box) {
-  background: #{$url} #{$xPos} #{$yPos} / #{$size} #{$repeat} #{$attachment} border-box #{$bgClip} #{$color};
+@mixin bg-reset(
+  $attachment: scroll,
+  $clip: border-box,
+  $color: argb(),
+  $origin: border-box,
+  $repeat: no-repeat,
+  $size: auto,
+  $url: none,
+  $xPos: center,
+  $yPos: center
+) {
+  background-attachment: $attachment;
+  background-clip: $clip;
+  background-color: $color;
+  background-image: $url;
+  background-origin: $origin;
+  background-position: $xPos $yPos;
+  background-repeat: $repeat;
+  background-size: $size;
 }
 
 // Center X & Y, CenterXY
 //
-// Celery quandong swiss chard chicory earthnut pea potato. Salsify taro catsear
-// garlic gram celery bitterleaf wattle seed collard greens nori. Grape wattle
-// seed kombu beetroot horseradish carrot squash brussels sprout chard.
+// Easy vertical & horizontal centering.
 
 @mixin center-x($position: relative, $display: inline-block) {
   clear: both;
@@ -74,7 +97,7 @@ $webkit-support: webkit spec;
     content: '';
     overflow: hidden;
     position: absolute;
-    transition: border-color 200ms ease-out;
+    transition: border-color 200ms ease-out 0s;
     @include size(0);
   }
   &::before {
@@ -96,29 +119,27 @@ $webkit-support: webkit spec;
 // @include circle(5, red);
 
 @mixin circle($cR, $color: argb(), $units: px) {
-  width: #{$cR * 2}#{$units};
-  height: #{$cR * 2}#{$units};
   background-color: $color;
   border-radius: #{$cR}#{$units};
+  @include size(#{$cR * 2}#{$units});
 }
 
 // Close Button
 //
 // A two piece close button with transitionable box properties.
 
-@mixin close($btnSize, $crossColor: white, $activeColor: red) {
+@mixin close($activeColor: red, $crossColor: white, $size: 20px) {
   backface-visibility: hidden;
-  box-shadow: 0 0 0 0 argb();
   background-color: argb();
+  box-shadow: 0 0 0 0 argb();
   border: solid 0 argb();
   cursor: pointer;
-  height: #{$btnSize};
-  width: #{$btnSize};
+  transition: all 200ms ease 0s;
   z-index: 4;
-  transition: all 200ms;
+  @include size($size);
   &:hover {
     &::before, &::after {
-      @include breakpoint($medium) {
+      @include breakpoint($large) {
         background-color: rgba($activeColor, 0.9);
       }
     }
@@ -130,7 +151,7 @@ $webkit-support: webkit spec;
       background-color: rgba($activeColor, 0.9);
       box-shadow: 0 0 0 0 argb();
       outline: 0;
-      @include breakpoint($medium) {
+      @include breakpoint($large) {
         background-color: rgba($activeColor, 0.9);
       }
     }
@@ -140,10 +161,10 @@ $webkit-support: webkit spec;
     background-color: $crossColor;
     content: '';
     opacity: 1;
-    z-index: 2;
     transition: all 100ms linear;
+    z-index: 2;
     @include position(absolute, 50% null null 0);
-    @include size($btnSize 1px);
+    @include size($size 1px);
   }
   &::before {
     transform: rotate(45deg);
@@ -168,110 +189,25 @@ $webkit-support: webkit spec;
 
 // Float Box
 
-@mixin float-box($dir: 'left') {
+@mixin float-box($direction: left) {
   display: inline-block;
-  float: #{$dir};
+  float: $direction;
 }
 
 // Float Row
 
 @mixin float-row {
   clear: both;
-  width: 100%;
   float: left;
+  width: 100%;
 }
 
-// Font Height
+// Font Mass
 
-@mixin font-height($size: 1rem, $lineHeight: 1rem) {
+@mixin font-mass($size: 1rem, $lineHeight: 1rem, $weight: 400) {
   font-size: $size;
+  font-weight: $weight;
   line-height: $lineHeight;
-}
-
-// Hamburger
-//
-// Bacon ipsum dolor amet doner strip steak swine, porchetta
-// ham hock ribeye pastrami tri-tip. Short ribs fatback chicken
-// filet mignon, ham jerky beef ribs short loin tenderloin beef.
-
-@mixin hamburger($width, $height, $spacing, $weight: 2px) {
-  cursor: pointer;
-  margin: auto;
-  padding: 0;
-  text-indent: -9999px;
-  @include size($width calc(#{$height * 2}));
-  @include breakpoint($medium) {
-    margin: 0;
-  }
-  &:focus {
-    outline: none;
-  }
-  span {
-    background-color: argb();
-    display: block;
-    transform: translateY(-50%);
-    transition: background-color 180ms ease-out 0s;
-    @include position(absolute, 50% null null 0);
-    @include size($width $weight);
-    &::before, &::after {
-      animation-delay: 0s;
-      animation-direction: normal;
-      animation-duration: 300ms;
-      animation-fill-mode: forwards;
-      animation-iteration-count: 1;
-      animation-play-state: paused;
-      animation-timing-function: ease-in-out;
-      background-color: $nero;
-      content: '';
-      @include position(absolute, null null null 0);
-      @include size(100% calc(#{$weight / 2}));
-      .sidebar-concealed &, .sidebar-revealed & {
-        animation-play-state: running;
-      }
-    }
-    &::before {
-      transform: rotate(0deg) translate(0, -10px);
-      z-index: 3;
-      .sidebar-concealed & {
-        animation-name: hamburgerMergeTopBack;
-        transform: rotate(45deg) translate(0, 0);
-      }
-      .sidebar-revealed & {
-        animation-name: hamburgerMergeTop;
-      }
-    }
-    &::after {
-      transform: rotate(0deg) translate(0, 10px);
-      z-index: 4;
-      .sidebar-concealed & {
-        animation-name: hamburgerMergeBottomBack;
-        transform: rotate(-45deg) translate(0, 0);
-      }
-      .sidebar-revealed & {
-        animation-name: hamburgerMergeBottom;
-      }
-    }
-    &:nth-child(2) {
-      background-color: argb();
-      &::before, &::after {
-        animation-name: none;
-      }
-      &::before {
-        background-color: $nero;
-        transform: translate(0, 0);
-        z-index: 1;
-        .sidebar-concealed & {
-          transition: background-color 75ms ease-out 225ms;
-        }
-        .sidebar-revealed & {
-          background-color: argb();
-        }
-      }
-      &::after {
-        @include hard-hide;
-      }
-    }
-  }
 }
 
 // Hard Hide & Show
@@ -295,7 +231,7 @@ $webkit-support: webkit spec;
 //
 // For little bars dividing sections with color.
 
-@mixin hzSeparator($bottom: 0, $width: 100%, $color: $gallery) {
+@mixin hzSeparator($bottom: 0, $width: 100%, $color: black) {
   &::before {
     background-color: $color;
     content: '';
@@ -309,7 +245,7 @@ $webkit-support: webkit spec;
 //
 // For little bars underlining text with color.
 
-@mixin hzUnderline($color: $nero, $override: argb()) {
+@mixin hzUnderline($color: black, $override: argb()) {
   &:hover {
     &::before {
       @include breakpoint($large) {
@@ -326,7 +262,6 @@ $webkit-support: webkit spec;
     background-color: $override;
     content: '';
     transition: background-color 150ms ease 0s;
-    z-index: 5;
     @include position(absolute, null 0 -1px 0);
     @include size(100% 1px);
   }
@@ -336,11 +271,16 @@ $webkit-support: webkit spec;
 //
 // Creates a button with centered ellipsis, reuires one inner element <span />.
 
-@mixin more-dots($pos: relative, $width: 30px, $height: 100%, $minHeight: auto) {
+@mixin more-dots(
+  $height: 100%,
+  $minHeight: auto,
+  $position: relative,
+  $width: 30px,
+) {
   background-color: argb();
   min-height: $minHeight;
   padding: 0;
-  position: $pos;
+  position: $position;
   @include float-box;
   @include size($width $height);
   > span {
@@ -352,11 +292,11 @@ $webkit-support: webkit spec;
     > span {
       z-index: 10;
       @include center-xy(absolute);
-      @include circle(1, $nero);
+      @include circle(1, black);
       &::before, &::after {
         content: '';
         @include center-xy(absolute);
-        @include circle(1, $nero);
+        @include circle(1, black);
       }
       &::before {
         margin-left: -5px;
@@ -375,10 +315,7 @@ $webkit-support: webkit spec;
 // it does so only partially and must be overridden separately on occasion.
 
 @mixin moz-placeholder($lineHeight) {
-  &:-moz-placeholder {
-    line-height: $lineHeight;
-  }
-  &::-moz-placeholder {
+  &:-moz-placeholder, &::-moz-placeholder {
     line-height: $lineHeight;
   }
 }
@@ -396,13 +333,13 @@ $webkit-support: webkit spec;
 //
 // Pure css plus sign.
 
-@mixin plus-sign($weight, $size, $color: $nero, $position: relative) {
+@mixin plus-sign($weight, $size, $color: black, $position: relative) {
   @include center-xy($position);
   @include size($size);
   &::before, &::after {
     background-color: $color;
     content: '';
-    transition: all 200ms linear;
+    transition: all 200ms linear 0s;
     @include center-xy(absolute);
     @include size(100% $weight);
   }
@@ -413,9 +350,10 @@ $webkit-support: webkit spec;
 
 // Rotator
 //
-// Rotate elements clockwise. Allows degree map to be passed in as a param.
+// Rotate elements clockwise
+// Allows degree map to be passed in
 //
-// Usage:
+// Usage
 // $map: (left: 90deg, top: 180deg, right: 270deg);
 // @include rotator(left, $map)
 // (this is good for semantic class names)
@@ -433,13 +371,6 @@ $webkit-support: webkit spec;
   }
 }
 
-// Simple Text
-
-@mixin simple-text($size: 1rem, $height: 1rem) {
-  font-size: $size;
-  line-height: $height;
-}
-
 // Soft Show/Hide
 //
 // Allow elements to have their visibility
@@ -454,6 +385,8 @@ $webkit-support: webkit spec;
   opacity: 0;
   visibility: hidden;
 }
+
+// Text Input Placeholder
 
 @mixin text-input-placeholder {
   $placeholders: ':-webkit-input' ':-moz' '-moz' '-ms-input';
@@ -470,49 +403,51 @@ $webkit-support: webkit spec;
 // Usage:
 // @include textarea-placeholder(black, '1.15em/1em RopaSans');
 
-@mixin textarea-placeholder($color: $gallery, $fontSize: 1rem, $fontStyle: italic, $fontWeight: 400, $lineHeight: 1rem) {
-  &.placeholder {
-    color: $color;
-    font-size: $fontSize;
-    font-style: $fontStyle;
-    font-weight: $fontWeight;
-    line-height: $lineHeight;
+@mixin textarea-placeholder(
+  $color: grey,
+  $fontSize: 1rem,
+  $fontStyle: italic,
+  $fontWeight: 400,
+  $lineHeight: 1rem
+) {
+  $placeholders: ':-webkit-input' ':-moz' '-moz' '-ms-input';
+
+  @each $placeholder in $placeholders {
+    &:#{$placeholder}-placeholder {
+      color: $color;
+      font-style: $fontStyle;
+      @include font-mass($fontSize, $lineHeight, $fontWeight);
+    }
   }
-  &:-ms-input-placeholder {
-    color: $color;
-    font-size: $fontSize;
-    font-style: $fontStyle;
-    font-weight: $fontWeight;
-    line-height: $lineHeight;
-  }
-  &:-moz-placeholder {
-    color: $color;
-    font-size: $fontSize;
-    font-style: $fontStyle;
-    font-weight: $fontWeight;
-    line-height: $lineHeight;
-  }
-  &::-moz-placeholder {
-    color: $color;
-    font-size: $fontSize;
-    font-style: $fontStyle;
-    font-weight: $fontWeight;
-    line-height: $lineHeight;
-  }
-  &::-webkit-input-placeholder {
-    color: $color;
-    font-size: $fontSize;
-    font-style: $fontStyle;
-    font-weight: $fontWeight;
-    line-height: $lineHeight;
-  }
+
 }
 
-// 2D Transforms (Bourbon Override)
+// transform: 2D Transforms (Bourbon Override)
 //
 // 2D Transforms are now supported unprefixed, universally except in mobile
 // safari 8. This overrides bourbon's default prefixes for these properties.
 
 @mixin transform($property: none) {
   @include prefixer(transform, $property, $webkit-support);
+}
+
+
+// Transitions (reset)
+//
+// Useful for drying keyframe animations to their
+// defaults, specifically vendor prefixed properties.
+//
+// Usage:
+// @include transitions({ use named params });
+
+@mixin transitions(
+  $delay: 0s,
+  $duration: 200ms,
+  $property: none,
+  $timing: ease-in
+) {
+  transition-delay: $delay;
+  transition-duration: $duration;
+  transition-property: $property;
+  transition-timing-function: $timing;
 }

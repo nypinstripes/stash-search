@@ -20,7 +20,7 @@
     @include ellipsis;
     @include float-box;
     @include position(absolute, -24px null null 15px);
-    @include font-height(1rem, 1rem);
+    @include font-mass;
   }
   &-item {
     backface-visibility: hidden;
@@ -68,13 +68,18 @@
     }
     &.expanded {
       opacity: 0;
-      @include animation-reset($delay: 50ms, $duration: 400ms, $name: fadeIn, $timing: linear);
+      @include animation-reset(
+        $delay: 50ms,
+        $duration: 400ms,
+        $name: fadeIn,
+        $timing: linear
+      );
     }
     &-container {
       background-color: rgba($nero, 0.65);
       backface-visibility: hidden;
+      clear: both;
       cursor: pointer;
-      height: auto;
       margin-bottom: 50px;
       overflow: hidden;
       padding-top: calc((100vw - 30px) / (16 / 9));
@@ -82,6 +87,7 @@
       transition: opacity 100ms ease-in-out 0s;
       z-index: 2;
       @include float-row;
+      @include size(100% auto);
       @include breakpoint($medium) {
         padding-top: calc(100% / (16 / 9));
       }
@@ -129,7 +135,11 @@
         stroke: $ripeLemon;
         stroke-width: 4px;
         transform-origin: 50% 50%;
-        transition: transform 175ms ease-out 0s, fill 100ms ease 0s, stroke 125ms linear 0s;
+        @include transitions(
+          $duration: #{175ms, 100ms, 125ms},
+          $property: #{transform, fill, stroke},
+          $timing: #{ease-out, ease, linear}
+        );
       }
     }
     &-img {
@@ -141,7 +151,7 @@
       &-bg, &-fg {
         backface-visibility: hidden;
         top: 0;
-        @include bg-reset(contain);
+        @include bg-reset($size: contain);
         @include center-x(absolute);
         @include size(100%);
       }
@@ -166,17 +176,16 @@
         video {
           backface-visibility: hidden;
           background-color: argb();
-          height: 100%;
           max-width: 100%;
           outline: 0;
           pointer-events: none;
           position: relative;
           top: 0;
           transition: opacity 300ms ease 0s;
-          width: auto;
           z-index: 3;
           @include center-x;
           @include no-spacing;
+          @include size(auto 100%);
         }
       }
       &-fg {
@@ -203,12 +212,11 @@
       }
       h5 {
         cursor: pointer;
-        font-weight: 300;
         height: 17px;
         text-align: center;
         @include center-xy;
         @include ellipsis;
-        @include font-height(0.9rem, 0.9rem);
+        @include font-mass(0.9rem, 0.9rem, 300);
         @include hzUnderline($color: white);
         &::before {
           bottom: 0;

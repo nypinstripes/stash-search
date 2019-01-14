@@ -30,12 +30,26 @@
 }
 
 // Font Usage Example
-// font: oxygen(1.5em, 1.5em);
+// font: system(1.5em, 1.5em);
 
-// Oxygen font shorthand
+// System font shorthand
 //
-// see: https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/#details-of-approach-a
+// https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/#details-of-approach-a
 
-@function oxygen($size: 1rem, $lineHeight: normal, $variant: normal, $weight: 400) {
-  @return #{$weight} #{$variant} #{$size}/#{$lineHeight} Oxygen, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+@function oxygen(
+  $size: 1rem,
+  $lineHeight: normal,
+  $variant: normal,
+  $weight: 300) {
+  @return #{$weight} #{$variant} #{$size}/#{$lineHeight} Oxygen,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
 }

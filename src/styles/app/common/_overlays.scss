@@ -22,13 +22,13 @@
     border-radius: 40px;
     overflow: hidden;
     z-index: 2;
-    @include bg-reset(contain);
+    @include bg-reset($size: contain);
     @include float-box;
     @include position(absolute, 0 null null 0);
     @include size(80px);
   }
   &-close {
-    @include close(36px, white);
+    @include close($size: 36px);
     @include position(absolute, 5px 8px null null);
     @include breakpoint($medium) {
       right: 20px;
@@ -49,11 +49,16 @@
     display: inline-block;
     padding: 0;
     transform: translateX(-50%) scale(1);
-    transition: visibility 200ms linear 200ms, opacity 200ms linear 300ms, top 100ms linear 300ms;
     width: 100%;
     z-index: 2;
     @include position(absolute, -100px null null 50%);
     @include soft-hide;
+    @include transitions(
+      $delay: #{200ms, 300ms, 300ms},
+      $duration: #{200ms, 200ms, 100ms},
+      $property: #{visibility, opacity, top},
+      $timing: linear
+    );
   }
   &-content {
     padding-bottom: 400px;
@@ -97,17 +102,13 @@
     @include breakpoint($xxxLarge) {
       max-width: 1075px;
     }
-    &.user {
-      &-none {
-        .overlay {
-          &-details {
-            &-container {
-              padding-left: 0;
-            }
-          }
-          &-info {
-            margin-top: 0;
-          }
+    &.user-none {
+      .overlay {
+        &-details-container {
+          padding-left: 0;
+        }
+        &-info {
+          margin-top: 0;
         }
       }
     }
@@ -126,8 +127,7 @@
       margin-top: 6px;
       a, span {
         text-align: left;
-        font-weight: 300;
-        @include font-height(0.8rem, 1rem);
+        @include font-mass(0.8rem, 1rem, 300);
       }
       a {
         color: $orangePeel;
@@ -158,7 +158,6 @@
   }
   h3 {
     color: white;
-    font-weight: 700;
     left: 0;
     margin-top: 0;
     max-width: 96%;
@@ -169,13 +168,12 @@
     word-wrap: normal;
     white-space: normal;
     @include float-box;
-    @include font-height(1.25rem, 1.5rem);
+    @include font-mass(1.25rem, 1.5rem, 700);
     @include position(null null null 0);
   }
   video {
     backface-visibility: hidden;
     background-color: argb();
-    height: 100%;
     max-width: 100%;
     object-fit: contain;
     outline: 0;
@@ -183,20 +181,19 @@
     position: relative;
     top: 0;
     transition: opacity 300ms ease 0s;
-    width: auto;
     z-index: 3;
     @include center-x;
     @include no-spacing;
+    @include size(auto 100%);
   }
   .field {
     &-label, &-value {
       clear: none;
-      font-weight: 300;
       min-height: 15px;
       position: relative;
       top: 0;
       transform: translateY(0);
-      @include font-height(0.9rem, 1.15rem);
+      @include font-mass(0.9rem, 1.15rem, 300);
       @include float-box;
     }
     &-label {
@@ -246,19 +243,15 @@
     }
 
   }
-  .form {
-    &-row {
-      margin-top: 10px;
-      width: 100%;
-    }
+  .form-row {
+    margin-top: 10px;
+    width: 100%;
   }
-  .overlay {
-    &-container {
-      top: 50px;
-      @include soft-show;
-      @include breakpoint($medium) {
-        top: 60px;
-      }
+  .overlay-container {
+    top: 50px;
+    @include soft-show;
+    @include breakpoint($medium) {
+      top: 60px;
     }
   }
 }

@@ -1,70 +1,10 @@
-body, html {
-  vertical-align: top;
-  zoom: 1;
-  @include no-spacing;
-  @include size(100%);
-}
-
-blockquote, dd, dl, dt, fieldset, form, h1, h2, h3, h4,
-h5, h6, input, li, ol, p, pre, select, textarea, ul {
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  letter-spacing: normal;
-  @include no-spacing;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-caption, td, th {
-  font-weight: normal;
-  text-align: left;
-  vertical-align: middle;
-}
-
-article, aside, details, figcaption, figure, footer, form,
-header, hgroup, input[type='password'], input[type='submit'],
-input[type='text'], menu, nav, ol, section, summary, ul {
-  display: block;
-}
-
-ol, ul {
-  list-style: none;
-}
-
-li {
-  list-style-image: none;
-  list-style-type: none;
-}
-
 a {
-  color: blue;
   cursor: pointer;
   outline: 0;
   text-decoration: none;
-  transition: color 0.1s;
-  &:hover, &:active {
-    color: red;
-    &::before {
-      color: red;
-    }
-  }
-  &::before {
-    cursor: pointer;
-    transition: color 100ms;
-  }
   img {
     border: none;
   }
-}
-
-img {
-  backface-visibility: hidden;
-  display: block;
-  margin: 0 auto;
 }
 
 a, div, form, h1, h2, h3, h4, h5, h6, img, input[type='checkbox'],
@@ -79,17 +19,75 @@ a, div, label, span {
   }
 }
 
+article, aside, details, figcaption, figure, footer, form,
+header, hgroup, input[type='password'], input[type='submit'],
+input[type='text'], menu, nav, ol, section, summary, ul {
+  display: block;
+}
+
+blockquote, dd, dl, dt, fieldset, form, h1, h2, h3, h4,
+h5, h6, input, li, ol, p, pre, select, textarea, ul {
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  letter-spacing: normal;
+  @include no-spacing;
+}
+
+body, html {
+  vertical-align: top;
+  zoom: 1;
+  @include no-spacing;
+  @include size(100%);
+}
+
+caption, td, th {
+  font-weight: normal;
+  text-align: left;
+  vertical-align: middle;
+}
+
+li {
+  list-style-image: none;
+  list-style-type: none;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  backface-visibility: hidden;
+  display: block;
+  margin: 0 auto;
+}
+
 input {
-  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+  &::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
     margin: 0;
     -webkit-appearance: none;
   }
+}
+
+path {
+  fill: inherit;
 }
 
 svg {
   float: left;
   overflow: visible;
   pointer-events: none;
+  transform-origin: 50% 50%;
+  @include size(100%);
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+use {
+  fill: white;
 }
 
 textarea {
@@ -98,8 +96,4 @@ textarea {
 
 video {
   outline: 0;
-}
-
-.svg-definitions {
-  @include hard-hide;
 }

@@ -1,11 +1,9 @@
 .landing {
-  &.page {
-    &-root {
-      margin-top: 25px;
-      @include center-x;
-      @include breakpoint($medium) {
-        @include size(668px 400px);
-      }
+  &.page-root {
+    margin-top: 25px;
+    @include center-x;
+    @include breakpoint($medium) {
+      @include size(668px 400px);
     }
   }
   .rocket {
@@ -27,7 +25,11 @@
     &-body {
       transform: translateY(25%);
       z-index: 9;
-      @include animation-reset($delay: 2500ms, $duration: 500ms, $name: rocketLaunch);
+      @include animation-reset(
+        $delay: 2500ms,
+        $duration: 500ms,
+        $name: rocketLaunch
+      );
     }
     &-clouds, &-exhaust {
       > * {
@@ -42,7 +44,11 @@
       z-index: 10;
       @include animation-reset($delay: 2s, $duration: 500ms, $name: scaleIn);
       &-left, &-right {
-        @include animation-reset($delay: 2s, $duration: 1s, $name: horizontalReset);
+        @include animation-reset(
+          $delay: 2s,
+          $duration: 1s,
+          $name: horizontalReset
+        );
       }
       &-left {
         transform: translateX(15%);
@@ -72,7 +78,6 @@
       p {
         clear: both;
         font-style: italic;
-        font-weight: 700;
         opacity: 0;
         position: absolute;
         text-align: left;
@@ -80,7 +85,7 @@
         z-index: 2;
         @include animation-reset($duration: 300ms, $name: fadeIn);
         @include float-box;
-        @include font-height(1.65rem);
+        @include font-mass(1.65rem, 1rem, 700);
         &:first-child, &:nth-child(2) {
           left: 15%;
         }

@@ -15,7 +15,7 @@
       margin: 20px 0 25px 0;
       position: relative;
       transform: translateX(-50%);
-      @include font-height(1.25rem);
+      @include font-mass(1.25rem);
       > span {
         @include center-x;
       }
@@ -36,29 +36,26 @@
   }
   h2 {
     color: $orangePeel;
-    font-weight: 700;
     margin-bottom: 20px;
     text-align: center;
     @include center-x;
-    @include font-height(1.65rem, 2rem);
+    @include font-mass(1.65rem, 2rem, 700);
     @include breakpoint($medium) {
       line-height: 1.65rem;
     }
   }
   h3 {
     clear: both;
-    font-weight: 400;
     margin-top: 40px;
     @include float-box;
-    @include font-height(1.35rem, 1.35rem);
+    @include font-mass(1.35rem, 1.35rem, 400);
   }
   p, ol, ul, li {
     clear: both;
-    font-weight: 300;
     margin-top: 20px;
     text-align: left;
     @include float-box;
-    @include font-height(1rem, 1.4rem);
+    @include font-mass(1rem, 1.4rem, 300);
   }
   li {
     display: list-item;
@@ -95,8 +92,7 @@
   }
   .hint {
     color: $aluminum;
-    font-weight: 300;
     margin-top: 12px;
-    @include font-height(1rem);
+    @include font-mass(1rem, 1rem, 300);
   }
 }

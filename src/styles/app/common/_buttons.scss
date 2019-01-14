@@ -15,8 +15,12 @@
   perspective: 900px;
   position: relative;
   text-align: center;
-  transition: background-color 100ms linear, box-shadow 200ms ease-in-out;
-  @include font-height(1rem, 2.8rem);
+  @include font-mass(1rem, 2.8rem);
+  @include transitions(
+    $duration: #{100ms, 200ms},
+    $property: #{background-color, box-shadow},
+    $timing: #{linear, ease-in-out}
+  );
   &::before {
     transition: background-color 250ms ease-out;
   }
@@ -53,9 +57,6 @@
     transition: color 150ms ease-in-out;
     white-space: nowrap;
     @include center-xy;
-    @include font-height();
-    @include breakpoint($medium) {
-      color: darken(white, 15%);
-    }
+    @include font-mass;
   }
 }

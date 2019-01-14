@@ -1,14 +1,9 @@
 svg {
-  overflow: visible;
   transition: fill 175ms ease-in-out;
-  transform-origin: 50% 50%;
-  @include size(100%);
   path {
-    fill: inherit;
     transition: color 175ms ease-in-out;
   }
   use {
-    fill: white;
     transition: all 175ms ease-in-out;
   }
 }

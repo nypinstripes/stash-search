@@ -1,51 +1,45 @@
-.not {
-  &-found {
-    clear: both;
-    margin-top: 100px;
-    width: 100%;
+.not-found {
+  clear: both;
+  margin-top: 100px;
+  width: 100%;
+  @include center-x;
+  @include breakpoint($medium) {
+    margin-top: 20px;
+    @include size(668px 400px);
+  }
+  &-icon, h1, p {
     @include center-x;
+  }
+  &-icon {
+    margin-top: 18px;
+    @include size(268px 300px);
     @include breakpoint($medium) {
-      margin-top: 20px;
-      @include size(668px 400px);
+      @include size(410px);
     }
-    &-icon, h1, p {
-      @include center-x;
+  }
+  h1 {
+    @include font-mass(1.5rem, 1rem, 700);
+  }
+  p {
+    margin-top: 28px;
+    @include font-mass(1.1rem, 1.1rem);
+  }
+  .robot {
+    &-body, &-face {
+      z-index: 1;
+      @include float-box;
+      @include position(relative, 0);
+      @include size(100%);
     }
-    &-icon {
-      margin-top: 18px;
-      @include size(268px 300px);
-      @include breakpoint($medium) {
-        @include size(410px);
-      }
+    &-face {
+      position: absolute;
+      z-index: 2;
     }
-    h1 {
-      font: oxygen($size: 1.5rem, $lineHeight: 1rem, $weight: 700);
-    }
-    p {
-      font: oxygen($size: 1.1rem, $lineHeight: 1.1rem);
-      margin-top: 28px;
-    }
-    .robot {
-      &-body, &-face {
-        z-index: 1;
-        @include float-box;
-        @include position(relative, 0);
-        @include size(100%);
-      }
-      &-face {
-        position: absolute;
-        z-index: 2;
-      }
-    }
-    .svg {
-      &-icon {
-        &-container {
-          path {
-            fill: white;
-            stroke-width: 0;
-          }
-        }
-      }
+  }
+  .svg-icon-container {
+    path {
+      fill: white;
+      stroke-width: 0;
     }
   }
 }
