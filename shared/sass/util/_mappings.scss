@@ -10,13 +10,11 @@ $small:      #{map-get($viewport, small)}px;
 $xSmall:     #{map-get($viewport, xSmall)}px;
 $base:       #{map-get($viewport, base)}px;
 
-// Header Height - based on breakpoint.
-
+// Header Height
 $headerHeight:      #{map-get($header, base)}px;
 $headerHeightLarge: #{map-get($header, large)}px;
 
-// Base Padding
-
+// App Padding
 $appBasePad:   #{map-get($appPadding, base)}px;
 $appMediumPad: #{map-get($appPadding, medium)}px;
 $appLargePad:  #{map-get($appPadding, large)}px;
