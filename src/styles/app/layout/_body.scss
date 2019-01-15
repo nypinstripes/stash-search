@@ -9,10 +9,4 @@
       margin-bottom: 60px;
     }
   }
-  .scroll-pixel {
-    background-color: argb();
-    z-index: 1;
-    @include position(absolute, -61px null null 0);
-    @include size(1px);
-  }
 }

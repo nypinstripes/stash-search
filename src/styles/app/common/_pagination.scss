@@ -227,7 +227,7 @@
     span {
       color: $orangePeel;
       @include center-xy;
-      @include hzUnderline($orangePeel);
+      @include hz-underline($orangePeel);
     }
   }
 }

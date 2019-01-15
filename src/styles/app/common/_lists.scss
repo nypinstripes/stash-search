@@ -217,7 +217,7 @@
         @include center-xy;
         @include ellipsis;
         @include font-mass(0.9rem, 0.9rem, 300);
-        @include hzUnderline($color: white);
+        @include hz-underline(white);
         &::before {
           bottom: 0;
         }

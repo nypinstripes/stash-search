@@ -1,3 +1,15 @@
+// Active Text
+//
+// Showing an active/selected state of link/nav text.
+
+@mixin active-text($color: black) {
+  color: $color;
+  cursor: default;
+  &::before {
+    background-color: argb();
+  }
+}
+
 // Animations (reset)
 //
 // Useful for drying keyframe animations to their
@@ -225,7 +237,7 @@
 //
 // For little bars dividing sections with color.
 
-@mixin hzSeparator($bottom: 0, $width: 100%, $color: black) {
+@mixin hz-separator($bottom: 0, $color: black, $width: 100%) {
   &::before {
     background-color: $color;
     content: '';
@@ -239,7 +251,7 @@
 //
 // For little bars underlining text with color.
 
-@mixin hzUnderline($color: black, $override: argb()) {
+@mixin hz-underline($color: black, $override: argb()) {
   &:hover {
     &::before {
       @include breakpoint($large) {
@@ -393,7 +405,7 @@
 // Textarea Placeholder
 //
 // Usage:
-// @include textarea-placeholder(black, '1.15em/1em RopaSans');
+// @include textarea-placeholder(black, 1.15rem);
 
 @mixin textarea-placeholder(
   $color: grey,
@@ -402,14 +414,13 @@
   $fontWeight: 400,
   $lineHeight: 1rem
 ) {
-  @each $prefix in $placeholders-prefixes {
-    &:#{$placeholder}-placeholder {
+  @each $prefix in $placeholder-prefixes {
+    &:#{$prefix}-placeholder {
       color: $color;
       font-style: $fontStyle;
       @include font-mass($fontSize, $lineHeight, $fontWeight);
     }
   }
-
 }
 
 // transform: 2D Transforms (Bourbon Override)
@@ -420,7 +431,6 @@
 @mixin transform($property: none) {
   @include prefixer(transform, $property, $webkit-support);
 }
-
 
 // Transitions (reset)
 //

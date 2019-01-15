@@ -211,7 +211,7 @@
           > a {
             color: $orangePeel;
             margin-left: 5px;
-            @include hzUnderline($color: white);
+            @include hz-underline(white);
             &:first-child {
               margin: 0;
             }
