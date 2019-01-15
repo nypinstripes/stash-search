@@ -4,6 +4,7 @@ import { join, resolve } from 'path';
 import chalk from 'chalk';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import jsonImporter from 'node-sass-json-importer';
 import LiveReloadPlugin from 'webpack-livereload-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import webpack from 'webpack';
@@ -158,7 +159,10 @@ const config = env => {
             },
             {
               loader: 'sass-loader',
-              options: { sourceMap: !ifProd() }
+              options: {
+                importer: jsonImporter(),
+                sourceMap: !ifProd()
+              }
             }
           ]
         }

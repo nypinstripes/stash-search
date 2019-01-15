@@ -1,3 +1,5 @@
-[class^='svg'], a, .docs, .empty, .not-found, .overlay, .search {
+[class^='svg'], a, .docs, .empty,
+.landing .rocket-text p,
+.not-found, .overlay, .search {
   display: none;
 }

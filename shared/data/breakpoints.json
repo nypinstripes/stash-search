@@ -1,0 +1,23 @@
+{
+  "appPadding": {
+    "base": "14px",
+    "medium": "30px",
+    "large": "40px"
+  },
+  "header": {
+    "base": "50px",
+    "large": "60px"
+  },
+  "viewport": {
+    "base": "400px",
+    "large": "1024px",
+    "medium": "768px",
+    "small": "640px",
+    "xLarge": "1280px",
+    "xSmall": "450px",
+    "xxLarge": "1600px",
+    "xxxLarge": "1800px",
+    "xxxxLarge": "2000px",
+    "xxxxxLarge": "3000px"
+  }
+}

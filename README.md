@@ -214,7 +214,7 @@ Folder           | Description
 `/layout/..`     | Styles for standard elements that are *persistent* throughout the experience & on every page. Files should be separated by elements.
 `/vendor/..`     | Styles for elements that are particular to 3rd party plugin libraries and secondary browser type & version support. These styles load last and have the highest precedence.
 
-_Sass Helpers_
+_Shared Sass Helpers_ `/shared/data` `/shared/scss`
 
 Folder           | Description
 ---------------- | -----------
@@ -392,7 +392,6 @@ _Snapshots are generated using the jest testing library, at present there are on
 - [ ] Perform more x-browser/device/OS UI/UX sanity/QA checking (currently only verified with Chrome).
 - [ ] Fix occasional flickers & jumps on toggling states in ListItem Stills & MP4s.
 - [ ] Fix occasional double render issues for lists on search.
-- [ ] Figure out a solution so that the preprocessed scss helper utilities can be shared between the client & server styles.
 - [ ] Mock item share controls on the ListItem component and on the Item detail (ImageItemOverlay) view.
 - [ ] Make use of some of the deeper webpack optimization features like Tree-Shaking, CommonsChunking.
 - [ ] Attempt lazy component loading with System.import();
