@@ -1,8 +1,8 @@
-import { breakpoints } from '../../config';
 import { connect } from 'react-redux';
 import { array, func, number, object, string } from 'prop-types';
 import { setListPage } from '../../actions/actionCreators';
 import { withRouter } from 'react-router-dom';
+import breakpoints from '../../../shared/data/breakpoints.json';
 import Empty from '../Tools/Empty';
 import ListItem from './ListItem';
 import ListInfo from './ListInfo';
@@ -188,7 +188,7 @@ class List extends Component {
       medium: mediumGrid,
       large: largeGrid,
       xLarge: xLargeGrid
-    } = breakpoints;
+    } = breakpoints.viewport;
 
     let minItemCount;
     let spacing = 0;

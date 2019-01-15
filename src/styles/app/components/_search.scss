@@ -5,7 +5,7 @@
   width: 100%;
   @include center-x;
   @include breakpoint($medium) {
-    max-width: #{$medium - $appMediumPad};
+    max-width: calc(#{$medium} - #{$appMediumPad});
   }
   &-btn, &-container {
     @include float-box;

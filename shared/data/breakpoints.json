@@ -1,23 +1,23 @@
 {
   "appPadding": {
-    "base": "14px",
-    "medium": "30px",
-    "large": "40px"
+    "base": 14,
+    "medium": 30,
+    "large": 40
   },
   "header": {
-    "base": "50px",
-    "large": "60px"
+    "base": 50,
+    "large": 60
   },
   "viewport": {
-    "base": "400px",
-    "large": "1024px",
-    "medium": "768px",
-    "small": "640px",
-    "xLarge": "1280px",
-    "xSmall": "450px",
-    "xxLarge": "1600px",
-    "xxxLarge": "1800px",
-    "xxxxLarge": "2000px",
-    "xxxxxLarge": "3000px"
+    "base": 400,
+    "large": 1024,
+    "medium": 768,
+    "small": 640,
+    "xLarge": 1280,
+    "xSmall": 450,
+    "xxLarge": 1600,
+    "xxxLarge": 1800,
+    "xxxxLarge": 2000,
+    "xxxxxLarge": 3000
   }
 }

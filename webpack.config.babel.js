@@ -124,6 +124,7 @@ const config = env => {
         },
         {
           test: /\.json$/,
+          include: '/shared/data',
           loader: 'json-loader'
         },
         {

@@ -1,4 +1,3 @@
-import { breakpoints } from '../../config';
 import { connect } from 'react-redux';
 import { func, number, object, string } from 'prop-types';
 import {
@@ -7,6 +6,7 @@ import {
   setFavoriteItem
 } from '../../actions/actionCreators';
 
+import breakpoints from '../../../shared/data/breakpoints.json';
 import React, { Component } from 'react';
 import SvgIcon from './SvgIcon';
 
@@ -154,7 +154,7 @@ class Item extends Component {
 
   onItemAction = e => {
     const { winW } = this.props;
-    const { large: largeItem } = breakpoints;
+    const { large: largeItem } = breakpoints.viewport;
 
     e.stopPropagation();
 
