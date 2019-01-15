@@ -1,8 +1,2 @@
-$output-bourbon-deprecation-warnings: false;
-
-@import '~bourbon/app/assets/stylesheets/bourbon';
-@import '~breakpoint-sass/stylesheets/breakpoint';
-@import 'shared/data/breakpoints.json';
-@import 'shared/data/colors.json';
 @import 'shared/sass/_all';
 @import 'app/all';

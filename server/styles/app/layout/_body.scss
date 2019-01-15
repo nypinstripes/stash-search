@@ -11,7 +11,7 @@ body {
   &.no-scroll {
     overflow: hidden !important;
     #app-container {
-      overflow: hidden !important;
+      overflow: hidden;
     }
   }
 }

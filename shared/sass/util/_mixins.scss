@@ -1,18 +1,12 @@
-// browser support (specifically gradients for opera, ie9)
-
-$experimental-support-for-svg: true;
-$experimental-support: webkit moz ms o spec;
-$webkit-support: webkit spec;
-
-// Animation Reset
+// Animations (reset)
 //
 // Useful for drying keyframe animations to their
 // defaults, specifically vendor prefixed properties.
 //
 // Usage:
-// @include animation-reset({ use named params });
+// @include animations({ use named params });
 
-@mixin animation-reset(
+@mixin animations(
   $count: 1,
   $delay: 0s,
   $direction: normal,
@@ -32,15 +26,15 @@ $webkit-support: webkit spec;
   animation-timing-function: $timing;
 }
 
-// Background Reset
+// Backgrounds (reset)
 //
 // Useful for normalizing any elements that require single image
 // backgrounds. Include this at the bottom of your rules block.
 //
 // Usage:
-// @include bg-reset;
+// @include backgrounds;
 
-@mixin bg-reset(
+@mixin backgrounds(
   $attachment: scroll,
   $clip: border-box,
   $color: argb(),
@@ -161,7 +155,7 @@ $webkit-support: webkit spec;
     background-color: $crossColor;
     content: '';
     opacity: 1;
-    transition: all 100ms linear;
+    transition: all 100ms linear 0s;
     z-index: 2;
     @include position(absolute, 50% null null 0);
     @include size($size 1px);
@@ -389,10 +383,8 @@ $webkit-support: webkit spec;
 // Text Input Placeholder
 
 @mixin text-input-placeholder {
-  $placeholders: ':-webkit-input' ':-moz' '-moz' '-ms-input';
-
-  @each $placeholder in $placeholders {
-    &:#{$placeholder}-placeholder {
+  @each $prefix in $placeholder-prefixes {
+    &:#{$prefix}-placeholder {
       @content;
     }
   }
@@ -410,9 +402,7 @@ $webkit-support: webkit spec;
   $fontWeight: 400,
   $lineHeight: 1rem
 ) {
-  $placeholders: ':-webkit-input' ':-moz' '-moz' '-ms-input';
-
-  @each $placeholder in $placeholders {
+  @each $prefix in $placeholders-prefixes {
     &:#{$placeholder}-placeholder {
       color: $color;
       font-style: $fontStyle;

@@ -3,14 +3,14 @@
   min-height: 200px;
   opacity: 0;
   width: 100%;
-  @include animation-reset($delay: 3s, $name: fadeIn, $timing: linear);
+  @include animations($delay: 3s, $name: fadeIn, $timing: linear);
   @include center-x;
   @include breakpoint($medium) {
     @include size(668px 400px);
   }
   &-icon {
     margin-left: -30px;
-    @include animation-reset(
+    @include animations(
       $count: infinite,
       $direction: #{alternate, normal},
       $duration: #{1s, 3s},
@@ -47,11 +47,7 @@
     background-color: rgba(white, 0.75);
     border-radius: 20px 20px 0 0;
     position: absolute;
-    @include animation-reset(
-      $count: infinite,
-      $name: pebbleMotion,
-      $timing: linear
-    );
+    @include animations($count: infinite, $name: pebbleMotion, $timing: linear);
     &:nth-child(1) {
       animation-duration: 1s;
       top: 95%;

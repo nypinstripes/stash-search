@@ -68,7 +68,7 @@
     }
     &.expanded {
       opacity: 0;
-      @include animation-reset(
+      @include animations(
         $delay: 50ms,
         $duration: 400ms,
         $name: fadeIn,
@@ -151,7 +151,7 @@
       &-bg, &-fg {
         backface-visibility: hidden;
         top: 0;
-        @include bg-reset($size: contain);
+        @include backgrounds($size: contain);
         @include center-x(absolute);
         @include size(100%);
       }

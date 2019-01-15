@@ -16,13 +16,13 @@
     background-color: rgba(black, 0.95);
     display: block !important;
     opacity: 0;
-    @include animation-reset($duration: 150ms, $name: fadeIn, $timing: ease);
+    @include animations($duration: 150ms, $name: fadeIn, $timing: ease);
   }
   &-avatar {
     border-radius: 40px;
     overflow: hidden;
     z-index: 2;
-    @include bg-reset($size: contain);
+    @include backgrounds($size: contain);
     @include float-box;
     @include position(absolute, 0 null null 0);
     @include size(80px);

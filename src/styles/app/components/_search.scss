@@ -46,7 +46,7 @@
     &::before {
       background-image: linear-gradient(70deg, $dodgerBlue, $brightSun, $mediumPurple, $emerald, $dodgerBlue, $brightSun, $mediumPurple, $emerald);
       background-size: 200%;
-      @include animation-reset(
+      @include animations(
         $count: infinite,
         $duration: 1.75s,
         $name: none,
@@ -89,7 +89,7 @@
       opacity: 0;
       transform: translate(-50%, -50%) scale(0);
       transform-origin: 0 0;
-      @include animation-reset($delay: -50ms, $duration: 300ms, $name: explode);
+      @include animations($delay: -50ms, $duration: 300ms, $name: explode);
       @include close($size: 18px);
       @include float-box;
       @include position(50% null null 50%);

@@ -22,7 +22,7 @@
     .icon-arrow {
       path {
         @include breakpoint($large) {
-          @include animation-reset($duration: 350ms, $name: strokeDash);
+          @include animations($duration: 350ms, $name: strokeDash);
         }
         &.arrow {
           &-center {

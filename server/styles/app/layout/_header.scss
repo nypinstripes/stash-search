@@ -127,7 +127,7 @@
           #logo {
             &-moon, &-sun {
               transition: transform 100ms ease-in 0s;
-              @include animation-reset(
+              @include animations(
                 $count: infinite,
                 $duration: 40s,
                 $fill: both
@@ -178,7 +178,7 @@
                 stroke-width: 15px;
                 transform: scaleX(0.1) translateX(8%);
                 transform-origin: 0 50%;
-                @include animation-reset($delay: 2500ms, $duration: 350ms);
+                @include animations($delay: 2500ms, $duration: 350ms);
               }
               &-bottom {
                 animation-name: logoBlobBottom;
