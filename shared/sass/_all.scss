@@ -1,10 +1,5 @@
-$experimental-support: webkit moz ms o spec;
-$experimental-support-for-svg: true;
-$output-bourbon-deprecation-warnings: false;
-$placeholder-prefixes: ':-webkit-input' ':-moz' '-moz' '-ms-input';
-$webkit-support: webkit spec;
-
+@import 'shared/data/breakpoints.json';
+@import 'config/all';
 @import '~bourbon/app/assets/stylesheets/bourbon';
 @import '~breakpoint-sass/stylesheets/breakpoint';
-@import '../data/breakpoints.json';
 @import 'util/all';
