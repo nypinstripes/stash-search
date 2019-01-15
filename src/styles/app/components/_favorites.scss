@@ -1,3 +1,5 @@
-.favorites {
-  @include float-row;
+.app-body {
+  > .favorites {
+    @include float-row;
+  }
 }

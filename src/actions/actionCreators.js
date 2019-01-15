@@ -14,43 +14,17 @@ import {
   SET_SCROLLBAR_OFFSET
 } from './actions';
 
-export const setCurrentItemData = payload => {
-  return { payload, type: SET_CURRENT_ITEM };
-};
-
-export const setCurrentTermData = payload => {
-  return { payload, type: SET_CURRENT_TERM };
-};
-
-export const setFavoritesData = payload => {
-  return { payload, type: SET_FAVORITES };
-};
-
-export const setListItemsData = payload => {
-  return { payload, type: SET_LIST_ITEMS };
-};
-
-export const setListPageData = payload => {
-  return { payload, type: SET_LIST_PAGE };
-};
-
-export const setScrollBarOffsetData = payload => {
-  return { payload, type: SET_SCROLLBAR_OFFSET };
-};
-
-// Creators
-
-export const setCurrentItem = params => {
-  return async dispatch => await dispatch(setCurrentItemData(params));
+export const setCurrentItem = payload => {
+  return async dispatch => await dispatch({ payload, type: SET_CURRENT_ITEM });
 };
 
 export const setImageSearch = params => {
   return async dispatch => {
     try {
-      const data = await imageSearchReq(params);
+      const payload = await imageSearchReq(params);
 
-      await dispatch(setCurrentTermData(params.query));
-      await dispatch(setListItemsData(data));
+      await dispatch({ payload: params.query, type: SET_CURRENT_TERM });
+      await dispatch({ payload, type: SET_LIST_ITEMS });
     } catch(err) {
       console.log(err);
     }
@@ -62,8 +36,8 @@ export const getFavorites = () => {
     try {
       const { favorites, items } = await retrieveFavorites();
 
-      await dispatch(setFavoritesData(favorites));
-      await dispatch(setListItemsData(items));
+      await dispatch({ payload: favorites, type: SET_FAVORITES });
+      await dispatch({ payload: items, type: SET_LIST_ITEMS });
     } catch(err) {
       console.log(err);
     }
@@ -73,9 +47,9 @@ export const getFavorites = () => {
 export const setFavorites = params => {
   return async dispatch => {
     try {
-      const data = await setupFavorites(params);
+      const payload = await setupFavorites(params);
 
-      await dispatch(setFavoritesData(params));
+      await dispatch({ payload, type: SET_FAVORITES });
     } catch(err) {
       console.log(err);
     }
@@ -85,23 +59,25 @@ export const setFavorites = params => {
 export const setFavoriteItem = params => {
   return async dispatch => {
     try {
-      const data = await syncFavorites(params);
+      const payload = await syncFavorites(params);
 
-      await dispatch(setFavoritesData(params));
+      await dispatch({ payload, type: SET_FAVORITES });
     } catch(err) {
       console.log(err);
     }
   };
 };
 
-export const setListItems = params => {
-  return async dispatch => await dispatch(setListItemsData(params));
+export const setListItems = payload => {
+  return async dispatch => await dispatch({ payload, type: SET_LIST_ITEMS });
 };
 
-export const setListPage = params => {
-  return async dispatch => await dispatch(setListPageData(params));
+export const setListPage = payload => {
+  return async dispatch => await dispatch({ payload, type: SET_LIST_PAGE });
 };
 
-export const setScrollBarOffset = params => {
-  return async dispatch => await dispatch(setScrollBarOffsetData(params));
+export const setScrollBarOffset = payload => {
+  return async dispatch => {
+    return await dispatch({ payload, type: SET_SCROLLBAR_OFFSET });
+  };
 };
