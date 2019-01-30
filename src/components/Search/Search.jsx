@@ -8,12 +8,13 @@ class Search extends Component {
   static propTypes = {
     history: object,
     setImageSearch: func,
-    setListPage: func
+    setListPage: func,
   }
 
   state = {
     clearBtnVisible: false,
-    currentSearch: ''
+    currentSearch: '',
+    debounceSearchTimeout: null
   }
 
   componentDidMount() {
@@ -27,6 +28,12 @@ class Search extends Component {
     if (currentSearch !== nextCurrentSearch) {
       this.setState({ clearBtnVisible: nextCurrentSearch.length !== 0 });
     }
+  }
+
+  componentWillUnmount() {
+    const { debounceSearchTimeout } = this.state;
+
+    if (debounceSearchTimeout) clearTimeout(debounceSearchTimeout);
   }
 
   clearSearch = () => this.searchInput.value = '';
@@ -53,7 +60,10 @@ class Search extends Component {
   }
 
   onTextInputChange = e => {
-    this.setState({ currentSearch: this.searchInput.value });
+    this.setState({
+      currentSearch: this.searchInput.value,
+      debounceSearchTimeout: setTimeout(() => this.searchImages(), 2000)
+    });
   }
 
   onTextKeyInput = e => {
@@ -62,13 +72,13 @@ class Search extends Component {
 
   searchImages = () => {
     const { history, setImageSearch, setListPage } = this.props;
-    const { currentSearch: query } = this.state;
+    const { currentSearch: query, debounceSearchTimeout } = this.state;
 
     if (query.length === 0) return;
-
     setListPage(1);
     history.push(`/results?query=${encodeURIComponent(query)}`);
     setImageSearch({ query });
+    clearTimeout(debounceSearchTimeout);
   }
 
   render() {
