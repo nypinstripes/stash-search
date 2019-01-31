@@ -1,20 +1,29 @@
 // Base breakpoints
-$xxxxxLarge: #{map-get($viewport, xxxxxLarge)}px;
-$xxxxLarge:  #{map-get($viewport, xxxxLarge)}px;
-$xxxLarge:   #{map-get($viewport, xxxLarge)}px;
-$xxLarge:    #{map-get($viewport, xxLarge)}px;
-$xLarge:     #{map-get($viewport, xLarge)}px;
-$large:      #{map-get($viewport, large)}px;
-$medium:     #{map-get($viewport, medium)}px;
-$small:      #{map-get($viewport, small)}px;
-$xSmall:     #{map-get($viewport, xSmall)}px;
 $base:       #{map-get($viewport, base)}px;
+$xSmall:     #{map-get($viewport, xSmall)}px;
+$small:      #{map-get($viewport, small)}px;
+$medium:     #{map-get($viewport, medium)}px;
+$large:      #{map-get($viewport, large)}px;
+$xLarge:     #{map-get($viewport, xLarge)}px;
+$xxLarge:    #{map-get($viewport, xxLarge)}px;
+$xxxLarge:   #{map-get($viewport, xxxLarge)}px;
+$xxxxLarge:  #{map-get($viewport, xxxxLarge)}px;
+$xxxxxLarge: #{map-get($viewport, xxxxxLarge)}px;
 
 // Header Height
 $headerHeight:      #{map-get($header, base)}px;
 $headerHeightLarge: #{map-get($header, large)}px;
 
-// App Padding
+// Outermost App Padding
+
+// $appPaddingX:      #{map-get(map-get($appPadding, x), base)}px;
+// $appPaddingXLarge: #{map-get(map-get($appPadding, x), large)}#{'%'};
+// $appPaddingY:      #{map-get(map-get($appPadding, y), base)}px;
+// $appPaddingYLarge: #{map-get(map-get($appPadding, y), large)}px;
+
 $appBasePad:   #{map-get($appPadding, base)}px;
 $appMediumPad: #{map-get($appPadding, medium)}px;
 $appLargePad:  #{map-get($appPadding, large)}px;
+
+// Default click target size
+$targetSize: #{map-get($clickTargetSize, base)}px;

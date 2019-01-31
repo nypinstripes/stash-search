@@ -4,6 +4,9 @@
     "medium": 30,
     "large": 40
   },
+  "clickTargetSize": {
+    "base": 44
+  },
   "header": {
     "base": 50,
     "large": 60

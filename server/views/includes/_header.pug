@@ -4,20 +4,16 @@ if unsupported
       +link('/', 'Stashy')(class='page-header-logo')
         .logo-pic
           .logo-pic-bg
-            +svgIcon
-              circle(cx='24' cy='26' id='logo-sun' r='8')
+            svg(height='0' width='0')
+              use(xlink:href='#logo-sun' x='0' y='0')
           .logo-pic-fg
             svg(height='0' width='0')
               use(xlink:href='#logo-picture' x='0' y='0')
         .logo-text
           .logo-text-blobs
-            +svgIcon('0 0 604 132')
-              path#logo-blob-bottom(
-                d='M51.8352356 123.1919937l22.7479248.004921'
-              )
-              path#logo-blob-top(
-                d='M6.583159 8.8090611l22.7479243.00492'
-              )
+            svg(height='0' width='0')
+              use#logo-blob-bottom(xlink:href='#logo-blob-bottom', x='0', y='0')
+              use#logo-blob-top(xlink:href='#logo-blob-bottom', x='0', y='0')
           .logo-text-letters
             svg(height='0' width='0')
               use(xlink:href='#logo-text' x='0' y='0')

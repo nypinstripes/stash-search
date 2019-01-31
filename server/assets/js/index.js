@@ -6,13 +6,14 @@
 
 const detectViewportOffset = () => {
   document.body.style.height = 'calc(100vh + 2px)';
-  let offsetWidth = window.innerWidth - document.body.clientWidth;
+  document.body.style.width = '100%';
+  let offset = window.innerWidth - document.body.clientWidth;
+
+  document.body.setAttribute('data-offset', offset);
+  document.body.removeAttribute('style');
   let viewPortEl = document.getElementById('viewport');
   let viewPortHeight = `height=${window.innerHeight}, initial-scale=1`;
-
-  document.body.setAttribute('data-offset', offsetWidth);
-  document.body.removeAttribute('style');
   viewPortEl.setAttribute('content', `width=device-width, ${viewPortHeight}`);
 };
 
-window.onload = () => detectViewportOffset();
+document.addEventListener('DOMContentLoaded', detectViewportOffset);
