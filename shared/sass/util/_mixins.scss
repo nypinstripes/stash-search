@@ -25,7 +25,7 @@
   $duration: 200ms,
   $fill: forwards,
   $name: none,
-  $playState: running,
+  $play: running,
   $timing: ease-out
 ) {
   animation-delay: $delay;
@@ -34,7 +34,7 @@
   animation-fill-mode: $fill;
   animation-iteration-count: $count;
   animation-name: $name;
-  animation-play-state: $playState;
+  animation-play-state: $play;
   animation-timing-function: $timing;
 }
 
@@ -50,17 +50,17 @@
   $attachment: scroll,
   $clip: border-box,
   $color: argb(),
+  $image: none,
   $origin: border-box,
   $repeat: no-repeat,
   $size: auto,
-  $url: none,
   $xPos: center,
   $yPos: center
 ) {
   background-attachment: $attachment;
   background-clip: $clip;
   background-color: $color;
-  background-image: $url;
+  background-image: $image;
   background-origin: $origin;
   background-position: $xPos $yPos;
   background-repeat: $repeat;
@@ -240,9 +240,10 @@
 @mixin hz-separator($bottom: 0, $color: black, $width: 100%) {
   &::before {
     background-color: $color;
+    bottom: $bottom;
     content: '';
     transform: translateX(-50%);
-    @include position(absolute, auto null $bottom 50%);
+    @include position(absolute, auto null null 50%);
     @include size($width 1px);
   }
 }
@@ -395,8 +396,8 @@
 // Text Input Placeholder
 
 @mixin text-input-placeholder {
-  @each $prefix in $placeholder-prefixes {
-    &:#{$prefix}-placeholder {
+  @each $placeholder in $placeholder-prefixes {
+    &:#{$placeholder}-placeholder {
       @content;
     }
   }
@@ -421,6 +422,20 @@
       @include font-mass($fontSize, $lineHeight, $fontWeight);
     }
   }
+}
+
+// Tinify
+//
+// Make something extremely tiny.
+
+@mixin tinify {
+  border-width: 0;
+  display: inline-block;
+  outline: 0;
+  transform: scale(0.01);
+  @include no-spacing;
+  @include position(absolute, 0 null null 0);
+  @include size(1px);
 }
 
 // transform: 2D Transforms (Bourbon Override)

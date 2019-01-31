@@ -1,23 +1,23 @@
 // SASS Functions
 
 // Alpha RGB shorthand
-// Usage Examples:
+//
 // color: argb(255,0.5); == rgba(255,255,255,0.5)
 // border-color: argb(0.5); == rgba(0,0,0,0.5)
 // background-color: argb(); == transparent
-// @mixin linear-gradient(argb(0.75) 0, argb() 100%)
+// linear-gradient(argb(0.75) 0, argb() 100%)
 
 @function argb($alpha: 0, $value: 0) {
   @return rgba($value, $value, $value, $alpha);
 }
 
 // Border Edge Shorthand
-// Usage Examples
+//
 // border: edge(blue);
 // border: edge(blue, dash);
 // border: edge(); == border: solid 1px transparent
 
-@function edge($color: argb(), $style: solid, $size: 1) {
+@function edge($color: argb(), $size: 1, $style: solid) {
   @if $style == 'dash' {
     @return dashed #{$size}px #{$color};
   }
@@ -29,18 +29,18 @@
   }
 }
 
-// Font Usage Example
-// font: system(1.5em, 1.5em);
-
-// System font shorthand
+// System UI Font Shorthand
 //
-// https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/#details-of-approach-a
+// font: system(1.5em, 1.5em);
+//
+// https://smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/
 
 @function oxygen(
   $size: 1rem,
   $lineHeight: normal,
   $variant: normal,
-  $weight: 300) {
+  $weight: 300
+) {
   @return #{$weight} #{$variant} #{$size}/#{$lineHeight} Oxygen,
     -apple-system,
     BlinkMacSystemFont,
