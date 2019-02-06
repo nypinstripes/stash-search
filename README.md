@@ -287,7 +287,7 @@ _Snapshots are generated using the jest testing library, at present there are on
 ###### &nbsp;&nbsp;&nbsp;Empty Favorites
 
 <p align="left">
-  <img width="178" valign="top" src="https://cl.ly/a1ab4f4e964b/thumb-favorites-none.png" alt="favorites none" />
+  <img width="33%" valign="top" src="https://cl.ly/a1ab4f4e964b/thumb-favorites-none.png" alt="favorites none" />
   <img width="66%" valign="top" src="https://cl.ly/748fcd7c237f/thumb-favorites-none.png" alt="favorites none" />
 </p>
 
@@ -365,3 +365,4 @@ _Snapshots are generated using the jest testing library, at present there are on
 - [ ] Mock item share controls on the ListItem component and on the Item detail (ImageItemOverlay) view.
 - [ ] Make use of some of the deeper webpack optimization features like Tree-Shaking, CommonsChunking.
 - [ ] Attempt lazy component loading with System.import();
+- [ ] Use system memory / database to store favorites as opposed to LocalStorage.
