@@ -47,7 +47,9 @@ class ScrollTopBtn extends Component {
         title="Jump to Top"
       >
         <div className="icon-arrow">
-          <SvgSymbol symbolId="#icon-arrow" />
+          <SvgSymbol symbolId="#icon-arrow-left" />
+          <SvgSymbol symbolId="#icon-arrow-center" />
+          <SvgSymbol symbolId="#icon-arrow-right" />
         </div>
       </div>
     );
