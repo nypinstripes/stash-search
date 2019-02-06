@@ -1,5 +1,4 @@
 import React from 'react';
-import SvgIcon from './SvgIcon';
 import SvgSymbol from './SvgSymbol';
 
 const NotFound = props => (
@@ -10,7 +9,9 @@ const NotFound = props => (
         <SvgSymbol symbolId="#robot-body" />
       </div>
       <div className="robot-face">
-        <SvgIcon name="robot" />
+        <SvgSymbol symbolId="#robot-eye-left" />
+        <SvgSymbol symbolId="#robot-eye-right" />
+        <SvgSymbol symbolId="#robot-mouth" />
       </div>
     </div>
     <p>Didn&apos;t find that one.</p>

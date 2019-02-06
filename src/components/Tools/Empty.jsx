@@ -1,6 +1,5 @@
 import { object } from 'prop-types';
 import React from 'react';
-import SvgIcon from './SvgIcon';
 import SvgSymbol from './SvgSymbol';
 
 const Empty = props => (
@@ -10,11 +9,7 @@ const Empty = props => (
       <div className="pebble" />
       <div className="pebble" />
       <div className="empty-icon">
-        { props.emptyType.iconType === 'symbol' ?
-          <SvgSymbol symbolId={`#${props.emptyType.icon}`} />
-          :
-          <SvgIcon name={props.emptyType.icon} />
-        }
+        <SvgSymbol symbolId={`#${props.emptyType.icon}`} />
       </div>
     </div>
     <div className="empty-msg">

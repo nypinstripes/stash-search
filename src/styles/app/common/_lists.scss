@@ -109,7 +109,7 @@
         top: -53px;
       }
       &:hover {
-        path {
+        use {
           @include breakpoint($large) {
             fill: $ripeLemon;
             transform: scale(1.2);
@@ -117,13 +117,13 @@
         }
       }
       &:focus, &:active {
-        path {
+        use {
           fill: $ripeLemon;
           transform: scale(1.2);
         }
       }
       &.active {
-        path {
+        use {
           fill: $ripeLemon;
         }
       }
@@ -131,7 +131,8 @@
         @include center-xy;
         @include size(28px);
       }
-      path {
+      use {
+        fill: argb();
         stroke: $ripeLemon;
         stroke-width: 4px;
         transform-origin: 50% 50%;

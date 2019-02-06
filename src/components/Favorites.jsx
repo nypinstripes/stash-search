@@ -13,8 +13,7 @@ class Favorites extends Component {
 
   state = {
     emptyType: {
-      icon: 'favorite',
-      iconType: 'icon',
+      icon: 'icon-favorite',
       subTitle: "Add favorites by clicking the star on any item.",
       title: "You've got no favorites."
     }

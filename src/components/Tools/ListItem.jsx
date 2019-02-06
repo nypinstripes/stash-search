@@ -8,7 +8,7 @@ import {
 
 import breakpoints from '../../../shared/data/breakpoints.json';
 import React, { Component } from 'react';
-import SvgIcon from './SvgIcon';
+import SvgSymbol from './SvgSymbol';
 
 class Item extends Component {
   static propTypes = {
@@ -225,7 +225,7 @@ class Item extends Component {
             title={this.getFavoriteTitle()}
           >
             <div className="list-item-favorite-container">
-              <SvgIcon name="favorite" />
+              <SvgSymbol symbolId="#icon-favorite" />
             </div>
           </div>
         </div>

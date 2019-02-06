@@ -8,3 +8,9 @@ mixin link(href, title)
   )&attributes(attributes)
     block
 
+mixin symbol(id, viewBox='0 0 100 100')
+  symbol(
+    id=id
+    viewBox=viewBox
+  )
+    block

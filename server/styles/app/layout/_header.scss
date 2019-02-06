@@ -43,7 +43,7 @@
     }
     &:hover {
       .page-header-favorite-icon {
-        path {
+        use {
           @include breakpoint($large) {
             fill: $ripeLemon;
             stroke: $ripeLemon;
@@ -57,7 +57,7 @@
     }
     &:focus, &:active {
       .page-header-favorite-icon {
-        path {
+        use {
           fill: $ripeLemon;
           stroke: $ripeLemon;
           transform: scale(1.2);
@@ -70,7 +70,8 @@
     &-icon {
       @include center-xy;
       @include size(34px);
-      path {
+      use {
+        fill: argb();
         stroke: $ripeLemon;
         stroke-width: 3px;
         transform: scale(1);

@@ -34,10 +34,20 @@
     &-face {
       position: absolute;
       z-index: 2;
+      svg {
+        z-index: 2;
+        @include position(absolute, 0);
+        &:nth-child(2) {
+          z-index: 3;
+        }
+        &:nth-child(3) {
+          z-index: 4;
+        }
+      }
     }
   }
   .svg-icon-container {
-    path {
+    use {
       fill: white;
       stroke-width: 0;
     }

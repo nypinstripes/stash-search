@@ -9,7 +9,7 @@ import {
 import { Link, withRouter } from 'react-router-dom';
 import hdate from 'human-date';
 import React, { Component } from 'react';
-import SvgIcon from '../Tools/SvgIcon';
+import SvgSymbol from '../Tools/SvgSymbol';
 
 class ItemImageOverlay extends Component {
   static propTypes = {
@@ -135,7 +135,7 @@ class ItemImageOverlay extends Component {
         title={this.getFavoriteTitle()}
       >
         <div className="list-item-favorite-container">
-          <SvgIcon name="favorite" />
+          <SvgSymbol symbolId="#icon-favorite" />
         </div>
       </div>
     );

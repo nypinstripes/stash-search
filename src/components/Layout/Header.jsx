@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
-import SvgIcon from '../Tools/SvgIcon';
 import SvgSymbol from '../Tools/SvgSymbol';
 
 const Header = () => (
@@ -9,7 +8,8 @@ const Header = () => (
       <Link className="page-header-logo" role="Link" title="Stashy" to="/">
         <div className="logo-pic">
           <div className="logo-pic-bg">
-            <SvgIcon name="logo-pic" />
+            <SvgSymbol symbolId="#logo-moon" />
+            <SvgSymbol symbolId="#logo-sun" />
           </div>
           <div className="logo-pic-fg">
             <SvgSymbol symbolId="#logo-picture" />
@@ -17,7 +17,8 @@ const Header = () => (
         </div>
         <div className="logo-text">
           <div className="logo-text-blobs">
-            <SvgIcon name="logo-blobs" viewBox="0 0 604 132" />
+            <SvgSymbol symbolId="#logo-blob-bottom" />
+            <SvgSymbol symbolId="#logo-blob-top" />
           </div>
           <div className="logo-text-letters">
             <SvgSymbol symbolId="#logo-text" />
@@ -32,7 +33,7 @@ const Header = () => (
         to="/favorites"
       >
         <div className="page-header-favorite-icon">
-          <SvgIcon name="favorite" />
+          <SvgSymbol symbolId="#icon-favorite" />
         </div>
       </Link>
     </div>

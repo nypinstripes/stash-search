@@ -18,7 +18,6 @@ class SearchResults extends Component {
     currentSearch: '',
     emptyType: {
       icon: 'icon-earth',
-      iconType: 'symbol',
       subTitle: "Sorry! We didn't find any results.",
       title: '0 results found'
     },

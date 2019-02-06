@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import SvgIcon from './SvgIcon';
+import SvgSymbol from './SvgSymbol';
 
 const appEl = document.getElementById('app-container');
 
@@ -47,7 +47,7 @@ class ScrollTopBtn extends Component {
         title="Jump to Top"
       >
         <div className="icon-arrow">
-          <SvgIcon name="arrow" viewBox="0 0 60 60" />
+          <SvgSymbol symbolId="#icon-arrow" />
         </div>
       </div>
     );
