@@ -273,86 +273,56 @@ _Snapshots are generated using the jest testing library, at present there are on
 ##### &nbsp;&nbsp;&nbsp;404
 
 <p align="left">
-  <a href="https://cl.ly/2e75f79aff49/404.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="178" valign="top" src="https://cl.ly/27b426a75bed/thumb-404.png" alt="404" />
-  </a>
-  <a href="https://cl.ly/cce6410c91ed/404.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" valign="top" src="https://cl.ly/ca104fe57357/thumb-404.png" alt="404" />
-  </a>
+  <img width="33%" valign="top" src="https://cl.ly/27b426a75bed/thumb-404.png" alt="404" />
+  <img width="66%" valign="top" src="https://cl.ly/ca104fe57357/thumb-404.png" alt="404" />
 </p>
 
 ##### &nbsp;&nbsp;&nbsp;Favorites
 
 <p align="left">
-  <a href="https://cl.ly/650e03eeddf6/favorites.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="178" valign="top" src="https://cl.ly/0ae82d85afae/thumb-favorites.png" alt="favorites" />
-  </a>
-  <a href="https://cl.ly/1b0f3aa02a40/%255B4c07d7c1664d1ef7391c587eb38ae613%255D_favorites.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" valign="top" src="https://cl.ly/b41fb475e6a9/thumb-favorites.png" alt="favorites" />
-  </a>
+  <img width="33%" valign="top" src="https://cl.ly/0ae82d85afae/thumb-favorites.png" alt="favorites" />
+  <img width="66%" valign="top" src="https://cl.ly/b41fb475e6a9/thumb-favorites.png" alt="favorites" />
 </p>
 
 ###### &nbsp;&nbsp;&nbsp;Empty Favorites
 
 <p align="left">
-  <a href="https://cl.ly/329ce9236c96/favorites-none.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="178" valign="top" src="https://cl.ly/a1ab4f4e964b/thumb-favorites-none.png" alt="favorites none" />
-  </a>
-  <a href="https://cl.ly/d63addd5437b/favoritres-none.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" valign="top" src="https://cl.ly/748fcd7c237f/thumb-favorites-none.png" alt="favorites none" />
-  </a>
+  <img width="178" valign="top" src="https://cl.ly/a1ab4f4e964b/thumb-favorites-none.png" alt="favorites none" />
+  <img width="66%" valign="top" src="https://cl.ly/748fcd7c237f/thumb-favorites-none.png" alt="favorites none" />
 </p>
 
 ##### &nbsp;Item Detail Overlay
 
 <p align="center">
-  <a href="https://cl.ly/b08e717186a9/item.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img valign="top" src="https://cl.ly/ac1a85f06716/thumb-item.png" alt="item" />
-  </a>
+  <img width="100%" valign="top" src="https://cl.ly/ac1a85f06716/thumb-item.png" alt="item" />
 </p>
 
 ##### &nbsp;&nbsp;&nbsp;Landing
 
 <p align="left">
-  <a href="https://cl.ly/8c5dee674697/landing.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="178" valign="top" src="https://cl.ly/62e75caa8ced/thumb-landing.png" alt="landing" />
-  </a>
-  <a href="https://cl.ly/9ef60bc15ae0/landing.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" valign="top" src="https://cl.ly/fe1fb99fc37b/thumb-landing.png" alt="landing" />
-  </a>
+  <img width="33%" valign="top" src="https://cl.ly/62e75caa8ced/thumb-landing.png" alt="landing" />
+  <img width="66%" valign="top" src="https://cl.ly/fe1fb99fc37b/thumb-landing.png" alt="landing" />
 </p>
 
 ##### &nbsp;&nbsp;&nbsp;Stashy Search Results
 
 <p align="left">
-  <a href="https://cl.ly/e27c3fb3555e/results.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="178" valign="top" src="https://cl.ly/e029a26a6ef4/thumb-results.png" alt="results" />
-  </a>
-  <a href="https://cl.ly/43442f0a89a5/results.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" valign="top" src="https://cl.ly/1df19e929951/thumb-results.png" alt="results" />
-  </a>
+  <img width="33%" valign="top" src="https://cl.ly/e029a26a6ef4/thumb-results.png" alt="results" />
+  <img width="66%" valign="top" src="https://cl.ly/1df19e929951/thumb-results.png" alt="results" />
 </p>
 
 ###### &nbsp;&nbsp;&nbsp;No Results
 
 <p align="left">
-  <a href="https://cl.ly/50da52914757/results-none.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="178" valign="top" src="https://cl.ly/8e3e170ed8b6/thumb-results-none.png" alt="results none" />
-  </a>
-  <a href="https://cl.ly/fb578bcc3d61/results-none.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" valign="top" src="https://cl.ly/e66ba9e62d63/thumb-results-none.png" alt="results none" />
-  </a>
+  <img width="33%" valign="top" src="https://cl.ly/8e3e170ed8b6/thumb-results-none.png" alt="results none" />
+  <img width="66%" valign="top" src="https://cl.ly/e66ba9e62d63/thumb-results-none.png" alt="results none" />
 </p>
 
 ##### &nbsp;&nbsp;&nbsp;Unsupported Browser
 
 <p align="left">
-  <a href="https://cl.ly/e744aaec6eb5/unsupported.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="178" valign="top" src="https://cl.ly/7e965bf4e049/thumb-unsupported.png" alt="unsupported" />
-  </a>
-  <a href="https://cl.ly/2564ab479a6c/unsupported.png" rel="noopener noreferrer" role="Link" target="_blank">
-    <img width="66%" valign="top" src="https://cl.ly/d9ac8dc842be/thumb-unsupported.png" alt="unsupported" />
-  </a>
+  <img width="33%" valign="top" src="https://cl.ly/7e965bf4e049/thumb-unsupported.png" alt="unsupported" />
+  <img width="66%" valign="top" src="https://cl.ly/d9ac8dc842be/thumb-unsupported.png" alt="unsupported" />
 </p>
 
 ##### Filler Docs Type Pages
