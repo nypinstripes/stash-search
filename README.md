@@ -274,21 +274,21 @@ _Snapshots are generated using the jest testing library, at present there are on
 
 <p align="left">
   <img width="22%" valign="top" src="https://cl.ly/27b426a75bed/thumb-404.png" alt="404" />
-  <img width="75%" valign="top" src="https://cl.ly/ca104fe57357/thumb-404.png" alt="404" />
+  <img width="74%" valign="top" src="https://cl.ly/ca104fe57357/thumb-404.png" alt="404" />
 </p>
 
 ##### &nbsp;&nbsp;&nbsp;Favorites
 
 <p align="left">
   <img width="22%" valign="top" src="https://cl.ly/0ae82d85afae/thumb-favorites.png" alt="favorites" />
-  <img width="75%" valign="top" src="https://cl.ly/b41fb475e6a9/thumb-favorites.png" alt="favorites" />
+  <img width="74%" valign="top" src="https://cl.ly/b41fb475e6a9/thumb-favorites.png" alt="favorites" />
 </p>
 
 ###### &nbsp;&nbsp;&nbsp;Empty Favorites
 
 <p align="left">
   <img width="22%" valign="top" src="https://cl.ly/a1ab4f4e964b/thumb-favorites-none.png" alt="favorites none" />
-  <img width="75%" valign="top" src="https://cl.ly/748fcd7c237f/thumb-favorites-none.png" alt="favorites none" />
+  <img width="74%" valign="top" src="https://cl.ly/748fcd7c237f/thumb-favorites-none.png" alt="favorites none" />
 </p>
 
 ##### &nbsp;Item Detail Overlay
@@ -301,28 +301,28 @@ _Snapshots are generated using the jest testing library, at present there are on
 
 <p align="left">
   <img width="22%" valign="top" src="https://cl.ly/62e75caa8ced/thumb-landing.png" alt="landing" />
-  <img width="75%" valign="top" src="https://cl.ly/fe1fb99fc37b/thumb-landing.png" alt="landing" />
+  <img width="74%" valign="top" src="https://cl.ly/fe1fb99fc37b/thumb-landing.png" alt="landing" />
 </p>
 
 ##### &nbsp;&nbsp;&nbsp;Stashy Search Results
 
 <p align="left">
   <img width="22%" valign="top" src="https://cl.ly/e029a26a6ef4/thumb-results.png" alt="results" />
-  <img width="75%" valign="top" src="https://cl.ly/1df19e929951/thumb-results.png" alt="results" />
+  <img width="74%" valign="top" src="https://cl.ly/1df19e929951/thumb-results.png" alt="results" />
 </p>
 
 ###### &nbsp;&nbsp;&nbsp;No Results
 
 <p align="left">
   <img width="22%" valign="top" src="https://cl.ly/8e3e170ed8b6/thumb-results-none.png" alt="results none" />
-  <img width="75%" valign="top" src="https://cl.ly/e66ba9e62d63/thumb-results-none.png" alt="results none" />
+  <img width="74%" valign="top" src="https://cl.ly/e66ba9e62d63/thumb-results-none.png" alt="results none" />
 </p>
 
 ##### &nbsp;&nbsp;&nbsp;Unsupported Browser
 
 <p align="left">
   <img width="22%" valign="top" src="https://cl.ly/7e965bf4e049/thumb-unsupported.png" alt="unsupported" />
-  <img width="75%" valign="top" src="https://cl.ly/d9ac8dc842be/thumb-unsupported.png" alt="unsupported" />
+  <img width="74%" valign="top" src="https://cl.ly/d9ac8dc842be/thumb-unsupported.png" alt="unsupported" />
 </p>
 
 ##### Filler Docs Type Pages
