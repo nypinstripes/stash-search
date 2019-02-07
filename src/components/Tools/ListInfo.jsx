@@ -1,4 +1,4 @@
-import { inflectTerm } from '../../utils/helperUtils';
+import { inflectTerm } from '../../utils';
 import { number, object, string } from 'prop-types';
 import React from 'react';
 

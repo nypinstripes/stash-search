@@ -1,4 +1,4 @@
-import { camelizeString } from '../../utils/helperUtils';
+import { camelizeString } from '../../utils';
 import { connect } from 'react-redux';
 import { bool, func, number, object, string } from 'prop-types';
 import { withRouter } from 'react-router-dom';

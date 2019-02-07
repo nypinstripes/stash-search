@@ -16,9 +16,17 @@ export const inflectTerm = params => {
   return count === 1 ? term.substring(0, term.length - 1) : term;
 };
 
-export const uniqKey = () => {
-  let firstPart = (new Date()).getTime().toString(36);
-  let lastPart = Math.random().toString(36).substring(2);
+export const setRequestOptions = params => {
+  const { accept, content, method } = params;
+  let acceptHeader = accept ? accept : 'application/json';
+  let contentTypeHeader = content ? content : 'application/json';
+  let reqMethod = method ? method : 'GET';
 
-  return `${firstPart}${lastPart}`;
+  return {
+    method: reqMethod,
+    headers: {
+      'Content-Type': contentTypeHeader,
+      'Accept': acceptHeader
+    }
+  };
 };

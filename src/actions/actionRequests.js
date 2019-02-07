@@ -1,5 +1,5 @@
 import { GIPHY_KEY, GIPHY_API_URL } from '../config/api';
-import { setReqOptions } from '../utils/reqHelpers';
+import { setRequestOptions } from '../utils';
 
 export const imageSearchReq = async params => {
   const { query } = params;
@@ -7,7 +7,7 @@ export const imageSearchReq = async params => {
   let phrase = `q=${encodeURIComponent(query)}`;
   let searchUrl = `${GIPHY_API_URL}?api_key=${GIPHY_KEY}&${phrase}&${limit}`;
 
-  return await fetch(searchUrl, setReqOptions({}))
+  return await fetch(searchUrl, setRequestOptions({}))
     .then(res => res.json())
     .then(res => res.data)
     .catch(err => console.log(err));
