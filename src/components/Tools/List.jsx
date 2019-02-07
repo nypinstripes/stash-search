@@ -42,12 +42,7 @@ class List extends Component {
   }
 
   concealPagingControl = () => this.setState({ pagingVisible: 'concealed' })
-
-  getEmptyList = () => {
-    const { emptyType, name } = this.props;
-
-    return <Empty emptyType={emptyType} />;
-  }
+  getEmptyList = () => <Empty emptyType={this.props.emptyType} />
 
   getMorePagesToShow = pagingData => {
     const { currentPage, totalPages } = pagingData;
