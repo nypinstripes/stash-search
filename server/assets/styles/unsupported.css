@@ -322,10 +322,6 @@ svg {
   position: relative;
 }
 
-.svg-icon-container {
-  display: inline-block;
-}
-
 @media (min-width: 768px) {
   h4 {
     clear: both;

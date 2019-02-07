@@ -1,31 +1,15 @@
 svg {
-  transition: fill 175ms ease-in-out;
-  path {
-    transition: color 175ms ease-in-out;
-  }
   use {
-    transition: all 175ms ease-in-out;
+    display: inline-block;
   }
 }
 
-.svg {
-  &-definitions {
-    @include soft-hide;
+.svg-definitions {
+  @include soft-hide;
+  @include position(absolute, 0 null null 0);
+  @include size(0);
+  svg {
     @include position(absolute, 0 null null 0);
     @include size(0);
-    svg {
-      @include position(absolute, 0 null null 0);
-      @include size(0);
-    }
-  }
-  &-icon {
-    &-container {
-      display: inline-block;
-    }
-    &-rect {
-      fill: argb();
-      stroke: white;
-      stroke-width: 2px;
-    }
   }
 }
