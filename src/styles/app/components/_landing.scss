@@ -23,7 +23,7 @@
       }
     }
     &-body {
-      transform: translateY(25%);
+      transform: translateY(10%);
       z-index: 9;
       @include animations(
         $delay: 2500ms,
