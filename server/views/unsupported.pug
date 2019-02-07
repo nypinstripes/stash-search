@@ -11,37 +11,7 @@ block content
         <br />
         | Please use one of these options to improve your experience.
       section.browser-links
-        +link(
-          'https://www.google.com/intl/en/chrome/',
-          'Google Chrome'
-        )(class='browser-link')
-          div.browser-link-image.chrome(role='Img')
-          h4 Google Chrome
-
-        +link(
-          'https://www.microsoft.com/en-us/windows/microsoft-edge',
-          'Microsoft Edge'
-        )(class='browser-link')
-          div.browser-link-image.edge(role='Img')
-          h4 Microsoft Edge
-
-        +link(
-          'https://www.mozilla.org/en-US/firefox/new/',
-          'Mozilla Firefox'
-        )(class='browser-link')
-          div.browser-link-image.firefox(role='Img')
-          h4 Mozilla Firefox
-
-        +link(
-          'https://www.opera.com',
-          'Opera'
-        )(class='browser-link')
-          div.browser-link-image.opera(role='Img')
-          h4 Opera
-
-        +link(
-          'https://www.apple.com/safari/',
-          'Apple Safari'
-        )(class='browser-link')
-          div.browser-link-image.safari(role='Img')
-          h4 Safari
+        each browser in browsers
+          +link(browser.url, browser.name)(class='browser-link')
+            div.browser-link-image(class=browser.agents.join(' '), role='Img')
+            h4 #{browser.name}

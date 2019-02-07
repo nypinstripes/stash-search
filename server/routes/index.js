@@ -1,3 +1,4 @@
+const agents = require('../../shared/data/browsers');
 const envVars = require('../config');
 const express = require('express');
 const helpers = require('../utils/helper-utils');
@@ -13,6 +14,7 @@ router.get('/', (req, res, next) => {
   let locals = { shapes };
 
   if (!isBrowserSupported(parser)) {
+    locals.browsers = agents.browsers.filter(browser => browser.fallback);
     locals.unsupported = true;
     view = 'unsupported';
   } else {

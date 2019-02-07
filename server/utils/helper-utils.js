@@ -1,25 +1,23 @@
-let agents = `
-  chrome edge firefox gsa opera mini/mobi/tablet mobile safari instagram
-`;
+const agents = require('../../shared/data/browsers');
 
 exports.getItemArrayIndex = params => {
-  const { items, id } = params;
-
-  return items.findIndex(item => item.id === id);
+  return params.items.findIndex(item => item.id === params.id);
 };
 
 exports.isBrowserSupported = parser => {
   const { browser: { name }, ua } = parser;
+  let support = true;
+  let browsers = agents.browsers.map(browser => browser.agents.join(' '));
+  let social = agents.social.map(network => {
+    return network.agents.filter(agent => ua.indexOf(agent) !== -1);
+  });
 
-  if (name && agents.indexOf(name.toLowerCase()) === -1
-    && ua.indexOf('FBAN') === -1
-    && ua.indexOf('FBAV') === -1
-    && ua.indexOf('Twitter') === -1
-    && ua.indexOf('Instagram') === -1) {
-      return false;
-  } else {
-    return true;
+  if (name && social.length === 0
+    && browsers.join(' ').indexOf(name.toLowerCase()) === -1) {
+      support = false;
   }
+
+  return support;
 };
 
 exports.uniqKey = () => {

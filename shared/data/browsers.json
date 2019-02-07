@@ -1,55 +1,58 @@
 {
-  "browsers": {
-    "chrome": {
-      "agents": ["chorme"],
+  "browsers": [
+    {
+      "agents": ["chrome"],
       "fallback": true,
       "name": "Google Chrome",
       "url": "https://www.google.com/intl/en/chrome/"
     },
-    "edge": {
+    {
       "agents": ["edge"],
       "fallback": true,
       "name": "Microsoft Edge",
       "url": "https://www.microsoft.com/en-us/windows/microsoft-edge"
     },
-    "firefox": {
+    {
       "agents": ["firefox"],
       "fallback": true,
       "name": "Mozilla Firefox",
       "url": "https://www.mozilla.org/en-US/firefox/new/"
     },
-    "google": {
+    {
       "agents": ["gsa"],
       "fallback": false,
       "name": "Google Search App"
     },
-    "instagram": {
+    {
       "agents": ["instagram"],
       "fallback": false,
       "name": "Instagram"
     },
-    "opera": {
+    {
       "agents": ["opera", "mini/mobi/tablet"],
       "fallback": true,
       "name": "Opera",
       "url": "https://www.opera.com"
     },
-    "safari": {
-      "agents": ["mobile", "safari"],
+    {
+      "agents": ["safari", "mobile"],
       "fallback": true,
       "name": "Apple Safari",
       "url": "https://www.apple.com/safari/"
     }
-  },
-  "social": {
-    "facebook": {
-      "match": ["FBAN", "FBAV"]
+  ],
+  "social": [
+    {
+      "agents": ["FBAN", "FBAV"],
+      "name": "facebook"
     },
-    "instagram": {
-      "match": ["Instagram"]
+    {
+      "agents": ["Instagram"],
+      "name": "instagram"
     },
-    "twitter": {
-      "match": ["Twitter"]
+    {
+      "agents": ["Twitter"],
+      "name": "twitter"
     }
-  }
+  ]
 }
