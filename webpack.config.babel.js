@@ -51,16 +51,16 @@ const config = env => {
     }
   };
 
-  let ua = {
-    chrome: 'Chrome/65.0.3325.162',
-    safari: 'Safari/537.36',
-    moz: 'Mozilla/5.0',
-    system: '(Macintosh; Intel Mac OS X 10_13_3)',
-    webkit: 'AppleWebKit/537.36 (KHTML, like Gecko)'
-  };
+  let sourceMap = !ifProd();
+  let ua = [
+    'Chrome/65.0.3325.162',
+    'Safari/537.36',
+    'Mozilla/5.0',
+    '(Macintosh; Intel Mac OS X 10_13_3)',
+    'AppleWebKit/537.36 (KHTML, like Gecko)'
+  ];
 
-  agent.ua = `${ua.moz} ${ua.system} ${ua.webkit} ${ua.chrome} ${ua.safari}`;
-
+  agent.ua = ua.join(' ');
   const configVars = {
     baseUrl: JSON.stringify('/'),
     envVars: {
@@ -154,17 +154,17 @@ const config = env => {
           loaders: [
             {
               loader: 'style-loader',
-              options: { sourceMap: !ifProd() }
+              options: { sourceMap }
             },
             {
               loader: 'css-loader',
-              options: { sourceMap: !ifProd() }
+              options: { sourceMap }
             },
             {
               loader: 'sass-loader',
               options: {
                 importer: jsonImporter(),
-                sourceMap: !ifProd()
+                sourceMap
               }
             }
           ]
