@@ -190,7 +190,7 @@ cpu: { architecture }
 ###### Component Architecture
 
 <p align="left">
-  <img src="https://cl.ly/d21ba851c170/jsx-stash-still.png" alt="jsx structures" />
+  <img src="https://cl.ly/5ccc2df41a82/%255Bccafa5077bbf25b0b42fc41b4f1b2a5e%255D_Screen%252520Shot%2525202019-02-06%252520at%2525207.29.13%252520PM.png" alt="jsx structures" />
 </p>
 
 ##### Sass (SCSS syntax)
@@ -201,7 +201,7 @@ cpu: { architecture }
 - [Aesthetic Sass 1: Architecture and Style Organization](https://scotch.io/tutorials/aesthetic-sass-1-architecture-and-style-organization)
 
 <p align="left">
-  <img src="https://cl.ly/9ea490913a40/scss-stash-still.png" alt="scss structures" />
+  <img src="https://cl.ly/7ca7a594b119/stash-sass.jpg" alt="scss structures" />
 </p>
 
 _App Styles_
