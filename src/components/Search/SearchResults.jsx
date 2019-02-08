@@ -73,8 +73,12 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  setImageSearch(params) { dispatch(setImageSearch(params)); },
-  setListItems(params) { dispatch(setListItems(params)); }
+  setImageSearch(params) {
+    dispatch(setImageSearch(params));
+  },
+  setListItems(params) {
+    dispatch(setListItems(params));
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchResults);

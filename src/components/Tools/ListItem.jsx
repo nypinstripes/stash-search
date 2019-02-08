@@ -165,7 +165,6 @@ class Item extends Component {
     const { itemActive } = this.state;
 
     e.stopPropagation();
-
     this.setState({ itemActive: !itemActive });
   }
 
@@ -243,9 +242,15 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  getFavorites() { dispatch(getFavorites()); },
-  setCurrentItem(params) { dispatch(setCurrentItem(params)); },
-  setFavoriteItem(params) { dispatch(setFavoriteItem(params)); }
+  getFavorites() {
+    dispatch(getFavorites());
+  },
+  setCurrentItem(params) {
+    dispatch(setCurrentItem(params));
+  },
+  setFavoriteItem(params) {
+    dispatch(setFavoriteItem(params));
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Item);

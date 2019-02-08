@@ -92,7 +92,6 @@ class Search extends Component {
             className="inline-input"
             name="image-search"
             onChange={this.onTextInputChange}
-            onFocus={this.focusSearch}
             onKeyDown={this.onTextKeyInput}
             placeholder="Search stashy gifs"
             ref={ref => this.searchInput = ref}

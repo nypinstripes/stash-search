@@ -19,7 +19,7 @@
     @include breakpoint($large) {
       background-color: rgba($nero, 1);
     }
-    .icon-arrow {
+    div[class*='icon-arrow'] {
       use {
         @include breakpoint($large) {
           @include animations($duration: 350ms, $name: strokeDash);
@@ -66,8 +66,8 @@
       }
     }
   }
-  .icon-arrow {
-    @include center-xy;
+  div[class*='icon-arrow'] {
+    @include center-xy(absolute);
     @include size(24px);
     svg {
       @include position(absolute, 0);

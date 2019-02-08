@@ -137,7 +137,7 @@ class App extends Component {
     const { winW } = this.state;
 
     return (
-      <div className={this.getAppClasses()}>
+      <div className={this.getAppClasses()} role="Application">
         { this.activateOverlay() }
         <Header />
         <ScrollTopBtn />

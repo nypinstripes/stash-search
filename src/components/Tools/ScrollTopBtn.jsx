@@ -2,30 +2,41 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import SvgSymbol from './SvgSymbol';
 
-const appEl = document.getElementById('app-container');
-
 class ScrollTopBtn extends Component {
   state = {
     active: false,
-    offsetFooter: false
+    offsetFooter: false,
+    scrollAnchor: null
   }
 
   componentWillMount() {
-    appEl.addEventListener('scroll', this.handleScroll);
+    this.setScrollAnchor();
+  }
+
+  componentDidMount() {
+    this.state.scrollAnchor.addEventListener('scroll', this.handleScroll);
   }
 
   componentWillUnmount() {
-    appEl.removeEventListener('scroll', this.handleScroll);
+    this.state.scrollAnchor.removeEventListener('scroll', this.handleScroll);
   }
 
   blurScrollBtn = e => ReactDOM.findDOMNode(this).blur()
 
   handleScroll = e => {
+    const { scrollAnchor: { scrollTop, scrollHeight }} = this.state;
+
     this.setState({
-      active: appEl.scrollTop > 300,
-      offsetFooter: appEl.scrollTop + window.innerHeight >= appEl.scrollHeight
+      active: scrollTop > 300,
+      offsetFooter: scrollTop + window.innerHeight >= scrollHeight
     });
   }
+
+  getIconArrow = part => (
+    <div className={`icon-arrow-${part}`} role="presentation">
+      <SvgSymbol symbolId={`#icon-arrow-${part}`} />
+    </div>
+  )
 
   getScrollClass = () => {
     const { active, offsetFooter } = this.state;
@@ -35,22 +46,31 @@ class ScrollTopBtn extends Component {
     return `scroll-top-btn btn${btnVisible}${btnOffset}`;
   }
 
-  scrollToTop = e => appEl.scroll({ behavior: 'smooth', left: 0, top: 0 })
+  scrollToTop = e => {
+    this.state.scrollAnchor.scroll({
+      behavior: 'smooth',
+      left: 0,
+      top: 0
+    });
+  }
+
+  setScrollAnchor = () => {
+    this.setState({ scrollAnchor: document.getElementById('app-container') });
+  }
 
   render() {
     return (
-      <div className={this.getScrollClass()}
+      <div aria-controls="app-container"
+        className={this.getScrollClass()}
         onMouseDown={this.scrollToTop}
         onMouseUp={this.blurScrollBtn}
         role="Button"
         tabIndex="0"
         title="Jump to Top"
       >
-        <div className="icon-arrow">
-          <SvgSymbol symbolId="#icon-arrow-left" />
-          <SvgSymbol symbolId="#icon-arrow-center" />
-          <SvgSymbol symbolId="#icon-arrow-right" />
-        </div>
+      { this.getIconArrow('left') }
+      { this.getIconArrow('center') }
+      { this.getIconArrow('right') }
       </div>
     );
   }

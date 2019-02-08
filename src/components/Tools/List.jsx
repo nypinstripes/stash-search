@@ -80,6 +80,7 @@ class List extends Component {
   getPagingBtn = (btnType, pagingData) => {
     const { currentPage, isLastPage, totalPages } = pagingData;
     let btnNumber;
+    let isFirstOrLast = btnType === 'first' || btnType === 'last';
 
     switch(btnType) {
       case 'first': btnNumber = 1; break;
@@ -99,9 +100,7 @@ class List extends Component {
         tabIndex="0"
       >
         { this.getPagingBtnIcon() }
-        { btnType === 'first' || btnType === 'last' ?
-          this.getPagingBtnIcon() : ''
-        }
+        { isFirstOrLast ? this.getPagingBtnIcon() : '' }
       </div>
     );
   }
@@ -117,7 +116,7 @@ class List extends Component {
     let firstPage, secondPage, thirdPage;
     let totalPages = pageNumbers.length;
     let isLastPage = currentPage === totalPages;
-    let pagingData = { currentPage, isLastPage, totalPages };
+    let data = { currentPage, isLastPage, totalPages };
 
     if (totalPages === 1) {
       return '';
@@ -144,19 +143,16 @@ class List extends Component {
         data-page={currentPage}
         data-last={isLastPage ? 'true' : 'false'}
       >
-        { totalPages > 3 ? this.getPagingBtn('first', pagingData) : '' }
-        { this.getPagingBtn('prev', pagingData) }
+        { totalPages > 3 ? this.getPagingBtn('first', data) : '' }
+        { this.getPagingBtn('prev', data) }
         <div className="page-number-container">
-          { this.getPageNumber({ page: firstPage, data: pagingData }) }
-          { this.getPageNumber({ page: secondPage, data: pagingData }) }
-          {
-            thirdPage ?
-            this.getPageNumber({ page: thirdPage, data: pagingData }) : ''
-          }
-          { totalPages > 3 ? this.getMorePagesToShow(pagingData) : '' }
+          { this.getPageNumber({ page: firstPage, data }) }
+          { this.getPageNumber({ page: secondPage, data }) }
+          { thirdPage ? this.getPageNumber({ page: thirdPage, data }) : '' }
+          { totalPages > 3 ? this.getMorePagesToShow(data) : '' }
         </div>
-        { this.getPagingBtn('next', pagingData) }
-        { totalPages > 3 ? this.getPagingBtn('last', pagingData) : '' }
+        { this.getPagingBtn('next', data) }
+        { totalPages > 3 ? this.getPagingBtn('last', data) : '' }
       </div>
     );
   }
@@ -218,6 +214,7 @@ class List extends Component {
 
     if (totalItems === 0) return this.getEmptyList();
 
+    let hasPages = totalItems > itemsPerPage;
     let lastItem = listPage * itemsPerPage;
     let firstItem = lastItem - itemsPerPage;
     let currentItems = listItems.slice(firstItem, lastItem);
@@ -250,12 +247,7 @@ class List extends Component {
             />;
           })}
         </div>
-        {
-          totalItems > itemsPerPage ?
-          this.getPagingControl(listPage, pageNumbers)
-          :
-          null
-        }
+        { hasPages ? this.getPagingControl(listPage, pageNumbers) : null }
       </section>
     );
   }
